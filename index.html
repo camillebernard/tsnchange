@@ -59,7 +59,7 @@ a RIF and OWL documentation service</h2>
 	, 		<a href="#anchor-576492322">Annexation</a>
 	, 		<a href="#anchor-1349112799">Appearance</a>
 	, 		<a href="#anchor-1688751161">Cession</a>
-	, 		<a href="#anchor-1694271661">ChangeSet</a>
+	, 		<a href="#anchor-1714814355">Change</a>
 	, 		<a href="#anchor-859923977">Contraction</a>
 	, 		<a href="#anchor1100579217">Deformation</a>
 	, 		<a href="#anchor1449028403">Disappearance</a>
@@ -114,7 +114,6 @@ a RIF and OWL documentation service</h2>
 	, 		<a href="#anchor-1358916711">unitAfter</a>
 	, 		<a href="#anchor850552256">unitBefore</a>
 	</p>
-
 
 
 <hr>
@@ -224,17 +223,15 @@ a RIF and OWL documentation service</h2>
 		<dd class="metadata-icon date">2017-01-31</dd>
 
 				<dt>Creators</dt>
-
-        <dd class="metadata-icon creator">
-          <a href="http://lig-membres.imag.fr/bernardc/" class="external-link">Camille BERNARD </a>
-      </dd>
 						  <dd class="metadata-icon creator">
 		  			<a href="http://lig-membres.imag.fr/villanov/" class="external-link">Marlène VILLANOVA-OLIVER </a>
 			  </dd>
 				  <dd class="metadata-icon creator">
 		  			<a href="http://lig-membres.imag.fr/gensel/" class="external-link">Jérôme GENSEL </a>
 			  </dd>
-
+				  <dd class="metadata-icon creator">
+		  			<a href="http://lig-membres.imag.fr/bernardc/" class="external-link">Camille BERNARD </a>
+			  </dd>
 				  <dd class="metadata-icon creator">
 		  			<a href="https://unige.ch/gedt/membres/dao/" class="external-link">Hy DAO </a>
 			  </dd>
@@ -288,7 +285,7 @@ a RIF and OWL documentation service</h2>
 	, 	  	    	<a href="#anchor-576492322">Annexation</a>
 	, 	  	    	<a href="#anchor-1349112799">Appearance</a>
 	, 	  	    	<a href="#anchor-1688751161">Cession</a>
-	, 	  	    	<a href="#anchor-1694271661">ChangeSet</a>
+	, 	  	    	<a href="#anchor-1714814355">Change</a>
 	, 	  	    	<a href="#anchor-859923977">Contraction</a>
 	, 	  	    	<a href="#anchor1100579217">Deformation</a>
 	, 	  	    	<a href="#anchor1449028403">Disappearance</a>
@@ -463,7 +460,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">Appearance (or Creation) of a new NomenclatureFeature (i.e., TerritoryVersion or Unit) as an output resource of the ChangeSet. "Appearance" means the Nomenclature Identifier of the new NomenclatureFeature is different from all that already exist, in the NomenclatureVersion V and V+1. This concept is equivalent to the "Appearance" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2).</p>
+      <p class="description">Appearance (or Creation) of a new NomenclatureFeature (i.e., TerritoryVersion or Unit) as an output resource of the Change. "Appearance" means the Nomenclature Identifier of the new NomenclatureFeature is different from all that already exist, in the NomenclatureVersion V and V+1. This concept is equivalent to the "Appearance" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2).</p>
 
   <div>
 
@@ -565,10 +562,10 @@ a RIF and OWL documentation service</h2>
 
 
 
-	<div class="term" id="md5-2487c0b1c3a52a110f5e6373b50fbd4e" about="http://purl.org/net/tsnchange#ChangeSet">
+	<div class="term" id="md5-bbf69a4f39e6f3b4f7225093a469139" about="http://purl.org/net/tsnchange#Change">
 
 
-  <h3 id="anchor-1694271661"> <a id="ChangeSet"></a><span class="parrot-element-title parrot-class-title">ChangeSet</span>
+  <h3 id="anchor-1714814355"> <a id="Change"></a><span class="parrot-element-title parrot-class-title">Change</span>
 
 		  	<span rel="rdf:type" href="http://www.w3.org/2000/01/rdf-schema#Class">(RDFS Class)</span>
 
@@ -581,14 +578,14 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">A ChangeSet aims at describing territorial changes by chaining TSNComponent resources of a Nomenclature resource Version V to resources of Version V+1: those components come as input (i.e., Version V) and output (i.e., Version V+1) of the ChangeSet. It groups under one set and describes several changes on NomenclatureFeature (i.e., TerritoryVersion and Unit) that make sense grouped together. As "a change is rarely isolated and independent from the other changes that occur simultaneously within the other units inside a given area", we have to link "together all the various units that were involved in a common territorial change"  (Plumejeaud et al., 2011). The name assigned to the ChangeSet (e.g., Annexation, Merge, etc.) is the name of the event behind the set of territorial changes. This event has some interlinked consequences on a given sub-set of NomenclatureFeature (input or output resources of the ChangeSet) that are inside a given area whose external boundaries are the same before and after the event. Except in case of annexation or cession events, where the boundaries of the territory observed vary. Thus, in case of annexation or cession events, changes on NomenclatureFeature are grouped together if they occur simultaneously, inside a area which extends from the new territory boundaries to unit(s) boundaries that match the ones of unit(s) before the event. The ChangeSet concept is based on the Change Bridge concept of (Kauppinen T, Hyvönen E. Modeling and reasoning about changes in ontology time series. In: Ontologies [Internet]. Springer; 2007. p. 319–338. Available from: http://link.springer.com/chapter/10.1007/978-0-387-37022-4_11): "A change bridge is associated with a change point and tells, what current concepts become obsolete (if any), what new concepts are created (if any), and how the new concepts overlap with older ones.".</p>
+      <p class="description">A Change aims at describing territorial changes by chaining TSNComponent resources of a Nomenclature resource Version V to resources of Version V+1: those components come as input (i.e., Version V) and output (i.e., Version V+1) of the Change. It groups under one set and describes several changes on NomenclatureFeature (i.e., TerritoryVersion and Unit) that make sense grouped together. As "a change is rarely isolated and independent from the other changes that occur simultaneously within the other units inside a given area", we have to link "together all the various units that were involved in a common territorial change"  (Plumejeaud et al., 2011). The name assigned to the Change (e.g., Annexation, Merge, etc.) is the name of the event behind the set of territorial changes. This event has some interlinked consequences on a given sub-set of NomenclatureFeature (input or output resources of the Change) that are inside a given area whose external boundaries are the same before and after the event. Except in case of annexation or cession events, where the boundaries of the territory observed vary. Thus, in case of annexation or cession events, changes on NomenclatureFeature are grouped together if they occur simultaneously, inside a area which extends from the new territory boundaries to unit(s) boundaries that match the ones of unit(s) before the event. The Change concept is based on the Change Bridge concept of (Kauppinen T, Hyvönen E. Modeling and reasoning about changes in ontology time series. In: Ontologies [Internet]. Springer; 2007. p. 319–338. Available from: http://link.springer.com/chapter/10.1007/978-0-387-37022-4_11): "A change bridge is associated with a change point and tells, what current concepts become obsolete (if any), what new concepts are created (if any), and how the new concepts overlap with older ones.".</p>
 
   <div>
 
 
     <div class="ti" style="border-radius: 10px; display: block;">
   <h4>Definition</h4>
-			<p>The <strong>URI</strong> of this class is <span><code>http://purl.org/net/tsnchange#ChangeSet</code></span></p>
+			<p>The <strong>URI</strong> of this class is <span><code>http://purl.org/net/tsnchange#Change</code></span></p>
 		<hr>
 
 		<table>
@@ -832,7 +829,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">Disappearance (or End) of a NomenclatureFeature (i.e., TerritoryVersion or Unit) which comes as an input resource to the ChangeSet. "Disappearance" means the NomenclatureFeature no longer exists after the change event. No NomenclatureFeature will have its Nomenclature Identifier in the output NomenclatureVersion V+1. This concept is equivalent to the "Disappearance" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2).</p>
+      <p class="description">Disappearance (or End) of a NomenclatureFeature (i.e., TerritoryVersion or Unit) which comes as an input resource to the Change. "Disappearance" means the NomenclatureFeature no longer exists after the change event. No NomenclatureFeature will have its Nomenclature Identifier in the output NomenclatureVersion V+1. This concept is equivalent to the "Disappearance" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2).</p>
 
   <div>
 
@@ -950,7 +947,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">Extraction is the name of the event behind a ChangeSet that describes, at only one Nomenclature level, the split of one Unit that nevertheless maintains its existence from NomenclatureVersion V to NomenclatureVersion V+1. This event leads to: (1) the Appearance of at least one output Unit in the NomenclatureVersion V+1: this/those new Unit(s) in NomenclatureVersion V+1 take(s) territory from the input Unit of NomenclatureVersion V; (2) the Contraction of the footprint of the Unit of the NomenclatureVersion V that nevertheless still exist after the change event (i.e., Contraction event). The identity of this Unit is not modified after the event (i.e., its Nomenclature identifier is not modified). This concept is equivalent to the "Extraction" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612).</p>
+      <p class="description">Extraction is the name of the event behind a Change that describes, at only one Nomenclature level, the split of one Unit that nevertheless maintains its existence from NomenclatureVersion V to NomenclatureVersion V+1. This event leads to: (1) the Appearance of at least one output Unit in the NomenclatureVersion V+1: this/those new Unit(s) in NomenclatureVersion V+1 take(s) territory from the input Unit of NomenclatureVersion V; (2) the Contraction of the footprint of the Unit of the NomenclatureVersion V that nevertheless still exist after the change event (i.e., Contraction event). The identity of this Unit is not modified after the event (i.e., its Nomenclature identifier is not modified). This concept is equivalent to the "Extraction" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612).</p>
 
   <div>
 
@@ -1011,7 +1008,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">FeatureChange describes one or a set of modifications that occur simultaneously (e.g., name change and expansion of a Unit) and affect one NomenclatureFeature resource (i.e., TerritoryVersion or Unit) that is an input or an output resource of the ChangeSet. This concept is closed to the concept "Basic change" of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2).</p>
+      <p class="description">FeatureChange describes one or a set of modifications that occur simultaneously (e.g., name change and expansion of a Unit) and affect one NomenclatureFeature resource (i.e., TerritoryVersion or Unit) that is an input or an output resource of the Change. This concept is closed to the concept "Basic change" of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2).</p>
 
   <div>
 
@@ -1025,7 +1022,7 @@ a RIF and OWL documentation service</h2>
 		  <tbody><tr>
 	  <td>This class is a sub class of</td>
 	  <td>
-	  	  <span class="parrot-element-ref parrot-class-ref" rel="rdfs:subClassOf" href="http://purl.org/net/tsnchange#ChangeSet">            	<a href="#ChangeSet"> ChangeSet</a>
+	  	  <span class="parrot-element-ref parrot-class-ref" rel="rdfs:subClassOf" href="http://purl.org/net/tsnchange#Change">            	<a href="#Change"> Change</a>
       </span>
 	  	  </td>
 	  </tr>
@@ -1083,7 +1080,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">Fusion is the name of the event behind a ChangeSet that describe, at only one Nomenclature level, merge of Units that causes the disappearance of all the involved Units from NomenclatureVersion V to NomenclatureVersion V+1. This event leads to: (1) the disappearance of all the involved Unit(s) coming from the NomenclatureVersion V (i.e., the identity of the involved Units is not extended after the event i.e., at least the Nomenclature identifier of the Unit is modified after the event); (2) the creation of one Unit in the NomenclatureVersion V+1 with a footprint that is equal to the combination of the footprint of all the involved Units in NomenclatureVersion V. This concept is equivalent to the "Fusion" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612).</p>
+      <p class="description">Fusion is the name of the event behind a Change that describe, at only one Nomenclature level, merge of Units that causes the disappearance of all the involved Units from NomenclatureVersion V to NomenclatureVersion V+1. This event leads to: (1) the disappearance of all the involved Unit(s) coming from the NomenclatureVersion V (i.e., the identity of the involved Units is not extended after the event i.e., at least the Nomenclature identifier of the Unit is modified after the event); (2) the creation of one Unit in the NomenclatureVersion V+1 with a footprint that is equal to the combination of the footprint of all the involved Units in NomenclatureVersion V. This concept is equivalent to the "Fusion" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612).</p>
 
   <div>
 
@@ -1144,7 +1141,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">GeometryChange is the super class of Deformation, Contraction, Expansion. This ChangeSet describes the modifications of the Geometry and Footprint of a NomenclatureFeature (i.e., TerritoryVersion or Unit). This concept is equivalent to the "Transformation" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2): "transformations processes involving chn-ange in shape or size: expansion, contraction and deformation (i.e. shape modification without size change)".</p>
+      <p class="description">GeometryChange is the super class of Deformation, Contraction, Expansion. This Change describes the modifications of the Geometry and Footprint of a NomenclatureFeature (i.e., TerritoryVersion or Unit). This concept is equivalent to the "Transformation" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2): "transformations processes involving chn-ange in shape or size: expansion, contraction and deformation (i.e. shape modification without size change)".</p>
 
   <div>
 
@@ -1214,7 +1211,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">IdentificationChange is the super class of IdentifierChange, NameChange and UnitHierarchyChange. This ChangeSet groups under one node all the simultaneous changes that may the affect the identity characteristics of a NomenclatureFeature. This concept is equivalent to the "LifeEvent:Transformation" concept from the model of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612).</p>
+      <p class="description">IdentificationChange is the super class of IdentifierChange, NameChange and UnitHierarchyChange. This Change groups under one node all the simultaneous changes that may the affect the identity characteristics of a NomenclatureFeature. This concept is equivalent to the "LifeEvent:Transformation" concept from the model of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612).</p>
 
   <div>
 
@@ -1345,7 +1342,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">Integration is the name of the event behind a ChangeSet that describes, at only one Nomenclature level, merge of Units that maintains the existence of one of the involved Units from NomenclatureVersion V to NomenclatureVersion V+1. This event leads to: (1) the disappearance of at least one Unit coming from the NomenclatureVersion V (i.e., the identity of the Unit is not extended after the event i.e., at least the Nomenclature identifier of the Unit is modified after the event); (2) the Expansion of the footprint of one Unit of the NomenclatureVersion V after the change event (i.e. Expansion event). Its new footprint in NomenclatureVersion V+1 is equal to the combination of all the footprint of the involved Units in NomenclatureVersion V.  The identity of this Unit is not modified after the event (i.e., its Nomenclature identifier is not modified). This concept is equivalent to the "Integration" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612).</p>
+      <p class="description">Integration is the name of the event behind a Change that describes, at only one Nomenclature level, merge of Units that maintains the existence of one of the involved Units from NomenclatureVersion V to NomenclatureVersion V+1. This event leads to: (1) the disappearance of at least one Unit coming from the NomenclatureVersion V (i.e., the identity of the Unit is not extended after the event i.e., at least the Nomenclature identifier of the Unit is modified after the event); (2) the Expansion of the footprint of one Unit of the NomenclatureVersion V after the change event (i.e. Expansion event). Its new footprint in NomenclatureVersion V+1 is equal to the combination of all the footprint of the involved Units in NomenclatureVersion V.  The identity of this Unit is not modified after the event (i.e., its Nomenclature identifier is not modified). This concept is equivalent to the "Integration" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612).</p>
 
   <div>
 
@@ -1406,7 +1403,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">A LevelChange groups under one set, one or several FeatureChange, that occur simultaneously inside a given area and affect one or several Unit resources that belong to the same Level of the NomenclatureVersion. A ChangeSet that is not a sub-class of LevelChange may affect several levels of the nomenclature (e.g., Annexation or Merge may affect multiple Level resources, resulting in the description of the territorial modification at each impacted levels of the NomenclatureVersion, thanks to LevelChange descriptions).</p>
+      <p class="description">A LevelChange groups under one set, one or several FeatureChange, that occur simultaneously inside a given area and affect one or several Unit resources that belong to the same Level of the NomenclatureVersion. A Change that is not a sub-class of LevelChange may affect several levels of the nomenclature (e.g., Annexation or Merge may affect multiple Level resources, resulting in the description of the territorial modification at each impacted levels of the NomenclatureVersion, thanks to LevelChange descriptions).</p>
 
   <div>
 
@@ -1420,7 +1417,7 @@ a RIF and OWL documentation service</h2>
 		  <tbody><tr>
 	  <td>This class is a sub class of</td>
 	  <td>
-	  	  <span class="parrot-element-ref parrot-class-ref" rel="rdfs:subClassOf" href="http://purl.org/net/tsnchange#ChangeSet">            	<a href="#ChangeSet"> ChangeSet</a>
+	  	  <span class="parrot-element-ref parrot-class-ref" rel="rdfs:subClassOf" href="http://purl.org/net/tsnchange#Change">            	<a href="#Change"> Change</a>
       </span>
 	  	  </td>
 	  </tr>
@@ -1482,7 +1479,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">Merge is the name of the event behind a ChangeSet caused by a merge of two or more units (that belong to the NomenclatureVersion V), into a single Unit in NomenclatureVersion V+1. A Merge event may impact one or several level(s) of the nomenclature. Then, the ChangeSet describes all the changes that affect NomenclatureFeature, at each impacted level. This concept is equivalent to the "Union" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2): "fusion of 'n' zones into a single entity (union)".</p>
+      <p class="description">Merge is the name of the event behind a Change caused by a merge of two or more units (that belong to the NomenclatureVersion V), into a single Unit in NomenclatureVersion V+1. A Merge event may impact one or several level(s) of the nomenclature. Then, the Change describes all the changes that affect NomenclatureFeature, at each impacted level. This concept is equivalent to the "Union" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2): "fusion of 'n' zones into a single entity (union)".</p>
 
   <div>
 
@@ -1609,7 +1606,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">Reallocation is the name of the event behind a ChangeSet that describes, at only one Nomenclature level, the Redistribution of a spatial area covered by 'n' Units in the NomenclatureVersion V into 'p' new Unit(s) in NomenclatureVersion V+1 and that causes the disappearance of all the involved Units from NomenclatureVersion V to NomenclatureVersion V+1. This event leads to: (1) the disappearance of all the input Units coming from the NomenclatureVersion V (i.e., the identity of the involved Units is not extended after the event i.e., at least the Nomenclature identifier of the Unit is modified); (2) the creation of 'p' Units in the NomenclatureVersion V+1 by redistribution of the spatial area covered by the 'n' Units in NomenclatureVersion V. This concept is equivalent to the "Reallocation" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612).</p>
+      <p class="description">Reallocation is the name of the event behind a Change that describes, at only one Nomenclature level, the Redistribution of a spatial area covered by 'n' Units in the NomenclatureVersion V into 'p' new Unit(s) in NomenclatureVersion V+1 and that causes the disappearance of all the involved Units from NomenclatureVersion V to NomenclatureVersion V+1. This event leads to: (1) the disappearance of all the input Units coming from the NomenclatureVersion V (i.e., the identity of the involved Units is not extended after the event i.e., at least the Nomenclature identifier of the Unit is modified); (2) the creation of 'p' Units in the NomenclatureVersion V+1 by redistribution of the spatial area covered by the 'n' Units in NomenclatureVersion V. This concept is equivalent to the "Reallocation" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612).</p>
 
   <div>
 
@@ -1670,7 +1667,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">Rectification is the name of the event behind a ChangeSet that describes, at only one Nomenclature level, the Redistribution of a spatial area by modification of the Geometry of all the involved Units from NomenclatureVersion V to NomenclatureVersion V+1 (i.e., Deformation event). The identity of those Units is nevertheless not modified (i.e., the Nomenclature identifiers of the Units are not modified). The combination of footprints of Units in NomenclatureVersion V+1 is equal to the combination of footprints of Units in NomenclatureVersion V. This concept is equivalent to the "Rectification" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612).</p>
+      <p class="description">Rectification is the name of the event behind a Change that describes, at only one Nomenclature level, the Redistribution of a spatial area by modification of the Geometry of all the involved Units from NomenclatureVersion V to NomenclatureVersion V+1 (i.e., Deformation event). The identity of those Units is nevertheless not modified (i.e., the Nomenclature identifiers of the Units are not modified). The combination of footprints of Units in NomenclatureVersion V+1 is equal to the combination of footprints of Units in NomenclatureVersion V. This concept is equivalent to the "Rectification" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612).</p>
 
   <div>
 
@@ -1731,7 +1728,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">Redistribution is the name of the event behind a ChangeSet caused by a redistribution of a spatial area covered by 'n' Units in the NomenclatureVersion V to form 'p' new Unit(s) in NomenclatureVersion V+1. A Redistribution event may impact one or several level(s) of the nomenclature. Then, the ChangeSet describes all the changes that affect NomenclatureFeature, at each impacted level. This concept is equivalent to the "Re-allocation" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2): "reallocation of land covered by 'n' initial zones to form 'p' new zones ".</p>
+      <p class="description">Redistribution is the name of the event behind a Change caused by a redistribution of a spatial area covered by 'n' Units in the NomenclatureVersion V to form 'p' new Unit(s) in NomenclatureVersion V+1. A Redistribution event may impact one or several level(s) of the nomenclature. Then, the Change describes all the changes that affect NomenclatureFeature, at each impacted level. This concept is equivalent to the "Re-allocation" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2): "reallocation of land covered by 'n' initial zones to form 'p' new zones ".</p>
 
   <div>
 
@@ -1799,7 +1796,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">Scission is the name of the event behind a ChangeSet that describes, at only one Nomenclature level, the split of one Unit that causes the disappearance of the involved Unit from NomenclatureVersion V to NomenclatureVersion V+1. This event leads to: (1) the disappearance of the involved Unit coming from the NomenclatureVersion V (i.e., the identity of the involved Unit is not extended after the event i.e., at least the Nomenclature identifier of the Unit is modified); (2) the creation of two or more Units in the NomenclatureVersion V+1 by split of the footprint of the input Unit in NomenclatureVersion V. This concept is equivalent to the "Scission" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612).</p>
+      <p class="description">Scission is the name of the event behind a Change that describes, at only one Nomenclature level, the split of one Unit that causes the disappearance of the involved Unit from NomenclatureVersion V to NomenclatureVersion V+1. This event leads to: (1) the disappearance of the involved Unit coming from the NomenclatureVersion V (i.e., the identity of the involved Unit is not extended after the event i.e., at least the Nomenclature identifier of the Unit is modified); (2) the creation of two or more Units in the NomenclatureVersion V+1 by split of the footprint of the input Unit in NomenclatureVersion V. This concept is equivalent to the "Scission" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612).</p>
 
   <div>
 
@@ -1860,7 +1857,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">Split is the name of the event behind a ChangeSet caused by a split of a unit (that belong to the NomenclatureVersion V), into two or more units, in NomenclatureVersion V+1. A Split event may impact one or several level(s) of the nomenclature. Then, the ChangeSet describes all the changes that affect NomenclatureFeature, at each impacted level. This concept is equivalent to the "Split" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2): "division of a zone into 'n' parts (split)".</p>
+      <p class="description">Split is the name of the event behind a Change caused by a split of a unit (that belong to the NomenclatureVersion V), into two or more units, in NomenclatureVersion V+1. A Split event may impact one or several level(s) of the nomenclature. Then, the Change describes all the changes that affect NomenclatureFeature, at each impacted level. This concept is equivalent to the "Split" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2): "division of a zone into 'n' parts (split)".</p>
 
   <div>
 
@@ -1928,7 +1925,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">StructureChange is the super class of Merge, Split and Redistribution ChangeSet. It may be composed of several sub-ChangeSet such as LevelChange and FeatureChange. It may affect one or several levels of the Nomenclature. A StructureChange describes changes in the Nomenclature structure that involved several Unit resources, in contrast to FeatureChange resources that describe basic changes that affect only one NomenclatureFeature. The set of Unit resources impacted by the StructureChange event is determined following the rule described by (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612.):"For any event type, a geometrical invariant defines the set of units involved in the one event: the combination of unit footprints that existed prior the event (preceding ones) is equal to the combination of unit footprints that are still in existence after the event (succeeding ones).". Except in case of Annexation or Cession events, where changes on NomenclatureFeature are grouped together if they occur simultaneously, inside a area which extends from the new territory boundaries to unit(s) boundaries that match the ones of unit(s) before the event. This concept is equivalent to the "evolution of spatial structure" notion from (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2).</p>
+      <p class="description">StructureChange is the super class of Merge, Split and Redistribution Change. It may be composed of several sub-Change such as LevelChange and FeatureChange. It may affect one or several levels of the Nomenclature. A StructureChange describes changes in the Nomenclature structure that involved several Unit resources, in contrast to FeatureChange resources that describe basic changes that affect only one NomenclatureFeature. The set of Unit resources impacted by the StructureChange event is determined following the rule described by (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612.):"For any event type, a geometrical invariant defines the set of units involved in the one event: the combination of unit footprints that existed prior the event (preceding ones) is equal to the combination of unit footprints that are still in existence after the event (succeeding ones).". Except in case of Annexation or Cession events, where changes on NomenclatureFeature are grouped together if they occur simultaneously, inside a area which extends from the new territory boundaries to unit(s) boundaries that match the ones of unit(s) before the event. This concept is equivalent to the "evolution of spatial structure" notion from (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2).</p>
 
   <div>
 
@@ -1942,7 +1939,7 @@ a RIF and OWL documentation service</h2>
 		  <tbody><tr>
 	  <td>This class is a sub class of</td>
 	  <td>
-	  	  <span class="parrot-element-ref parrot-class-ref" rel="rdfs:subClassOf" href="http://purl.org/net/tsnchange#ChangeSet">            	<a href="#ChangeSet"> ChangeSet</a>
+	  	  <span class="parrot-element-ref parrot-class-ref" rel="rdfs:subClassOf" href="http://purl.org/net/tsnchange#Change">            	<a href="#Change"> Change</a>
       </span>
 	  	  </td>
 	  </tr>
@@ -2057,7 +2054,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">TerritoryChange is the super class of Annexation and Cession ChangeSet. It may be composed of several sub-ChangeSet such as StructureChange, LevelChange and FeatureChange (e.g., an Annexation may lead to StructureChange, such as Merge that may affect in turn multiple levels of the nomenclature as well as territory and unit features). It may affect one or several levels of the nomenclature. It describes the modifications of one TerritoryVersion feature and their consequences on the Levels and Units of the Nomenclature that covers this territory.</p>
+      <p class="description">TerritoryChange is the super class of Annexation and Cession Change. It may be composed of several sub-Change such as StructureChange, LevelChange and FeatureChange (e.g., an Annexation may lead to StructureChange, such as Merge that may affect in turn multiple levels of the nomenclature as well as territory and unit features). It may affect one or several levels of the nomenclature. It describes the modifications of one TerritoryVersion feature and their consequences on the Levels and Units of the Nomenclature that covers this territory.</p>
 
   <div>
 
@@ -2071,7 +2068,7 @@ a RIF and OWL documentation service</h2>
 		  <tbody><tr>
 	  <td>This class is a sub class of</td>
 	  <td>
-	  	  <span class="parrot-element-ref parrot-class-ref" rel="rdfs:subClassOf" href="http://purl.org/net/tsnchange#ChangeSet">            	<a href="#ChangeSet"> ChangeSet</a>
+	  	  <span class="parrot-element-ref parrot-class-ref" rel="rdfs:subClassOf" href="http://purl.org/net/tsnchange#Change">            	<a href="#Change"> Change</a>
       </span>
 	  	  </td>
 	  </tr>
@@ -2125,7 +2122,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">UnitHierarchyChange is the super class of UnitLevelChange and SuperUnitChange. This ChangeSet aims at describing changes that may affect only the NomenclatureFeature that are Unit resources: changes in terms of hierarchy of the Unit (e.g., change in the level it belongs to and/or Super unit change).</p>
+      <p class="description">UnitHierarchyChange is the super class of UnitLevelChange and SuperUnitChange. This Change aims at describing changes that may affect only the NomenclatureFeature that are Unit resources: changes in terms of hierarchy of the Unit (e.g., change in the level it belongs to and/or Super unit change).</p>
 
   <div>
 
@@ -2306,7 +2303,7 @@ a RIF and OWL documentation service</h2>
            <tr>
             <td>The domain of this property is</td>
       	  <td>
-            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:domain" href="http://purl.org/net/tsnchange#ChangeSet">            	<a href="#ChangeSet"> ChangeSet</a>
+            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:domain" href="http://purl.org/net/tsnchange#Change">            	<a href="#Change"> Change</a>
       </span>
       	  </td>
       </tr>
@@ -2399,7 +2396,7 @@ a RIF and OWL documentation service</h2>
            <tr>
             <td>The domain of this property is</td>
       	  <td>
-            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:domain" href="http://purl.org/net/tsnchange#ChangeSet">            	<a href="#ChangeSet"> ChangeSet</a>
+            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:domain" href="http://purl.org/net/tsnchange#Change">            	<a href="#Change"> Change</a>
       </span>
       	  </td>
       </tr>
@@ -2470,7 +2467,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">Indicates a ChangeSet that is caused by the described ChangeSet resource.</p>
+      <p class="description">Indicates a Change that is caused by the described Change resource.</p>
 
   <div>
 
@@ -2492,7 +2489,7 @@ a RIF and OWL documentation service</h2>
            <tr>
             <td>The domain of this property is</td>
       	  <td>
-            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:domain" href="http://purl.org/net/tsnchange#ChangeSet">            	<a href="#ChangeSet"> ChangeSet</a>
+            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:domain" href="http://purl.org/net/tsnchange#Change">            	<a href="#Change"> Change</a>
       </span>
       	  </td>
       </tr>
@@ -2502,7 +2499,7 @@ a RIF and OWL documentation service</h2>
           <tr>
              <td>The range of this property is</td>
       	  <td>
-            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:range" href="http://purl.org/net/tsnchange#ChangeSet">            	<a href="#ChangeSet"> ChangeSet</a>
+            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:range" href="http://purl.org/net/tsnchange#Change">            	<a href="#Change"> Change</a>
       </span>
       	  </td>
       </tr>
@@ -2567,7 +2564,7 @@ a RIF and OWL documentation service</h2>
            <tbody><tr>
             <td>The domain of this property is</td>
       	  <td>
-            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:domain" href="http://purl.org/net/tsnchange#ChangeSet">            	<a href="#ChangeSet"> ChangeSet</a>
+            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:domain" href="http://purl.org/net/tsnchange#Change">            	<a href="#Change"> Change</a>
       </span>
       	  </td>
       </tr>
@@ -2632,7 +2629,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">Indicates a ChangeSet resource to which a TSNComponent is an input object (i.e., a object subject to changes).</p>
+      <p class="description">Indicates a Change resource to which a TSNComponent is an input object (i.e., a object subject to changes).</p>
 
   <div>
 
@@ -2664,7 +2661,7 @@ a RIF and OWL documentation service</h2>
           <tr>
              <td>The range of this property is</td>
       	  <td>
-            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:range" href="http://purl.org/net/tsnchange#ChangeSet">            	<a href="#ChangeSet"> ChangeSet</a>
+            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:range" href="http://purl.org/net/tsnchange#Change">            	<a href="#Change"> Change</a>
       </span>
       	  </td>
       </tr>
@@ -2725,7 +2722,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">Indicates a ChangeSet of which a Level resource is an input object i.e., the level is subject to changes</p>
+      <p class="description">Indicates a Change of which a Level resource is an input object i.e., the level is subject to changes</p>
 
   <div>
 
@@ -2757,7 +2754,7 @@ a RIF and OWL documentation service</h2>
           <tr>
              <td>The range of this property is</td>
       	  <td>
-            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:range" href="http://purl.org/net/tsnchange#ChangeSet">            	<a href="#ChangeSet"> ChangeSet</a>
+            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:range" href="http://purl.org/net/tsnchange#Change">            	<a href="#Change"> Change</a>
       </span>
       	  </td>
       </tr>
@@ -2812,7 +2809,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">Indicates a ChangeSet of which a NomenclatureVersion resource is an input object i.e., the Nomenclature is subject to changes.</p>
+      <p class="description">Indicates a Change of which a NomenclatureVersion resource is an input object i.e., the Nomenclature is subject to changes.</p>
 
   <div>
 
@@ -2844,7 +2841,7 @@ a RIF and OWL documentation service</h2>
           <tr>
              <td>The range of this property is</td>
       	  <td>
-            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:range" href="http://purl.org/net/tsnchange#ChangeSet">            	<a href="#ChangeSet"> ChangeSet</a>
+            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:range" href="http://purl.org/net/tsnchange#Change">            	<a href="#Change"> Change</a>
       </span>
       	  </td>
       </tr>
@@ -2899,7 +2896,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">Indicates a ChangeSet of which a TerritoryVersion resource is an input object i.e., the Territory is subject to changes.</p>
+      <p class="description">Indicates a Change of which a TerritoryVersion resource is an input object i.e., the Territory is subject to changes.</p>
 
   <div>
 
@@ -2931,7 +2928,7 @@ a RIF and OWL documentation service</h2>
           <tr>
              <td>The range of this property is</td>
       	  <td>
-            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:range" href="http://purl.org/net/tsnchange#ChangeSet">            	<a href="#ChangeSet"> ChangeSet</a>
+            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:range" href="http://purl.org/net/tsnchange#Change">            	<a href="#Change"> Change</a>
       </span>
       	  </td>
       </tr>
@@ -2986,7 +2983,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">Indicates a ChangeSet of which a Unit resource is an input object i.e., the unit is subject to changes from one NomenclatureVersion to another.</p>
+      <p class="description">Indicates a Change of which a Unit resource is an input object i.e., the unit is subject to changes from one NomenclatureVersion to another.</p>
 
   <div>
 
@@ -3018,7 +3015,7 @@ a RIF and OWL documentation service</h2>
           <tr>
              <td>The range of this property is</td>
       	  <td>
-            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:range" href="http://purl.org/net/tsnchange#ChangeSet">            	<a href="#ChangeSet"> ChangeSet</a>
+            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:range" href="http://purl.org/net/tsnchange#Change">            	<a href="#Change"> Change</a>
       </span>
       	  </td>
       </tr>
@@ -3073,7 +3070,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">Indicates a ChangeSet that causes the described ChangeSet resource.</p>
+      <p class="description">Indicates a Change that causes the described Change resource.</p>
 
   <div>
 
@@ -3095,7 +3092,7 @@ a RIF and OWL documentation service</h2>
            <tr>
             <td>The domain of this property is</td>
       	  <td>
-            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:domain" href="http://purl.org/net/tsnchange#ChangeSet">            	<a href="#ChangeSet"> ChangeSet</a>
+            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:domain" href="http://purl.org/net/tsnchange#Change">            	<a href="#Change"> Change</a>
       </span>
       	  </td>
       </tr>
@@ -3105,7 +3102,7 @@ a RIF and OWL documentation service</h2>
           <tr>
              <td>The range of this property is</td>
       	  <td>
-            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:range" href="http://purl.org/net/tsnchange#ChangeSet">            	<a href="#ChangeSet"> ChangeSet</a>
+            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:range" href="http://purl.org/net/tsnchange#Change">            	<a href="#Change"> Change</a>
       </span>
       	  </td>
       </tr>
@@ -3170,7 +3167,7 @@ a RIF and OWL documentation service</h2>
            <tbody><tr>
             <td>The domain of this property is</td>
       	  <td>
-            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:domain" href="http://purl.org/net/tsnchange#ChangeSet">            	<a href="#ChangeSet"> ChangeSet</a>
+            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:domain" href="http://purl.org/net/tsnchange#Change">            	<a href="#Change"> Change</a>
       </span>
       	  </td>
       </tr>
@@ -3250,7 +3247,7 @@ a RIF and OWL documentation service</h2>
            <tr>
             <td>The domain of this property is</td>
       	  <td>
-            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:domain" href="http://purl.org/net/tsnchange#ChangeSet">            	<a href="#ChangeSet"> ChangeSet</a>
+            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:domain" href="http://purl.org/net/tsnchange#Change">            	<a href="#Change"> Change</a>
       </span>
       	  </td>
       </tr>
@@ -3337,7 +3334,7 @@ a RIF and OWL documentation service</h2>
            <tr>
             <td>The domain of this property is</td>
       	  <td>
-            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:domain" href="http://purl.org/net/tsnchange#ChangeSet">            	<a href="#ChangeSet"> ChangeSet</a>
+            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:domain" href="http://purl.org/net/tsnchange#Change">            	<a href="#Change"> Change</a>
       </span>
       	  </td>
       </tr>
@@ -3424,7 +3421,7 @@ a RIF and OWL documentation service</h2>
            <tr>
             <td>The domain of this property is</td>
       	  <td>
-            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:domain" href="http://purl.org/net/tsnchange#ChangeSet">            	<a href="#ChangeSet"> ChangeSet</a>
+            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:domain" href="http://purl.org/net/tsnchange#Change">            	<a href="#Change"> Change</a>
       </span>
       	  </td>
       </tr>
@@ -3511,7 +3508,7 @@ a RIF and OWL documentation service</h2>
            <tr>
             <td>The domain of this property is</td>
       	  <td>
-            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:domain" href="http://purl.org/net/tsnchange#ChangeSet">            	<a href="#ChangeSet"> ChangeSet</a>
+            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:domain" href="http://purl.org/net/tsnchange#Change">            	<a href="#Change"> Change</a>
       </span>
       	  </td>
       </tr>
@@ -3576,7 +3573,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">Indicates a ChangeSet resource to which a TSNComponent is an output object (i.e., a result of the Change event).</p>
+      <p class="description">Indicates a Change resource to which a TSNComponent is an output object (i.e., a result of the Change event).</p>
 
   <div>
 
@@ -3608,7 +3605,7 @@ a RIF and OWL documentation service</h2>
           <tr>
              <td>The range of this property is</td>
       	  <td>
-            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:range" href="http://purl.org/net/tsnchange#ChangeSet">            	<a href="#ChangeSet"> ChangeSet</a>
+            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:range" href="http://purl.org/net/tsnchange#Change">            	<a href="#Change"> Change</a>
       </span>
       	  </td>
       </tr>
@@ -3669,7 +3666,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">Indicates a ChangeSet of which a Level resource is an output object i.e., the Nomenclature and its levels have undergone changes resulting in a new version of the Nomenclature and of its levels as an output of a ChangeSet.</p>
+      <p class="description">Indicates a Change of which a Level resource is an output object i.e., the Nomenclature and its levels have undergone changes resulting in a new version of the Nomenclature and of its levels as an output of a Change.</p>
 
   <div>
 
@@ -3701,7 +3698,7 @@ a RIF and OWL documentation service</h2>
           <tr>
              <td>The range of this property is</td>
       	  <td>
-            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:range" href="http://purl.org/net/tsnchange#ChangeSet">            	<a href="#ChangeSet"> ChangeSet</a>
+            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:range" href="http://purl.org/net/tsnchange#Change">            	<a href="#Change"> Change</a>
       </span>
       	  </td>
       </tr>
@@ -3756,7 +3753,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">Indicates a ChangeSet of which a NomenclatureVersion resource is an output object i.e., the Nomenclature has undergone changes resulting in a new version of the Nomenclature as an output of a ChangeSet.</p>
+      <p class="description">Indicates a Change of which a NomenclatureVersion resource is an output object i.e., the Nomenclature has undergone changes resulting in a new version of the Nomenclature as an output of a Change.</p>
 
   <div>
 
@@ -3788,7 +3785,7 @@ a RIF and OWL documentation service</h2>
           <tr>
              <td>The range of this property is</td>
       	  <td>
-            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:range" href="http://purl.org/net/tsnchange#ChangeSet">            	<a href="#ChangeSet"> ChangeSet</a>
+            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:range" href="http://purl.org/net/tsnchange#Change">            	<a href="#Change"> Change</a>
       </span>
       	  </td>
       </tr>
@@ -3843,7 +3840,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">Indicates a ChangeSet of which a TerritoryVersion resource is an output object i.e., the Territory has undergone changes resulting in a new version of the Territory as an output of a ChangeSet.</p>
+      <p class="description">Indicates a Change of which a TerritoryVersion resource is an output object i.e., the Territory has undergone changes resulting in a new version of the Territory as an output of a Change.</p>
 
   <div>
 
@@ -3875,7 +3872,7 @@ a RIF and OWL documentation service</h2>
           <tr>
              <td>The range of this property is</td>
       	  <td>
-            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:range" href="http://purl.org/net/tsnchange#ChangeSet">            	<a href="#ChangeSet"> ChangeSet</a>
+            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:range" href="http://purl.org/net/tsnchange#Change">            	<a href="#Change"> Change</a>
       </span>
       	  </td>
       </tr>
@@ -3930,7 +3927,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">Indicates a ChangeSet of which a Unit resource is an output object i.e., the Nomenclature and its units have undergone changes resulting in a new version of the Nomenclature and of its units as an output of a ChangeSet.</p>
+      <p class="description">Indicates a Change of which a Unit resource is an output object i.e., the Nomenclature and its units have undergone changes resulting in a new version of the Nomenclature and of its units as an output of a Change.</p>
 
   <div>
 
@@ -3962,7 +3959,7 @@ a RIF and OWL documentation service</h2>
           <tr>
              <td>The range of this property is</td>
       	  <td>
-            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:range" href="http://purl.org/net/tsnchange#ChangeSet">            	<a href="#ChangeSet"> ChangeSet</a>
+            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:range" href="http://purl.org/net/tsnchange#Change">            	<a href="#Change"> Change</a>
       </span>
       	  </td>
       </tr>
@@ -4039,7 +4036,7 @@ a RIF and OWL documentation service</h2>
            <tr>
             <td>The domain of this property is</td>
       	  <td>
-            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:domain" href="http://purl.org/net/tsnchange#ChangeSet">            	<a href="#ChangeSet"> ChangeSet</a>
+            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:domain" href="http://purl.org/net/tsnchange#Change">            	<a href="#Change"> Change</a>
       </span>
       	  </td>
       </tr>
@@ -4126,7 +4123,7 @@ a RIF and OWL documentation service</h2>
            <tr>
             <td>The domain of this property is</td>
       	  <td>
-            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:domain" href="http://purl.org/net/tsnchange#ChangeSet">            	<a href="#ChangeSet"> ChangeSet</a>
+            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:domain" href="http://purl.org/net/tsnchange#Change">            	<a href="#Change"> Change</a>
       </span>
       	  </td>
       </tr>
@@ -4213,7 +4210,7 @@ a RIF and OWL documentation service</h2>
            <tr>
             <td>The domain of this property is</td>
       	  <td>
-            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:domain" href="http://purl.org/net/tsnchange#ChangeSet">            	<a href="#ChangeSet"> ChangeSet</a>
+            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:domain" href="http://purl.org/net/tsnchange#Change">            	<a href="#Change"> Change</a>
       </span>
       	  </td>
       </tr>
@@ -4300,7 +4297,7 @@ a RIF and OWL documentation service</h2>
            <tr>
             <td>The domain of this property is</td>
       	  <td>
-            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:domain" href="http://purl.org/net/tsnchange#ChangeSet">            	<a href="#ChangeSet"> ChangeSet</a>
+            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:domain" href="http://purl.org/net/tsnchange#Change">            	<a href="#Change"> Change</a>
       </span>
       	  </td>
       </tr>
@@ -4339,10 +4336,10 @@ a RIF and OWL documentation service</h2>
 	<div class="toc" id="individuals" style="border-radius: 10px;">
 	<h2>Individuals</h2>
 	<p>
-		  	<a href="#anchor484778190">individual-48738934</a>
-	, 		  	<a href="#anchor484778191">individual-48738935</a>
-	, 		  	<a href="#anchor484778192">individual-48738936</a>
-	, 		  	<a href="#anchor484778193">individual-48738937</a>
+		  	<a href="#anchor1393566692">individual2026534537</a>
+	, 		  	<a href="#anchor1393566693">individual2026534538</a>
+	, 		  	<a href="#anchor1393566694">individual2026534539</a>
+	, 		  	<a href="#anchor1393566716">individual2026534540</a>
 			</p>
 	</div>
 
@@ -4363,7 +4360,7 @@ a RIF and OWL documentation service</h2>
 	<div class="term">
 
 
-   <h3 id="anchor484778190"><span class="parrot-element-title parrot-individual-title">individual-48738934</span> (Individual)
+   <h3 id="anchor1393566692"><span class="parrot-element-title parrot-individual-title">individual2026534537</span> (Individual)
 
 
     <span class="menu">
@@ -4398,7 +4395,7 @@ a RIF and OWL documentation service</h2>
 	<div class="term">
 
 
-   <h3 id="anchor484778191"><span class="parrot-element-title parrot-individual-title">individual-48738935</span> (Individual)
+   <h3 id="anchor1393566693"><span class="parrot-element-title parrot-individual-title">individual2026534538</span> (Individual)
 
 
     <span class="menu">
@@ -4433,7 +4430,7 @@ a RIF and OWL documentation service</h2>
 	<div class="term">
 
 
-   <h3 id="anchor484778192"><span class="parrot-element-title parrot-individual-title">individual-48738936</span> (Individual)
+   <h3 id="anchor1393566694"><span class="parrot-element-title parrot-individual-title">individual2026534539</span> (Individual)
 
 
     <span class="menu">
@@ -4468,7 +4465,7 @@ a RIF and OWL documentation service</h2>
 	<div class="term">
 
 
-   <h3 id="anchor484778193"><span class="parrot-element-title parrot-individual-title">individual-48738937</span> (Individual)
+   <h3 id="anchor1393566716"><span class="parrot-element-title parrot-individual-title">individual2026534540</span> (Individual)
 
 
     <span class="menu">
@@ -4511,8 +4508,8 @@ a RIF and OWL documentation service</h2>
 <dt>Cession</dt>
 	<dd><span class="parrot-element-ref parrot-class-ref">            	 <a href="#anchor-1688751161">  Cession</a>
       </span></dd>
-<dt>ChangeSet</dt>
-	<dd><span class="parrot-element-ref parrot-class-ref">            	 <a href="#anchor-1694271661">  ChangeSet</a>
+<dt>Change</dt>
+	<dd><span class="parrot-element-ref parrot-class-ref">            	 <a href="#anchor-1714814355">  Change</a>
       </span></dd>
 <dt>Contraction</dt>
 	<dd><span class="parrot-element-ref parrot-class-ref">            	 <a href="#anchor-859923977">  Contraction</a>
@@ -4715,19 +4712,19 @@ a RIF and OWL documentation service</h2>
 
 	<!-- Feedback -->
 	<div>
-	<img id="feedback" src="index_fichiers/feedback.png" alt="feedback" style="background-color: rgb(132, 112, 255); left: 0px; top: 427.5px; position: fixed;" height="100" width="30">
+	<img id="feedback" src="index_fichiers/feedback.png" alt="feedback" style="background-color: rgb(132, 112, 255); left: 0px; top: 306.5px; position: fixed;" width="30" height="100">
 
 	</div>
   <!-- standalone -->
   <!-- <script type="text/javascript" src="standalone/ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script> -->
   <!-- <script type="text/javascript" src="standalone/ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script> -->
-  <script type="text/javascript" async="" src="index_fichiers/ga.js"></script><script type="text/javascript" src="index_fichiers/jquery_003.js"></script>
+  <script type="text/javascript" async="" src="index_fichiers/ga.js"></script><script type="text/javascript" src="index_fichiers/jquery_002.js"></script>
   <script type="text/javascript" src="index_fichiers/jquery-ui.js"></script>
   <script type="text/javascript" src="index_fichiers/feedback.js"></script>
 
-  <script type="text/javascript" src="index_fichiers/jquery_004.js"></script>
+  <script type="text/javascript" src="index_fichiers/jquery_003.js"></script>
   <script type="text/javascript" src="index_fichiers/jquery.js"></script>
-  <script type="text/javascript" src="index_fichiers/jquery_002.js"></script>
+  <script type="text/javascript" src="index_fichiers/jquery_004.js"></script>
   <script type="text/javascript" src="index_fichiers/javascript.js"></script>
 
   	<script type="text/javascript" src="index_fichiers/technical.js"></script>
