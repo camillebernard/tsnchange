@@ -116,6 +116,7 @@ a RIF and OWL documentation service</h2>
 	</p>
 
 
+
 <hr>
 
 <p>
@@ -124,47 +125,83 @@ a RIF and OWL documentation service</h2>
 
 </div>
 
+<!-- ==================================================================================== -->
+
 <div class="toc" id="ontologies" style="border-radius: 10px;">
 									<h2>Abstract</h2>
 									<p>We present in this document the <i>TSN-Change Ontology</i>
                     (<a href="#anchor-622249699">Territorial Statistical Nomenclature
 											Change Ontology</a>) to describe any partitions of space and the changes it undergoes from one version to another.
 									</p>
+                  <p>
+                    Please consult also the <i>TSN Ontology</i> at <a href="http://purl.org/net/tsn#">http://purl.org/net/tsn#</a>
+                  </p>
 							</div>
 
 							<div class="toc" id="ontologies" style="border-radius: 10px;">
 									<h2>Diagram of the ontology</h2>
 
 										<p>
-											<em>TSN-Change ChangeSet main sub-classes</em> <img
-											src="index_fichiers/ontologies_protege_images/Change.png"
-											alt="TSN ChangeSet">
+											<em>TSN-Change Change main sub-classes</em> <img
+                      style='height: 100%; width: 100%; object-fit: contain'
+											src="index_fichiers/ontologies_protege_images/TSN_Change_main_classes.png"
+											alt="TSN Change">
 										</p>
+                    <hr>
 
 										<p>
-											<em>TSN-Change ChangeSet - 1 - TerritoryChange</em> <img
+											<em>TSN-Change Change - 1 - TerritoryChange</em> <img
 											src="index_fichiers/ontologies_protege_images/TerritoryChange.png"
 											alt="TSN TerritoryChange">
 										</p>
+                    <hr>
 
 										<p>
-											<em>TSN-Change ChangeSet - 2 - StructureChange</em> <img
+											<em>TSN-Change Change - 2 - StructureChange</em> <img
 											src="index_fichiers/ontologies_protege_images/StructureChange.png"
 											alt="TSN StructureChange">
 										</p>
+                    <hr>
 
 										<p>
-											<em>TSN-Change ChangeSet - 3 - LevelChange</em> <img
+											<em>TSN-Change Change - 3 - LevelChange</em> <img
 											src="index_fichiers/ontologies_protege_images/LevelChangeSet.png"
 											alt="TSN LevelChange">
 										</p>
+                    <hr>
 
 										<p>
-											<em>TSN-Change ChangeSet - 4 - FeatureChange</em> <img
+											<em>TSN-Change Change - 4 - FeatureChange</em> <img
 											src="index_fichiers/ontologies_protege_images/FeatureChange.png"
 											alt="TSN FeatureChange">
 										</p>
+                    <hr>
+
+                    <p>
+											<em>TSN-Change - Unit Lifeline graph example</em> <img
+                      style='height: 100%; width: 100%; object-fit: contain'
+										  src="index_fichiers/ontologies_protege_images/TSN_Change_TU_lifeline.png"
+											alt="TSN-Change - Unit Lifeline graph example"> </img>
+										</p>
+                    <hr>
+
+                    <p>
+											<em>TSN-Change - Split sub-concept example</em> <img
+										  style='height: 100%; width: 100%; object-fit: contain'
+                      src="index_fichiers/ontologies_protege_images/split_types.png"
+											alt="TSN-Change  - Split sub-concept example"> </img>
+										</p>
+                    <hr>
+
+                    <p>
+                      <em>TSN-Change - Split graph example in the <a href="http://ec.europa.eu/eurostat/web/nuts/overview">NUTS</a> TSN</em> <img
+                      style='height: 100%; width: 100%; object-fit: contain'
+                      src="index_fichiers/ontologies_protege_images/TSN_Change_Split_example.png"
+                      alt="TSN-Change  - Split graph example in the NUTS TSN"> </img>
+                    </p>
 </div>
+
+<!-- ==================================================================================== -->
 
 
 	<div class="toc" id="ontologies" style="border-radius: 10px;">
@@ -199,7 +236,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">This RDF ontology allows describing changes that occured between one version of a Territorial Statistical Nomenclature (i.e., partition of the territory) and its subsequent (e.g., change in territorial units boundaries to reflect an administrative reorganisation).</p>
+      <p class="description">This RDF ontology allows describing changes that occured from one version of a Territorial Statistical Nomenclature (TSN) (i.e., partition of the territory) and its subsequent (e.g., change in territorial units boundaries to reflect an administrative reorganisation).</p>
 
   <div>
 
@@ -342,7 +379,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">The acronym of a NomenclatureFeature changes.</p>
+      <p class="description">The acronym of a feature changes.</p>
 
   <div>
 
@@ -401,7 +438,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">A set of changes is called Annexation when, grouped together, the changes describe the transformation of the observed territory by incorporation of a region on the earth that was outside the external boundaries of the territory before the Annexation event. The Annexation event results in: (1) a new version of the observed territory (i.e., TerritoryVersion V+1) that incorporates a region on the earth that was outside the external boundaries of the TerritoryVersion V (i.e., modification of the external boundaries of the Territory); (2) one or several StructureChange; (3) one or several LevelChange that describe the Annexation event at each Levels resources impacted; (4) one or several FeatureChange on NomenclatureFeature resources (i.e., TerritoryVersion V and V+1 but also, one or several Unit resources may undergone several changes due to the Annexation event (e.g., Disappearance, NameChange, GeometryChange); (5) the Apperance of zero or several Unit resources in NomenclatureVersion NV+1.</p>
+      <p class="description">A set of changes is called Annexation when, grouped together, the changes describe the transformation of the observed territory by incorporation of a region on the earth that was outside the external boundaries of the territory before the Annexation event. The Annexation event results in: (1) a new version of the observed territory (i.e., TerritoryVersion V+1) that incorporates a region on the earth that was outside the external boundaries of the TerritoryVersion V; (2) one or several StructureChange; (3) one or several LevelChange that describe the Annexation event at each Level impacted; (4) one or several FeatureChange on NomenclatureFeature (i.e., the territory but also, one or several Unit may undergone changes due to the Annexation event (e.g., Disappearance, NameChange, GeometryChange); (5) the Apperance of zero or several Unit in NomenclatureVersion V+1.</p>
 
   <div>
 
@@ -460,7 +497,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">Appearance (or Creation) of a new NomenclatureFeature (i.e., TerritoryVersion or Unit) as an output resource of the Change. "Appearance" means the Nomenclature Identifier of the new NomenclatureFeature is different from all that already exist, in the NomenclatureVersion V and V+1. This concept is equivalent to the "Appearance" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2).</p>
+      <p class="description">Appearance (or Creation) of a new feature (i.e., TerritoryVersion or Unit) as an output resource of the Change. "Appearance" means the Nomenclature Identifier of the new feature is different from all that already exist, in the NomenclatureVersion V and V+1. This concept is equivalent to the "Appearance" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2).</p>
 
   <div>
 
@@ -519,7 +556,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">A set of changes is called Cession when, grouped together, the changes describe the transformation of the observed territory by cession of a region on the earth that was inside the external boundaries of the territory before the Cession event. The Cession event results in: (1) a new version of the observed territory (i.e., TerritoryVersion V+1) that excludes a region on the earth that was inside the external boundaries of the TerritoryVersion V (i.e., modification of the external boundaries of the Territory); (2) one or several StructureChange; (3) one or several LevelChange that describe the Cession event at each Levels resources impacted; (4) one or several FeatureChange on NomenclatureFeature resources (i.e., TerritoryVersion V and V+1 but also, one or several Unit resources may undergone several changes due to the Cession event (e.g., Disappearance, NameChange, GeometryChange); (5) the Disappearance of zero or several Unit resources in NomenclatureVersion NV+1.</p>
+      <p class="description">A set of changes is called Cession when, grouped together, the changes describe the transformation of the observed territory by cession of a region on the earth that was inside the external boundaries of the territory before the Cession event. The Cession event results in: (1) a new version of the observed territory (i.e., TerritoryVersion V+1) that excludes a region on the earth that was inside the external boundaries of the TerritoryVersion V; (2) one or several StructureChange; (3) one or several LevelChange that describe the Cession event at each Levels impacted; (4) one or several FeatureChange on NomenclatureFeature (i.e., the territory but also, one or several Unit may undergone changes due to the Cession event (e.g., Disappearance, NameChange, GeometryChange); (5) the Disappearance of zero or several Unit in NomenclatureVersion V+1.</p>
 
   <div>
 
@@ -578,7 +615,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">A Change aims at describing territorial changes by chaining TSNComponent resources of a Nomenclature resource Version V to resources of Version V+1: those components come as input (i.e., Version V) and output (i.e., Version V+1) of the Change. It groups under one set and describes several changes on NomenclatureFeature (i.e., TerritoryVersion and Unit) that make sense grouped together. As "a change is rarely isolated and independent from the other changes that occur simultaneously within the other units inside a given area", we have to link "together all the various units that were involved in a common territorial change"  (Plumejeaud et al., 2011). The name assigned to the Change (e.g., Annexation, Merge, etc.) is the name of the event behind the set of territorial changes. This event has some interlinked consequences on a given sub-set of NomenclatureFeature (input or output resources of the Change) that are inside a given area whose external boundaries are the same before and after the event. Except in case of annexation or cession events, where the boundaries of the territory observed vary. Thus, in case of annexation or cession events, changes on NomenclatureFeature are grouped together if they occur simultaneously, inside a area which extends from the new territory boundaries to unit(s) boundaries that match the ones of unit(s) before the event. The Change concept is based on the Change Bridge concept of (Kauppinen T, Hyvönen E. Modeling and reasoning about changes in ontology time series. In: Ontologies [Internet]. Springer; 2007. p. 319–338. Available from: http://link.springer.com/chapter/10.1007/978-0-387-37022-4_11): "A change bridge is associated with a change point and tells, what current concepts become obsolete (if any), what new concepts are created (if any), and how the new concepts overlap with older ones.".</p>
+      <p class="description">A Change node describes changes that occur from one TSN version to another: it acts like a bridge that chain features impacted by the change, from one version of the TSN to another. It groups under one set and describes several changes on feature (i.e., TerritoryVersion and Unit) that make sense grouped together. As "a change is rarely isolated and independent from the other changes that occur simultaneously within the other units inside a given area", we have to link "together all the various units that were involved in a common territorial change"  (Plumejeaud, C., Mathian, H., Gensel, J., Grasland, C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 25, 1597–1612 (2011)). The name assigned to the Change (e.g., Annexation, Merge, etc.) is the name of the event behind the set of territorial changes. The Change concept is based on the Change Bridge concept of (Kauppinen T, Hyvönen E. Modeling and reasoning about changes in ontology time series. In: Ontologies [Internet]. Springer; 2007. p. 319–338. Available from: http://link.springer.com/chapter/10.1007/978-0-387-37022-4_11): "A change bridge is associated with a change point and tells, what current concepts become obsolete (if any), what new concepts are created (if any), and how the new concepts overlap with older ones.".</p>
 
   <div>
 
@@ -829,7 +866,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">Disappearance (or End) of a NomenclatureFeature (i.e., TerritoryVersion or Unit) which comes as an input resource to the Change. "Disappearance" means the NomenclatureFeature no longer exists after the change event. No NomenclatureFeature will have its Nomenclature Identifier in the output NomenclatureVersion V+1. This concept is equivalent to the "Disappearance" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2).</p>
+      <p class="description">Disappearance (or End) of a feature (i.e., TerritoryVersion or Unit) which comes as an input resource to the Change. "Disappearance" means the feature no longer exists after the change event. No feature will have its Nomenclature Identifier in the output NomenclatureVersion V+1. This concept is equivalent to the "Disappearance" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2).</p>
 
   <div>
 
@@ -1211,7 +1248,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">IdentificationChange is the super class of IdentifierChange, NameChange and UnitHierarchyChange. This Change groups under one node all the simultaneous changes that may the affect the identity characteristics of a NomenclatureFeature. This concept is equivalent to the "LifeEvent:Transformation" concept from the model of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612).</p>
+      <p class="description">IdentificationChange is the super class of IdentifierChange, NameChange and UnitHierarchyChange. This Change groups under one node all the simultaneous changes that may affect the identity characteristics of a NomenclatureFeature. This concept is equivalent to the "LifeEvent:Transformation" concept from the model of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612).</p>
 
   <div>
 
@@ -1283,7 +1320,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">The identifier (within the Nomenclature) of a NomenclatureFeature changes.</p>
+      <p class="description">The identifier (within the TSN) of a feature changes.</p>
 
   <div>
 
@@ -1403,7 +1440,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">A LevelChange groups under one set, one or several FeatureChange, that occur simultaneously inside a given area and affect one or several Unit resources that belong to the same Level of the NomenclatureVersion. A Change that is not a sub-class of LevelChange may affect several levels of the nomenclature (e.g., Annexation or Merge may affect multiple Level resources, resulting in the description of the territorial modification at each impacted levels of the NomenclatureVersion, thanks to LevelChange descriptions).</p>
+      <p class="description">A LevelChange groups under one set, one or several FeatureChange, that occur simultaneously inside a given area and affect one or several Unit resources that belong to the same Level of the TSN. A Change that is not a sub-class of LevelChange may affect several levels of the nomenclature (e.g., Annexation or Merge may affect multiple Level resources, resulting in the description of the territorial modification at each impacted levels of the TSN, thanks to LevelChange descriptions).</p>
 
   <div>
 
@@ -1479,7 +1516,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">Merge is the name of the event behind a Change caused by a merge of two or more units (that belong to the NomenclatureVersion V), into a single Unit in NomenclatureVersion V+1. A Merge event may impact one or several level(s) of the nomenclature. Then, the Change describes all the changes that affect NomenclatureFeature, at each impacted level. This concept is equivalent to the "Union" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2): "fusion of 'n' zones into a single entity (union)".</p>
+      <p class="description">Merge is the name of the event behind a Change caused by a merge of two or more units (that belong to the NomenclatureVersion V), into a single Unit in NomenclatureVersion V+1. A Merge event may impact one or several level(s) of the nomenclature. Then, the Change describes all the changes that affect the features, at each impacted level. This concept is equivalent to the "Union" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2): "fusion of 'n' zones into a single entity (union)".</p>
 
   <div>
 
@@ -1547,7 +1584,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">The name of a NomenclatureFeature changes.</p>
+      <p class="description">The name of a feature changes.</p>
 
   <div>
 
@@ -1925,7 +1962,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">StructureChange is the super class of Merge, Split and Redistribution Change. It may be composed of several sub-Change such as LevelChange and FeatureChange. It may affect one or several levels of the Nomenclature. A StructureChange describes changes in the Nomenclature structure that involved several Unit resources, in contrast to FeatureChange resources that describe basic changes that affect only one NomenclatureFeature. The set of Unit resources impacted by the StructureChange event is determined following the rule described by (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612.):"For any event type, a geometrical invariant defines the set of units involved in the one event: the combination of unit footprints that existed prior the event (preceding ones) is equal to the combination of unit footprints that are still in existence after the event (succeeding ones).". Except in case of Annexation or Cession events, where changes on NomenclatureFeature are grouped together if they occur simultaneously, inside a area which extends from the new territory boundaries to unit(s) boundaries that match the ones of unit(s) before the event. This concept is equivalent to the "evolution of spatial structure" notion from (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2).</p>
+      <p class="description">StructureChange is the super class of Merge, Split and Redistribution Change. It may be composed of several sub-Change such as LevelChange and FeatureChange. It may affect one or several levels and feature of the TSN. A StructureChange describes changes in the Nomenclature structure that impact several features, in contrast to FeatureChange that describe changes that affect only one feature. The set of feature impacted by the StructureChange event is determined following the rule described by (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 25, 1597–1612 (2011)):"For any event type, a geometrical invariant defines the set of units involved in the one event: the combination of unit footprints that existed prior the event (preceding ones) is equal to the combination of unit footprints that are still in existence after the event (succeeding ones).". Except in case of Annexation or Cession events, where changes on NomenclatureFeature are grouped together if they occur simultaneously, inside a area which extends from the new territory boundaries to unit(s) boundaries that match the ones of unit(s) before the event. This concept is equivalent to the "evolution of spatial structure" notion from (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2).</p>
 
   <div>
 
@@ -2054,7 +2091,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">TerritoryChange is the super class of Annexation and Cession Change. It may be composed of several sub-Change such as StructureChange, LevelChange and FeatureChange (e.g., an Annexation may lead to StructureChange, such as Merge that may affect in turn multiple levels of the nomenclature as well as territory and unit features). It may affect one or several levels of the nomenclature. It describes the modifications of one TerritoryVersion feature and their consequences on the Levels and Units of the Nomenclature that covers this territory.</p>
+      <p class="description">TerritoryChange is the super class of Annexation and Cession Change. It may be composed of several sub-Change such as StructureChange, LevelChange and FeatureChange. It may affect one or several levels of the nomenclature. It describes modifications undergone by a territory and their consequences on the Levels and Units of the Nomenclature that covers this territory.</p>
 
   <div>
 
@@ -2122,7 +2159,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">UnitHierarchyChange is the super class of UnitLevelChange and SuperUnitChange. This Change aims at describing changes that may affect only the NomenclatureFeature that are Unit resources: changes in terms of hierarchy of the Unit (e.g., change in the level it belongs to and/or Super unit change).</p>
+      <p class="description">UnitHierarchyChange is the super class of UnitLevelChange and SuperUnitChange. This Change aims at describing changes that affect only the feature that are Unit resources: changes in terms of hierarchy of the Unit (e.g., change in the level it belongs to and/or Super unit change).</p>
 
   <div>
 
@@ -2629,7 +2666,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">Indicates a Change resource to which a TSNComponent is an input object (i.e., a object subject to changes).</p>
+      <p class="description">Indicates a Change resource of which a TSNComponent is an input object (i.e., a object subject to changes).</p>
 
   <div>
 
@@ -3573,7 +3610,7 @@ a RIF and OWL documentation service</h2>
 
 
 
-      <p class="description">Indicates a Change resource to which a TSNComponent is an output object (i.e., a result of the Change event).</p>
+      <p class="description">Indicates a Change resource of which a TSNComponent is an output object (i.e., a result of the Change event).</p>
 
   <div>
 
@@ -4336,10 +4373,10 @@ a RIF and OWL documentation service</h2>
 	<div class="toc" id="individuals" style="border-radius: 10px;">
 	<h2>Individuals</h2>
 	<p>
-		  	<a href="#anchor1393566692">individual2026534537</a>
-	, 		  	<a href="#anchor1393566693">individual2026534538</a>
-	, 		  	<a href="#anchor1393566694">individual2026534539</a>
-	, 		  	<a href="#anchor1393566716">individual2026534540</a>
+		  	<a href="#anchor-1397478493">individual1418246482</a>
+	, 		  	<a href="#anchor-1397478492">individual1418246483</a>
+	, 		  	<a href="#anchor-1397478491">individual1418246484</a>
+	, 		  	<a href="#anchor-1397478490">individual1418246485</a>
 			</p>
 	</div>
 
@@ -4360,7 +4397,7 @@ a RIF and OWL documentation service</h2>
 	<div class="term">
 
 
-   <h3 id="anchor1393566692"><span class="parrot-element-title parrot-individual-title">individual2026534537</span> (Individual)
+   <h3 id="anchor-1397478493"><span class="parrot-element-title parrot-individual-title">individual1418246482</span> (Individual)
 
 
     <span class="menu">
@@ -4395,7 +4432,7 @@ a RIF and OWL documentation service</h2>
 	<div class="term">
 
 
-   <h3 id="anchor1393566693"><span class="parrot-element-title parrot-individual-title">individual2026534538</span> (Individual)
+   <h3 id="anchor-1397478492"><span class="parrot-element-title parrot-individual-title">individual1418246483</span> (Individual)
 
 
     <span class="menu">
@@ -4430,7 +4467,7 @@ a RIF and OWL documentation service</h2>
 	<div class="term">
 
 
-   <h3 id="anchor1393566694"><span class="parrot-element-title parrot-individual-title">individual2026534539</span> (Individual)
+   <h3 id="anchor-1397478491"><span class="parrot-element-title parrot-individual-title">individual1418246484</span> (Individual)
 
 
     <span class="menu">
@@ -4465,7 +4502,7 @@ a RIF and OWL documentation service</h2>
 	<div class="term">
 
 
-   <h3 id="anchor1393566716"><span class="parrot-element-title parrot-individual-title">individual2026534540</span> (Individual)
+   <h3 id="anchor-1397478490"><span class="parrot-element-title parrot-individual-title">individual1418246485</span> (Individual)
 
 
     <span class="menu">
@@ -4672,7 +4709,7 @@ a RIF and OWL documentation service</h2>
 </div>   </div>
 
 
-<div id="bottom-bar" style="overflow: hidden; position: fixed; bottom: 0px; margin-left: 190.5px;" class="jx-bar jx-bar-rounded-tl jx-bar-rounded-tr jx-bar-button jx-bar-button-rounded">
+<div id="bottom-bar" style="overflow: hidden; position: fixed; bottom: 0px; margin-left: 126px;" class="jx-bar jx-bar-rounded-tl jx-bar-rounded-tr jx-bar-button jx-bar-button-rounded">
         <ul>
             <li alt="Go to top"><a href="#"><img src="index_fichiers/top.png" alt="Go to top" style="vertical-align: bottom; border: 0px solid rgb(255, 255, 255);">&nbsp;Go to top</a></li>
         </ul>
@@ -4712,19 +4749,19 @@ a RIF and OWL documentation service</h2>
 
 	<!-- Feedback -->
 	<div>
-	<img id="feedback" src="index_fichiers/feedback.png" alt="feedback" style="background-color: rgb(132, 112, 255); left: 0px; top: 306.5px; position: fixed;" width="30" height="100">
+	<img id="feedback" src="index_fichiers/feedback.png" alt="feedback" style="background-color: rgb(132, 112, 255); left: 0px; top: 288px; position: fixed;" height="100" width="30">
 
 	</div>
   <!-- standalone -->
   <!-- <script type="text/javascript" src="standalone/ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script> -->
   <!-- <script type="text/javascript" src="standalone/ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script> -->
-  <script type="text/javascript" async="" src="index_fichiers/ga.js"></script><script type="text/javascript" src="index_fichiers/jquery_002.js"></script>
+  <script type="text/javascript" async="" src="index_fichiers/ga.js"></script><script type="text/javascript" src="index_fichiers/jquery_003.js"></script>
   <script type="text/javascript" src="index_fichiers/jquery-ui.js"></script>
   <script type="text/javascript" src="index_fichiers/feedback.js"></script>
 
-  <script type="text/javascript" src="index_fichiers/jquery_003.js"></script>
-  <script type="text/javascript" src="index_fichiers/jquery.js"></script>
   <script type="text/javascript" src="index_fichiers/jquery_004.js"></script>
+  <script type="text/javascript" src="index_fichiers/jquery.js"></script>
+  <script type="text/javascript" src="index_fichiers/jquery_002.js"></script>
   <script type="text/javascript" src="index_fichiers/javascript.js"></script>
 
   	<script type="text/javascript" src="index_fichiers/technical.js"></script>
@@ -4744,7 +4781,7 @@ a RIF and OWL documentation service</h2>
   </script>
 
 
-<div id="jx-menu-con-id"></div><div id="jx-uhid-con-id" class="jx-show jx-bar-rounded-tl jx-bar-rounded-tr jx-bar-button jx-bar-button-rounded" style="overflow: hidden; position: fixed; margin-left: 1674.5px; bottom: 0px; display: none;"><ul id="jx-uhid-itm-id"><li alt="Show toolbar"><a id="jx-uhid-btn-id" class="jx-show-button"></a></li></ul></div><div id="jx-ttip-con-id" style="height: auto; margin-left: 0px; width: 100%; overflow: hidden; position: fixed; margin-bottom: 36px; bottom: 0px;"></div><div style="display: none; z-index: 1000; outline: 0px none;" class="ui-dialog ui-widget ui-widget-content ui-corner-all " tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-feedback-dialog"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span class="ui-dialog-title" id="ui-dialog-title-feedback-dialog">Give us some feedback</span><a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div><div id="feedback-dialog" class="ui-dialog-content ui-widget-content">
+<div id="jx-menu-con-id"></div><div id="jx-uhid-con-id" class="jx-show jx-bar-rounded-tl jx-bar-rounded-tr jx-bar-button jx-bar-button-rounded" style="overflow: hidden; position: fixed; margin-left: 1095px; bottom: 0px; display: none;"><ul id="jx-uhid-itm-id"><li alt="Show toolbar"><a id="jx-uhid-btn-id" class="jx-show-button"></a></li></ul></div><div id="jx-ttip-con-id" style="height: auto; margin-left: 0px; width: 100%; overflow: hidden; position: fixed; margin-bottom: 36px; bottom: 0px;"></div><div style="display: none; z-index: 1000; outline: 0px none;" class="ui-dialog ui-widget ui-widget-content ui-corner-all " tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-feedback-dialog"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span class="ui-dialog-title" id="ui-dialog-title-feedback-dialog">Give us some feedback</span><a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div><div id="feedback-dialog" class="ui-dialog-content ui-widget-content">
 		<p><img src="index_fichiers/bug.png" alt="bug"> <a href="https://bitbucket.org/fundacionctic/parrot/issues/">Report a bug </a></p>
 		<p><img src="index_fichiers/heart.png" alt="request"> <a href="https://bitbucket.org/fundacionctic/parrot/issues/">Request a feature</a></p>
 		<p><img src="index_fichiers/contact.png" alt="contact"> <a href="https://bitbucket.org/fundacionctic/parrot/wiki/Home#%21contact">Contact us</a></p>
