@@ -23,16 +23,16 @@
 									[ a foaf:Person; foaf:name "Marlène VILLANOVA-OLIVER"; foaf:homepage <http://lig-membres.imag.fr/villanov/> ],
 									[ a foaf:Person; foaf:name "Jérôme GENSEL"; foaf:homepage <http://lig-membres.imag.fr/gensel/> ],
 									[ a foaf:Person; foaf:name "Hy DAO"; foaf:homepage <https://unige.ch/gedt/membres/dao/> ];
-	dcterms:description "This RDF ontology allows describing changes that occured from one version of a Territorial Statistical Nomenclature (TSN) (i.e., partition of the territory) and its subsequent (e.g., change in territorial units boundaries to reflect an administrative reorganisation)."@en;
+	dcterms:description "The TSN-Change ontology aims at describing changes that occured from one version of a Territorial Statistical Nomenclature (TSN) (i.e., partition of the territory) and its subsequent (e.g., change in territorial units boundaries to reflect an administrative reorganisation)."@en;
 	dcterms:issued "2017-01-31"^^xsd:date;
-	dcterms:modified "2017-01-31"^^xsd:date;
+	dcterms:modified "2017-05-15"^^xsd:date;
 	dcterms:publisher <http://steamer.imag.fr>;
 	dcterms:title "Territorial Statistical Nomenclature Change Ontology"@en;
 	vann:preferredNamespacePrefix "tsnchange";
 	vann:preferredNamespaceUri <http://purl.org/net/tsnchange#>;
 	cc:license <http://www.data.gouv.fr/Licence-Ouverte-Open-Licence>;
-	owl:versionInfo "1.0"^^xsd:decimal ;
-	rdfs:comment "First version of the vocabulary".
+	owl:versionInfo "2.0"^^xsd:decimal ;
+	rdfs:comment "Second version of the vocabulary. It enables the description of new operations of restructuration of the TSN: IdentificationRestructuration and HierarchyRestructuration, operation that impact several features at the same time.".
 
 #################################################################
 # Classes
@@ -41,175 +41,214 @@
 
 #---------- tsnchange CLASSES ---------------------
 
-tsnchange:Change a rdfs:Class ; # ou Change ?
+tsnchange:Change a rdfs:Class ;
    rdfs:label "Change"@en ;
-	 rdfs:comment "A Change node describes changes that occur from one TSN version to another: it acts like a bridge that chain features impacted by the change, from one version of the TSN to another. It groups under one set and describes several changes on feature (i.e., TerritoryVersion and Unit) that make sense grouped together. As \"a change is rarely isolated and independent from the other changes that occur simultaneously within the other units inside a given area\", we have to link \"together all the various units that were involved in a common territorial change\"  (Plumejeaud, C., Mathian, H., Gensel, J., Grasland, C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 25, 1597–1612 (2011)). The name assigned to the Change (e.g., Annexation, Merge, etc.) is the name of the event behind the set of territorial changes. The Change concept is based on the Change Bridge concept of (Kauppinen T, Hyvönen E. Modeling and reasoning about changes in ontology time series. In: Ontologies [Internet]. Springer; 2007. p. 319–338. Available from: http://link.springer.com/chapter/10.1007/978-0-387-37022-4_11): \"A change bridge is associated with a change point and tells, what current concepts become obsolete (if any), what new concepts are created (if any), and how the new concepts overlap with older ones.\"."@en ;
+	 rdfs:comment "The Change concept is the super class of all types of change that may occur from one TSN version to another. A Change node may group under one node several changes on TSNFeatures that make sense grouped together. As \"a change is rarely isolated and independent from the other changes that occur simultaneously within the other units inside a given area\", we have to link \"together all the various units that were involved in a common territorial change\"  (Plumejeaud, C., Mathian, H., Gensel, J., Grasland, C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 25, 1597–1612 (2011)). The Change concept is based on the Change Bridge concept of (Kauppinen T, Hyvönen E. Modeling and reasoning about changes in ontology time series. In: Ontologies [Internet]. Springer; 2007. p. 319–338. Available from: http://link.springer.com/chapter/10.1007/978-0-387-37022-4_11): \"A change bridge is associated with a change point and tells, what current concepts become obsolete (if any), what new concepts are created (if any), and how the new concepts overlap with older ones.\"."@en ;
    rdfs:subClassOf change:Change .
-
-tsnchange:TerritoryChange a rdfs:Class ;
-   rdfs:label "TerritoryChange"@en ;
-   rdfs:comment "TerritoryChange is the super class of Annexation and Cession Change. It may be composed of several sub-Change such as StructureChange, LevelChange and FeatureChange. It may affect one or several levels of the nomenclature. It describes modifications undergone by a territory and their consequences on the Levels and Units of the Nomenclature that covers this territory."@en ;
-   rdfs:subClassOf tsnchange:Change .
 
 tsnchange:StructureChange a rdfs:Class ;
    rdfs:label "StructureChange"@en ;
-   rdfs:comment "StructureChange is the super class of Merge, Split and Redistribution Change. It may be composed of several sub-Change such as LevelChange and FeatureChange. It may affect one or several levels and feature of the TSN. A StructureChange describes changes in the Nomenclature structure that impact several features, in contrast to FeatureChange that describe changes that affect only one feature. The set of feature impacted by the StructureChange event is determined following the rule described by (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 25, 1597–1612 (2011)):\"For any event type, a geometrical invariant defines the set of units involved in the one event: the combination of unit footprints that existed prior the event (preceding ones) is equal to the combination of unit footprints that are still in existence after the event (succeeding ones).\". Except in case of Annexation or Cession events, where changes on NomenclatureFeature are grouped together if they occur simultaneously, inside a area which extends from the new territory boundaries to unit(s) boundaries that match the ones of unit(s) before the event. This concept is equivalent to the \"evolution of spatial structure\" notion from (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2)."@en ;
+   rdfs:comment "The StructureChange concept describes restructuration operations that impact the TSN and several of its features simultaneously."@en ;
    rdfs:subClassOf tsnchange:Change .
 
-tsnchange:LevelChange a rdfs:Class ;
-   rdfs:label "LevelChange"@en ;
-   rdfs:comment "A LevelChange groups under one set, one or several FeatureChange, that occur simultaneously inside a given area and affect one or several Unit resources that belong to the same Level of the TSN. A Change that is not a sub-class of LevelChange may affect several levels of the nomenclature (e.g., Annexation or Merge may affect multiple Level resources, resulting in the description of the territorial modification at each impacted levels of the TSN, thanks to LevelChange descriptions)."@en ;
-	 rdfs:subClassOf tsnchange:Change .
-
 tsnchange:FeatureChange a rdfs:Class ;
-	 rdfs:label "FeatureChange"@en ;
-   rdfs:comment "FeatureChange describes one or a set of modifications that occur simultaneously (e.g., name change and expansion of a Unit) and affect one NomenclatureFeature resource (i.e., TerritoryVersion or Unit) that is an input or an output resource of the Change. This concept is closed to the concept \"Basic change\" of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2)."@en ;
-	 rdfs:subClassOf tsnchange:Change .
-
-#---------- TerritoryChange ---------------------
-
-tsnchange:Annexation a rdfs:Class ;
-    rdfs:label "Annexation"@en ;
-    rdfs:comment "A set of changes is called Annexation when, grouped together, the changes describe the transformation of the observed territory by incorporation of a region on the earth that was outside the external boundaries of the territory before the Annexation event. The Annexation event results in: (1) a new version of the observed territory (i.e., TerritoryVersion V+1) that incorporates a region on the earth that was outside the external boundaries of the TerritoryVersion V; (2) one or several StructureChange; (3) one or several LevelChange that describe the Annexation event at each Level impacted; (4) one or several FeatureChange on NomenclatureFeature (i.e., the territory but also, one or several Unit may undergone changes due to the Annexation event (e.g., Disappearance, NameChange, GeometryChange); (5) the Apperance of zero or several Unit in NomenclatureVersion V+1."@en ;
-	  rdfs:subClassOf tsnchange:TerritoryChange .
-
-tsnchange:Cession a rdfs:Class ;
-   rdfs:label "Cession"@en ;
-   rdfs:comment "A set of changes is called Cession when, grouped together, the changes describe the transformation of the observed territory by cession of a region on the earth that was inside the external boundaries of the territory before the Cession event. The Cession event results in: (1) a new version of the observed territory (i.e., TerritoryVersion V+1) that excludes a region on the earth that was inside the external boundaries of the TerritoryVersion V; (2) one or several StructureChange; (3) one or several LevelChange that describe the Cession event at each Levels impacted; (4) one or several FeatureChange on NomenclatureFeature (i.e., the territory but also, one or several Unit may undergone changes due to the Cession event (e.g., Disappearance, NameChange, GeometryChange); (5) the Disappearance of zero or several Unit in NomenclatureVersion V+1."@en ;
-   rdfs:subClassOf tsnchange:TerritoryChange .
+	rdfs:label "FeatureChange"@en ;
+	rdfs:comment "The FeatureChange concept describes one or a set of changes that occur simultaneously and affect only one TSNFeature resource (i.e., TerritoryVersion, LevelVersion or UnitVersion). This concept is closed to the concept \"Basic change\" of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2). And, this concept is equivalent to the \"LifeEvent:Transformation\" concept from the model of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612)."@en ;
+	rdfs:subClassOf tsnchange:Change .
 
 #---------- StructureChange ---------------------
 
+tsnchange:IdentificationRestructuration  a rdfs:Class ;
+	rdfs:label "IdentificationRestructuration"@en ;
+	rdfs:comment "The IdentificationRestructuration concept is a sub concept of the StructureChange concept. It describes changes that simultaneously affect several TSNFeature by modifying their attributs of identification. Those changes make sense grouped together (e.g., all the sub-units of a Super one are renamed)."@en ;
+	rdfs:subClassOf tsnchange:StructureChange .
+
+tsnchange:GeometryRestructuration  a rdfs:Class ;
+	rdfs:label "GeometryRestructuration"@en ;
+	rdfs:comment "The GeometryRestructuration concept is a sub concept of the StructureChange concept. It describes changes that simultaneously affect several TSNFeature by modifying their Geometry and sometime other attributs of the TSNFeatures. The set of TSNFeatures (TerritoryVersion, LevelVersion or UnitVersion) impacted by the GeometryRestructuration event is determined following the rule described by (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 25, 1597–1612 (2011)):\"For any event type, a geometrical invariant defines the set of units involved in the one event: the combination of unit footprints that existed prior the event (preceding ones) is equal to the combination of unit footprints that are still in existence after the event (succeeding ones).\". Except in case of GeometryRestructuration caused by a TerritoryChange that affect the external boundaries of the TerritoryVersion observed. Then, in this case, the set of TSNFeature (TerritoryVersion, LevelVersion or UnitVersion) impacted by the StructureChange event is determined following the rule: changes are grouped together if they occur simultaneously, inside a area which extends from the new territory boundaries to unit(s) boundaries that match the ones of unit(s) before the event. This concept is equivalent to the \"evolution of spatial structure\" notion from (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2)."@en ;
+	rdfs:subClassOf tsnchange:StructureChange .
+
+tsnchange:HierarchyRestructuration  a rdfs:Class ;
+	rdfs:label "HierarchyRestructuration"@en ;
+	rdfs:comment "The HierarchyRestructuration concept is a sub concept of the StructureChange concept. It describes changes that simultaneously affect several TSNFeature by modifying the hierarchy of the TSN. Those changes make sense grouped together (e.g., if a new Level integrate the nomenclature as well as new Unit composing this Level, then all those Appearance event of TSNFeatures will be grouped under one HierarchyRestructuration node)."@en ;
+	rdfs:subClassOf tsnchange:StructureChange .
+
+#---------- GeometryRestructuration ---------------------
+
 tsnchange:Merge a rdfs:Class ;
    rdfs:label "Merge"@en ;
-   rdfs:comment "Merge is the name of the event behind a Change caused by a merge of two or more units (that belong to the NomenclatureVersion V), into a single Unit in NomenclatureVersion V+1. A Merge event may impact one or several level(s) of the nomenclature. Then, the Change describes all the changes that affect the features, at each impacted level. This concept is equivalent to the \"Union\" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2): \"fusion of 'n' zones into a single entity (union)\"."@en ;
-   rdfs:subClassOf tsnchange:StructureChange .
+   rdfs:comment "The Merge concept describes the merge of two or more TSNFeatures (e.g., merge of two TerritoryVersion or merge of two UnitVersion), into a single TSNFeature. This concept is equivalent to the \"Union\" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2): \"fusion of 'n' zones into a single entity (union)\"."@en ;
+   rdfs:subClassOf tsnchange:GeometryRestructuration .
 
 tsnchange:Split a rdfs:Class ;
    rdfs:label "Split"@en ;
-   rdfs:comment "Split is the name of the event behind a Change caused by a split of a unit (that belong to the NomenclatureVersion V), into two or more units, in NomenclatureVersion V+1. A Split event may impact one or several level(s) of the nomenclature. Then, the Change describes all the changes that affect NomenclatureFeature, at each impacted level. This concept is equivalent to the \"Split\" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2): \"division of a zone into 'n' parts (split)\"."@en ;
-   rdfs:subClassOf tsnchange:StructureChange .
+   rdfs:comment "The Split concept describes the split of a TSNFeature, into two or more TSNFeature. This concept is equivalent to the \"Split\" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2): \"division of a zone into 'n' parts (split)\"."@en ;
+   rdfs:subClassOf tsnchange:GeometryRestructuration .
 
 tsnchange:Redistribution a rdfs:Class ;
    rdfs:label "Redistribution"@en ;
-   rdfs:comment "Redistribution is the name of the event behind a Change caused by a redistribution of a spatial area covered by 'n' Units in the NomenclatureVersion V to form 'p' new Unit(s) in NomenclatureVersion V+1. A Redistribution event may impact one or several level(s) of the nomenclature. Then, the Change describes all the changes that affect NomenclatureFeature, at each impacted level. This concept is equivalent to the \"Re-allocation\" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2): \"reallocation of land covered by 'n' initial zones to form 'p' new zones \"."@en ;
-   rdfs:subClassOf tsnchange:StructureChange .
+   rdfs:comment "The Redistribution concept describes operations of redistribution of the spatial area covered by 'n' TSNFeature(s) in the input NomenclatureVersion to form 'p' TSNFeature(s) in the output NomenclatureVersion. This concept is equivalent to the \"Re-allocation\" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2): \"reallocation of land covered by 'n' initial zones to form 'p' new zones \"."@en ;
+   rdfs:subClassOf tsnchange:GeometryRestructuration .
+
+tsnchange:ContinuationChange a rdfs:Class ;
+	rdfs:label "ContinuationChange"@en ;
+	rdfs:comment "The ContinuationChange concept describes restructuration operations that do not modify the identity of all the involved TSNFeatures that comes as input to the Change Operation."@en ;
+	rdfs:subClassOf tsnchange:GeometryRestructuration .
+
+tsnchange:DerivationChange  a rdfs:Class ;
+	rdfs:label "DerivationChange"@en ;
+	rdfs:comment "The DerivationChange concept describes restructuration operations that do modify the identity of  TSNFeatures that comes as input to the Change Operation."@en ;
+	rdfs:subClassOf tsnchange:GeometryRestructuration .
 
 #---------- Merge SubClasses ---------------------
+tsnchange:Integration a rdfs:Class ;
+   rdfs:label "Integration"@en ;
+   rdfs:comment "The Integration concept describes the merge of two or more TSNFeatures (e.g., merge of two TerritoryVersion or merge of two UnitVersion), into a single TSNFeature that existed before the change and maintains its identity after the change event (i.e., its identifier is not modified). This operation leads to: (1) the disappearance of at least one input TSNFeature ; (2) the Expansion of the footprint of the output TSNFeatures. Its new footprint is equal to the combination of all the footprint of the input TSNFeatures. This concept is equivalent to the \"Integration\" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612)."@en ;
+   rdfs:subClassOf tsnchange:ContinuationChange ;
+   rdfs:subClassOf tsnchange:Merge .
 
 tsnchange:Fusion a rdfs:Class ;
    rdfs:label "Fusion"@en ;
-   rdfs:comment "Fusion is the name of the event behind a Change that describe, at only one Nomenclature level, merge of Units that causes the disappearance of all the involved Units from NomenclatureVersion V to NomenclatureVersion V+1. This event leads to: (1) the disappearance of all the involved Unit(s) coming from the NomenclatureVersion V (i.e., the identity of the involved Units is not extended after the event i.e., at least the Nomenclature identifier of the Unit is modified after the event); (2) the creation of one Unit in the NomenclatureVersion V+1 with a footprint that is equal to the combination of the footprint of all the involved Units in NomenclatureVersion V. This concept is equivalent to the \"Fusion\" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612)."@en ;
-   rdfs:subClassOf tsnchange:LevelChange ;
-   rdfs:subClassOf tsnchange:Merge .
-
-tsnchange:Integration a rdfs:Class ;
-   rdfs:label "Integration"@en ;
-   rdfs:comment "Integration is the name of the event behind a Change that describes, at only one Nomenclature level, merge of Units that maintains the existence of one of the involved Units from NomenclatureVersion V to NomenclatureVersion V+1. This event leads to: (1) the disappearance of at least one Unit coming from the NomenclatureVersion V (i.e., the identity of the Unit is not extended after the event i.e., at least the Nomenclature identifier of the Unit is modified after the event); (2) the Expansion of the footprint of one Unit of the NomenclatureVersion V after the change event (i.e. Expansion event). Its new footprint in NomenclatureVersion V+1 is equal to the combination of all the footprint of the involved Units in NomenclatureVersion V.  The identity of this Unit is not modified after the event (i.e., its Nomenclature identifier is not modified). This concept is equivalent to the \"Integration\" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612)."@en ;
-   rdfs:subClassOf tsnchange:LevelChange ;
+   rdfs:comment "The Fusion concept describes the merge of two or more TSNFeatures (e.g., merge of two TerritoryVersion or merge of two UnitVersion), into a single new TSNFeature that do not existed before the change. This operation leads to: (1) the disappearance of all the input TSNFeature(s) (i.e., the identity of the involved TSNFeatures is not extended after the Fusion); (2) the creation of one output TSNFeature whose footprint is equal to the combination of all the footprint of the input TSNFeatures. This concept is equivalent to the \"Fusion\" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612)."@en ;
+   rdfs:subClassOf tsnchange:DerivationChange ;
    rdfs:subClassOf tsnchange:Merge .
 
 #---------- Split SubClasses---------------------
+tsnchange:Extraction a rdfs:Class ;
+   rdfs:label "Extraction"@en ;
+   rdfs:comment "The Extraction concept describes the split of one TSNFeature (into two or more TSNFeatures) that nevertheless maintains its identity after the change event (i.e., its identifier is not modified). This operation leads to: (1) the Appearance of at least one new TSNFeature as an output of the change event: this/those new TSNFeature(s) take(s) territory from the input TSNFeature ; (2) the Contraction of the footprint of the input TSNFeature that nevertheless still exist after the change event. This concept is equivalent to the \"Extraction\" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612)."@en ;
+   rdfs:subClassOf tsnchange:ContinuationChange ;
+   rdfs:subClassOf tsnchange:Split .
 
 tsnchange:Scission a rdfs:Class ;
    rdfs:label "Scission"@en ;
-   rdfs:comment "Scission is the name of the event behind a Change that describes, at only one Nomenclature level, the split of one Unit that causes the disappearance of the involved Unit from NomenclatureVersion V to NomenclatureVersion V+1. This event leads to: (1) the disappearance of the involved Unit coming from the NomenclatureVersion V (i.e., the identity of the involved Unit is not extended after the event i.e., at least the Nomenclature identifier of the Unit is modified); (2) the creation of two or more Units in the NomenclatureVersion V+1 by split of the footprint of the input Unit in NomenclatureVersion V. This concept is equivalent to the \"Scission\" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612)."@en ;
-   rdfs:subClassOf tsnchange:LevelChange ;
-   rdfs:subClassOf tsnchange:Split .
-
-tsnchange:Extraction a rdfs:Class ;
-   rdfs:label "Extraction"@en ;
-   rdfs:comment "Extraction is the name of the event behind a Change that describes, at only one Nomenclature level, the split of one Unit that nevertheless maintains its existence from NomenclatureVersion V to NomenclatureVersion V+1. This event leads to: (1) the Appearance of at least one output Unit in the NomenclatureVersion V+1: this/those new Unit(s) in NomenclatureVersion V+1 take(s) territory from the input Unit of NomenclatureVersion V; (2) the Contraction of the footprint of the Unit of the NomenclatureVersion V that nevertheless still exist after the change event (i.e., Contraction event). The identity of this Unit is not modified after the event (i.e., its Nomenclature identifier is not modified). This concept is equivalent to the \"Extraction\" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612)."@en ;
-   rdfs:subClassOf tsnchange:LevelChange ;
+   rdfs:comment "The Scission concept describes the split of one TSNFeature (into two or more TSNFeatures) that ceases to exist after the change event. This operation leads to: (1) the disappearance of the input TSNFeature (i.e., the identity of this TSNFeature is not extended after the event i.e., at least the identifier of the TSNFeature is modified); (2) the creation of two or more Units in the NomenclatureVersion V+1 by split of the footprint of the input Unit in NomenclatureVersion V. This concept is equivalent to the \"Scission\" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612)."@en ;
+   rdfs:subClassOf tsnchange:DerivationChange ;
    rdfs:subClassOf tsnchange:Split .
 
 #---------- Redistribution SubClasses---------------------
-
-tsnchange:Reallocation a rdfs:Class ;
-   rdfs:label "Reallocation"@en ;
-   rdfs:comment "Reallocation is the name of the event behind a Change that describes, at only one Nomenclature level, the Redistribution of a spatial area covered by 'n' Units in the NomenclatureVersion V into 'p' new Unit(s) in NomenclatureVersion V+1 and that causes the disappearance of all the involved Units from NomenclatureVersion V to NomenclatureVersion V+1. This event leads to: (1) the disappearance of all the input Units coming from the NomenclatureVersion V (i.e., the identity of the involved Units is not extended after the event i.e., at least the Nomenclature identifier of the Unit is modified); (2) the creation of 'p' Units in the NomenclatureVersion V+1 by redistribution of the spatial area covered by the 'n' Units in NomenclatureVersion V. This concept is equivalent to the \"Reallocation\" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612)."@en ;
-   rdfs:subClassOf tsnchange:LevelChange ;
-   rdfs:subClassOf tsnchange:Redistribution .
-
 tsnchange:Rectification a rdfs:Class ;
    rdfs:label "Rectification"@en ;
-   rdfs:comment "Rectification is the name of the event behind a Change that describes, at only one Nomenclature level, the Redistribution of a spatial area by modification of the Geometry of all the involved Units from NomenclatureVersion V to NomenclatureVersion V+1 (i.e., Deformation event). The identity of those Units is nevertheless not modified (i.e., the Nomenclature identifiers of the Units are not modified). The combination of footprints of Units in NomenclatureVersion V+1 is equal to the combination of footprints of Units in NomenclatureVersion V. This concept is equivalent to the \"Rectification\" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612)."@en ;
-   rdfs:subClassOf tsnchange:LevelChange ;
+   rdfs:comment "The Rectification concept describes operations of redistribution of the spatial area, without modifying the identity of all the input TSNFeatures (i.e., their identifier is not modified), but modifying their Geometry. The combination of footprints of the input TSNFeatures is equal to the combination of footprints of the output TSNFeatures. This concept is equivalent to the \"Rectification\" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612)."@en ;
+   rdfs:subClassOf tsnchange:ContinuationChange ;
    rdfs:subClassOf tsnchange:Redistribution .
+
+tsnchange:Reallocation a rdfs:Class ;
+	 rdfs:label "Reallocation"@en ;
+	 rdfs:comment "The Reallocation concept describes operations of redistribution of the spatial area that modify the identity of all the input TSNFeatures (i.e., their identifier is modified), and modify their Geometry. The combination of footprints of the input TSNFeatures is equal to the combination of footprints of the output TSNFeatures. This operation leads to: (1) the disappearance of all the 'n' input TSNFeatures ; (2) the creation of 'p' TSNFeatures as output to the change event by redistribution of the spatial area covered by the 'n' input TSNFeatures. This concept is equivalent to the \"Reallocation\" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612)."@en ;
+	 rdfs:subClassOf tsnchange:DerivationChange ;
+	 rdfs:subClassOf tsnchange:Redistribution .
 
 # ==================== FeatureChange Types ======================
 
+tsnchange:TerritoryChange a rdfs:Class ;
+   rdfs:label "TerritoryChange"@en ;
+   rdfs:comment "The TerritoryChange concept describes all the changes undergone by a TerritoryVersion feature from one TSN version to another."@en ;
+   rdfs:subClassOf tsnchange:FeatureChange .
+
+tsnchange:LevelChange a rdfs:Class ;
+	 rdfs:label "LevelChange"@en ;
+	 rdfs:comment "The LevelChange concept describes all the changes undergone by a LevelVersion feature from one TSN version to another."@en ;
+	 rdfs:subClassOf tsnchange:FeatureChange .
+
+tsnchange:UnitChange a rdfs:Class ;
+	 rdfs:label "UnitChange"@en ;
+	 rdfs:comment "The UnitChange concept describes all the changes undergone by a UnitVersion feature from one TSN version to another."@en ;
+	 rdfs:subClassOf tsnchange:FeatureChange .
+
 tsnchange:Appearance a rdfs:Class ;
    rdfs:label "Appearance"@en ;
-   rdfs:comment "Appearance (or Creation) of a new feature (i.e., TerritoryVersion or Unit) as an output resource of the Change. \"Appearance\" means the Nomenclature Identifier of the new feature is different from all that already exist, in the NomenclatureVersion V and V+1. This concept is equivalent to the \"Appearance\" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2)."@en ;
+   rdfs:comment "The Appearance concept describes the appearance (or creation) of a new TSNFeature (i.e., TerritoryVersion, LevelVersion or UnitVersion) as an output to the change event. \"Appearance\" means the identifier of the new TSNFeature is different from all that already exist, in the input and output NomenclatureVersion. This concept is equivalent to the \"Appearance\" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2)."@en ;
    rdfs:subClassOf tsnchange:FeatureChange .
 
 tsnchange:Disappearance a rdfs:Class ;
    rdfs:label "Disappearance"@en ;
-   rdfs:comment "Disappearance (or End) of a feature (i.e., TerritoryVersion or Unit) which comes as an input resource to the Change. \"Disappearance\" means the feature no longer exists after the change event. No feature will have its Nomenclature Identifier in the output NomenclatureVersion V+1. This concept is equivalent to the \"Disappearance\" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2)."@en ;
+   rdfs:comment "The Disappearance concept describes the disappearance (or end) of a TSNFeature (i.e., TerritoryVersion, LevelVersion or UnitVersion) that comes as an input resource to the change event: the TSNFeature no longer exists after the change event i.e., no TSNFeature will carry its identifier in the output NomenclatureVersion. This concept is equivalent to the \"Disappearance\" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2)."@en ;
    rdfs:subClassOf tsnchange:FeatureChange .
 
 tsnchange:IdentificationChange a rdfs:Class ;
    rdfs:label "IdentificationChange"@en ;
-   rdfs:comment "IdentificationChange is the super class of IdentifierChange, NameChange and UnitHierarchyChange. This Change groups under one node all the simultaneous changes that may affect the identity characteristics of a NomenclatureFeature. This concept is equivalent to the \"LifeEvent:Transformation\" concept from the model of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612)."@en ;
+   rdfs:comment "The IdentificationChange concept describes change(s) that modify the identifier, name, acronym and/or description attributs of one TSNFeature."@en ;
    rdfs:subClassOf tsnchange:FeatureChange .
 
 tsnchange:GeometryChange a rdfs:Class ;
    rdfs:label "GeometryChange"@en ;
-   rdfs:comment "GeometryChange is the super class of Deformation, Contraction, Expansion. This Change describes the modifications of the Geometry and Footprint of a NomenclatureFeature (i.e., TerritoryVersion or Unit). This concept is equivalent to the \"Transformation\" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2): \"transformations processes involving chn-ange in shape or size: expansion, contraction and deformation (i.e. shape modification without size change)\"."@en ;
+   rdfs:comment "The GeometryChange concept describes modification of the Geometry of one TSNFeature (i.e., TerritoryVersion, LevelVersion or UnitVersion). This concept is equivalent to the \"Transformation\" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2): \"transformations processes involving chn-ange in shape or size: expansion, contraction and deformation (i.e. shape modification without size change)\"."@en ;
    rdfs:subClassOf tsnchange:FeatureChange .
 
-#---------- GeometryChange ---------------------
+tsnchange:HierarchyChange a rdfs:Class ;
+	 rdfs:label "HierarchyChange"@en ;
+	 rdfs:comment "The HierarchyChange concept describes modification of the position of one TSNFeature (LevelVersion or UnitVersion) in the NomenclatureVersion hierarchy. For example, a Unit may change the Level it belongs to."@en ;
+	 rdfs:subClassOf tsnchange:FeatureChange .
 
+#---------- GeometryChange ---------------------
 tsnchange:Expansion a rdfs:Class ;
    rdfs:label "Expansion"@en ;
-   rdfs:comment "Expansion of a NomenclatureFeature, in terms of shape, means its size increase between the previous and the next NomenclatureVersion. This concept is equivalent to the \"Expansion\" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2)"@en ;
+   rdfs:comment "Expansion of a TSNFeature, in terms of shape, means its size increase between the input NomenclatureVersion and the output NomenclatureVersion. This concept is equivalent to the \"Expansion\" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2)."@en ;
    rdfs:subClassOf tsnchange:GeometryChange .
 
 tsnchange:Contraction a rdfs:Class ;
    rdfs:label "Contraction"@en ;
-   rdfs:comment "Contraction of a NomenclatureFeature, in terms of shape, means its size decrease between the previous and the next NomenclatureVersion. This concept is equivalent to the \"Contraction\" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2)"@en ;
+   rdfs:comment "Contraction of a TSNFeature, in terms of shape, means its size decrease between the input NomenclatureVersion and the output NomenclatureVersion. This concept is equivalent to the \"Contraction\" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2)."@en ;
    rdfs:subClassOf tsnchange:GeometryChange .
 
 tsnchange:Deformation a rdfs:Class ;
    rdfs:label "Deformation"@en ;
-   rdfs:comment "Deformation of a NomenclatureFeature describes shape modification without size change, between the previous and the next NomenclatureVersion. This concept is equivalent to the \"Deformation\" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2)"@en ;
+   rdfs:comment "Deformation of a TSNFeature describes shape modification without size change between the input NomenclatureVersion and the output NomenclatureVersion. This concept is equivalent to the \"Deformation\" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2)."@en ;
    rdfs:subClassOf tsnchange:GeometryChange .
 
 #---------- IdentificationChange ---------------------
+tsnchange:IdentifierChange a rdfs:Class ;
+   rdfs:label "IdentifierChange"@en ;
+   rdfs:comment "The identifier (within the TSN) of a TSNFeature changes."@en ;
+   rdfs:subClassOf tsnchange:IdentificationChange .
 
 tsnchange:NameChange a rdfs:Class ;
    rdfs:label "NameChange"@en ;
-   rdfs:comment "The name of a feature changes."@en ;
-   rdfs:subClassOf tsnchange:IdentificationChange .
-
-tsnchange:IdentifierChange a rdfs:Class ;
-   rdfs:label "IdentifierChange"@en ;
-   rdfs:comment "The identifier (within the TSN) of a feature changes."@en ;
+   rdfs:comment "The name of a TSNFeature changes."@en ;
    rdfs:subClassOf tsnchange:IdentificationChange .
 
 tsnchange:AcronymChange a rdfs:Class ;
    rdfs:label "AcronymChange"@en ;
-   rdfs:comment "The acronym of a feature changes."@en ;
+   rdfs:comment "The acronym of a TSNFeature changes."@en ;
    rdfs:subClassOf tsnchange:IdentificationChange .
 
-tsnchange:UnitHierarchyChange a rdfs:Class ; # UnitHierarchyChange?
+tsnchange:DescriptionChange a rdfs:Class ;
+	    rdfs:label "DescriptionChange"@en ;
+	    rdfs:comment "The description of a TSNFeature changes."@en ;
+	    rdfs:subClassOf tsnchange:IdentificationChange .
+
+#---------- HierarchyChange - UnitHierarchyChange---------------------
+tsnchange:UnitHierarchyChange a rdfs:Class ;
    rdfs:label "UnitHierarchyChange"@en ;
-   rdfs:comment "UnitHierarchyChange is the super class of UnitLevelChange and SuperUnitChange. This Change aims at describing changes that affect only the feature that are Unit resources: changes in terms of hierarchy of the Unit (e.g., change in the level it belongs to and/or Super unit change)."@en ;
-   rdfs:subClassOf tsnchange:IdentificationChange .
+   rdfs:comment "The UnitHierarchyChange concept describes changes that affect TSNFeatures that are of type UnitVersion. It describes changes of the Unit position within the TSN hierarchy (e.g., change in the level it belongs to and/or Super unit change)."@en ;
+   rdfs:subClassOf tsnchange:HierarchyChange .
 
-#---------- UnitIdentificationChange ---------------------
-
-tsnchange:UnitLevelChange a rdfs:Class ;
-   rdfs:label "UnitLevelChange"@en ;
+tsnchange:LevelBelongingChange a rdfs:Class ;
+   rdfs:label "LevelBelongingChange"@en ;
    rdfs:comment "The level a Unit belongs to changes."@en ;
    rdfs:subClassOf tsnchange:UnitHierarchyChange .
 
 tsnchange:SuperUnitChange a rdfs:Class ;
    rdfs:label "SuperUnitChange"@en ;
-   rdfs:comment "The Super Unit of a Unit changes i.e., at least the Nomenclature Identifier of the Super Unit is not the same after the change event (others properties of the Super Unit may have changed in addition to the Identifier or the Super Unit is completely a new one)."@en ;
+   rdfs:comment "The Super Unit of a Unit changes i.e., the Identifier of the Super Unit is not the same between the input and output NomenclatureVersion."@en ;
    rdfs:subClassOf tsnchange:UnitHierarchyChange .
 
+#---------- HierarchyChange - LevelHierarchyChange ---------------------
+tsnchange:LevelHierarchyChange a rdfs:Class ;
+   rdfs:label "LevelHierarchyChange"@en ;
+   rdfs:comment "The LevelHierarchyChange concept describes changes that affect TSNFeatures that are of type LevelVersion. It describes changes of the Level position within the TSN hierarchy."@en ;
+   rdfs:subClassOf tsnchange:HierarchyChange .
+
+tsnchange:UpperLevelChange a rdfs:Class ;
+   rdfs:label "UpperLevelChange"@en ;
+   rdfs:comment "The upper level  of a level changes."@en ;
+   rdfs:subClassOf tsnchange:LevelHierarchyChange .
+
+tsnchange:LowerLevelChange a rdfs:Class ;
+   rdfs:label "LowerLevelChange"@en ;
+   rdfs:comment "The lower level  of a level changes."@en ;
+   rdfs:subClassOf tsnchange:LevelHierarchyChange .
 
 #################################################################
 # Object properties
@@ -219,14 +258,14 @@ tsnchange:SuperUnitChange a rdfs:Class ;
 
 tsnchange:input  a rdf:Property ;
    rdfs:label "input"@en ;
-   rdfs:comment "Indicates a Change resource of which a TSNComponent is an input object (i.e., a object subject to changes)."@en ;
+   rdfs:comment "Indicates a Change resource  of which a TSNComponent is an input resource (i.e., an object subject to change)."@en ;
    rdfs:domain  tsn:TSNComponent ;
    rdfs:range tsnchange:Change ;
    owl:inverseOf  tsnchange:before .
 
 tsnchange:output  a rdf:Property ;
    rdfs:label "output"@en ;
-   rdfs:comment "Indicates a Change resource of which a TSNComponent is an output object (i.e., a result of the Change event)."@en ;
+   rdfs:comment "Indicates a Change resource of which a TSNComponent is an output resource (i.e., a result of the Change event)."@en ;
    rdfs:domain  tsn:TSNComponent ;
    rdfs:range tsnchange:Change ;
    owl:inverseOf  tsnchange:after .
@@ -235,14 +274,14 @@ tsnchange:output  a rdf:Property ;
 
 tsnchange:inputTerritoryVersion  a rdf:Property ;
    rdfs:label "inputTerritoryVersion"@en ;
-   rdfs:comment "Indicates a Change of which a TerritoryVersion resource is an input object i.e., the Territory is subject to changes."@en ;
+   rdfs:comment "Indicates a Change of which a TerritoryVersion is an input resource."@en ;
    rdfs:domain tsn:TerritoryVersion ;
    rdfs:range  tsnchange:Change ;
    rdfs:subPropertyOf tsnchange:input.
 
 tsnchange:outputTerritoryVersion a rdf:Property ;
    rdfs:label "outputTerritoryVersion"@en ;
-   rdfs:comment "Indicates a Change of which a TerritoryVersion resource is an output object i.e., the Territory has undergone changes resulting in a new version of the Territory as an output of a Change."@en ;
+   rdfs:comment "Indicates a Change of which a TerritoryVersion is an output resource."@en ;
    rdfs:domain tsn:TerritoryVersion ;
    rdfs:range  tsnchange:Change ;
    rdfs:subPropertyOf tsnchange:output.
@@ -251,46 +290,45 @@ tsnchange:outputTerritoryVersion a rdf:Property ;
 
 tsnchange:inputNomenclatureVersion  a rdf:Property ;
    rdfs:label "inputNomenclatureVersion"@en ;
-   rdfs:comment "Indicates a Change of which a NomenclatureVersion resource is an input object i.e., the Nomenclature is subject to changes."@en ;
+   rdfs:comment "Indicates a Change of which a NomenclatureVersion is an input resource."@en ;
    rdfs:domain tsn:NomenclatureVersion ;
    rdfs:range  tsnchange:Change ;
    rdfs:subPropertyOf tsnchange:input.
 
 tsnchange:outputNomenclatureVersion a rdf:Property ;
    rdfs:label "outputNomenclatureVersion"@en ;
-   rdfs:comment "Indicates a Change of which a NomenclatureVersion resource is an output object i.e., the Nomenclature has undergone changes resulting in a new version of the Nomenclature as an output of a Change."@en ;
+   rdfs:comment "Indicates a Change of which a NomenclatureVersion is an output resource."@en ;
    rdfs:domain tsn:NomenclatureVersion ;
    rdfs:range  tsnchange:Change ;
    rdfs:subPropertyOf tsnchange:output.
 
 # -----------------  Level properties ---------------
 
-tsnchange:inputLevel  a rdf:Property ;
-   rdfs:label "inputLevel"@en ;
-   rdfs:comment "Indicates a Change of which a Level resource is an input object i.e., the level is subject to changes"@en ;
+tsnchange:inputLevelVersion  a rdf:Property ;
+   rdfs:label "inputLevelVersion"@en ;
+   rdfs:comment "Indicates a Change of which a LevelVersion is an input resource."@en ;
    rdfs:domain tsn:Level ;
    rdfs:range  tsnchange:Change ;
    rdfs:subPropertyOf tsnchange:input.
 
-tsnchange:outputLevel a rdf:Property ;
-   rdfs:label "outputLevel"@en ;
-   rdfs:comment "Indicates a Change of which a Level resource is an output object i.e., the Nomenclature and its levels have undergone changes resulting in a new version of the Nomenclature and of its levels as an output of a Change."@en ;
+tsnchange:outputLevelVersion a rdf:Property ;
+   rdfs:label "outputLevelVersion"@en ;
+   rdfs:comment "Indicates a Change of which a LevelVersion is an output resource."@en ;
    rdfs:domain tsn:Level ;
    rdfs:range  tsnchange:Change ;
    rdfs:subPropertyOf tsnchange:output.
 
-# ----------------- Unit properties -----------------
-
-tsnchange:inputUnit  a rdf:Property ;
-   rdfs:label "inputUnit"@en ;
-   rdfs:comment "Indicates a Change of which a Unit resource is an input object i.e., the unit is subject to changes from one NomenclatureVersion to another."@en ;
+# ----------------- UnitVersion properties -----------------
+tsnchange:inputUnitVersion  a rdf:Property ;
+   rdfs:label "inputUnitVersion"@en ;
+   rdfs:comment "Indicates a Change of which a UnitVersion is an input resource."@en ;
    rdfs:domain tsn:Unit ;
    rdfs:range  tsnchange:Change ;
    rdfs:subPropertyOf tsnchange:input.
 
-tsnchange:outputUnit a rdf:Property ;
-   rdfs:label "outputUnit"@en ;
-   rdfs:comment "Indicates a Change of which a Unit resource is an output object i.e., the Nomenclature and its units have undergone changes resulting in a new version of the Nomenclature and of its units as an output of a Change."@en ;
+tsnchange:outputUnitVersion a rdf:Property ;
+   rdfs:label "outputUnitVersion"@en ;
+   rdfs:comment "Indicates a Change of which a UnitVersion is an output resource."@en ;
    rdfs:domain tsn:Unit ;
    rdfs:range  tsnchange:Change ;
    rdfs:subPropertyOf tsnchange:output.
@@ -301,29 +339,33 @@ tsnchange:label a rdf:Property ;
    rdfs:label "label"@en ;
    rdfs:comment "Assign a name to the change that occurred."@en ;
    rdfs:domain  tsnchange:Change ;
-   rdfs:range tsn:NomenclatureFeature ;
+   rdfs:range tsn:TSNFeature ;
 	 owl:equivalentProperty rdfs:label .
 
 tsnchange:date a rdf:Property ;
    rdfs:label "date"@en ;
    rdfs:comment "Assign a date to the change that occurred."@en ;
    rdfs:domain  tsnchange:Change ;
-   rdfs:range tsn:NomenclatureFeature ;
+   rdfs:range tsn:TSNFeature ;
 	 owl:equivalentProperty dcterms:date .
 
-tsnchange:causes a rdf:Property ;
-   rdfs:label "causes"@en ;
-   rdfs:comment "Indicates a Change that is caused by the described Change resource."@en ;
+tsnchange:upperChange a rdf:Property ;
+   rdfs:label "upperChange"@en ;
+   rdfs:comment "Indicates an upper Change that causes the described Change. The Change hierarchy is alligned on the Nomenclature components hierarchy i.e., Nomenclature > Territory > Level > Unit. Then a change that affect a Territory is above a change that affect the levels of the TSN."@en ;
    rdfs:domain  tsnchange:Change ;
-   rdfs:range tsnchange:Change ;
-	 owl:inverseOf tsnchange:isCausedBy .
+   rdfs:range tsnchange:Change .
 
-tsnchange:isCausedBy a rdf:Property ;
+tsnchange:lowerChange a rdf:Property ;
+	 rdfs:label "lowerChange"@en ;
+	 rdfs:comment "Indicates a lower Change that is caused by the described Change. The Change hierarchy is alligned on the Nomenclature components hierarchy i.e., Nomenclature > Territory > Level > Unit. Then a change that affect a Territory is above a change that affect the levels of the TSN."@en ;
+	 rdfs:domain  tsnchange:Change ;
+	 rdfs:range tsnchange:Change .
+
+tsnchange:isCausedBy a rdf:Property ; # Changement due à une cause du type : administrative reorganisation
    rdfs:label "isCausedBy"@en ;
-   rdfs:comment "Indicates a Change that causes the described Change resource."@en ;
+   rdfs:comment "Indicates a societal or other cause to the described Change (e.g., administrative reform)."@en ;
    rdfs:domain  tsnchange:Change ;
-   rdfs:range tsnchange:Change ;
-	 owl:inverseOf tsnchange:causes .
+   rdfs:range owl:Thing .
 
 tsnchange:before  a rdf:Property ;
    rdfs:label "before"@en ;
@@ -371,34 +413,34 @@ tsnchange:territoryVersionAfter a rdf:Property ;
    rdfs:subPropertyOf tsnchange:after ;
 	 owl:inverseOf tsnchange:outputTerritoryVersion .
 
-tsnchange:levelBefore a rdf:Property ;
-   rdfs:label "levelBefore"@en ;
+tsnchange:levelVersionBefore a rdf:Property ;
+   rdfs:label "levelVersionBefore"@en ;
    rdfs:comment "Indicates a Level before a change event."@en ;
    rdfs:domain  tsnchange:Change ;
-   rdfs:range tsn:Level ;
+   rdfs:range tsn:LevelVersion ;
    rdfs:subPropertyOf tsnchange:before ;
-	 owl:inverseOf tsnchange:inputLevel .
+	 owl:inverseOf tsnchange:inputLevelVersion .
 
-tsnchange:levelAfter a rdf:Property ;
-   rdfs:label "levelAfter"@en ;
-   rdfs:comment "Indicates a Level after a change event."@en ;
+tsnchange:levelVersionAfter a rdf:Property ;
+   rdfs:label "levelVersionAfter"@en ;
+   rdfs:comment "Indicates a LevelVersion after a change event."@en ;
    rdfs:domain  tsnchange:Change ;
-   rdfs:range tsn:Level ;
+   rdfs:range tsn:LevelVersion ;
    rdfs:subPropertyOf tsnchange:after ;
-	 owl:inverseOf tsnchange:outputLevel .
+	 owl:inverseOf tsnchange:outputLevelVersion .
 
-tsnchange:unitBefore a rdf:Property ;
-   rdfs:label "unitBefore"@en ;
-   rdfs:comment "Indicates a Unit before a change event."@en ;
+tsnchange:unitVersionBefore a rdf:Property ;
+   rdfs:label "unitVersionBefore"@en ;
+   rdfs:comment "Indicates a UnitVersion before a change event."@en ;
    rdfs:domain  tsnchange:Change ;
-   rdfs:range tsn:Unit ;
+   rdfs:range tsn:UnitVersion ;
    rdfs:subPropertyOf tsnchange:before ;
-	 owl:inverseOf tsnchange:inputUnit .
+	 owl:inverseOf tsnchange:inputUnitVersion .
 
-tsnchange:unitAfter a rdf:Property ;
-   rdfs:label "unitAfter"@en ;
-   rdfs:comment "Indicates a Unit after a change event."@en ;
+tsnchange:unitVersionAfter a rdf:Property ;
+   rdfs:label "unitVersionAfter"@en ;
+   rdfs:comment "Indicates a UnitVersion after a change event."@en ;
    rdfs:domain  tsnchange:Change ;
-   rdfs:range tsn:Unit ;
+   rdfs:range tsn:UnitVersion ;
    rdfs:subPropertyOf tsnchange:after ;
-	 owl:inverseOf tsnchange:outputUnit .
+	 owl:inverseOf tsnchange:outputUnitVersion .
