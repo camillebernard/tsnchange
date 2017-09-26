@@ -270,6 +270,22 @@ tsnchange:output  a rdf:Property ;
    rdfs:range tsnchange:Change ;
    owl:inverseOf  tsnchange:after .
 
+#---------------------- Version Properties
+
+tsnchange:isSuccessorOf  a rdf:Property ;
+   rdfs:label "isSuccessorOf"@en ;
+   rdfs:comment "Indicates the successor Version of a Version resource."@en ;
+   rdfs:domain  tsn:Version ;
+   rdfs:range  tsn:Version ;
+   owl:inverseOf  tsn:isPredecessorOf .
+
+tsnchange:isPredecessorOf  a rdf:Property ;
+   rdfs:label "isPredecessorOf"@en ;
+   rdfs:comment "Indicates the predecessor Version of a Version resource."@en ;
+   rdfs:domain  tsn:Version ;
+   rdfs:range  tsn:Version ;
+   owl:inverseOf  tsn:isSuccessorOf .
+
 # ----------------- TerritoryVersion properties ----------
 
 tsnchange:inputTerritoryVersion  a rdf:Property ;

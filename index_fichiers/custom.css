@@ -21,7 +21,7 @@ h1, h2, h3, h4, h5, h6,.toc {color: #5674BC; }
 h1 { font: 170% sans-serif;  }
 h2, .toc b { font: 140% sans-serif }
 h4 {
-	margin-bottom: 0.5em;
+        margin-bottom: 0.5em;
 }
 
 .details {
@@ -31,11 +31,11 @@ h4 {
 }
 
 .term p{
-	margin-top: 0em;
+        margin-top: 0em;
 }
 
 div.term a{
-	font-family: monospace;
+        font-family: monospace;
 }
 
 div.term > div{
@@ -53,156 +53,156 @@ div.term > div{
 }
 
 div.toc , div#prologue , div#appendix{
-	padding: 0em 1em 1em 1em;
-	border: solid #5674BC;
-	background-color: transparent;
+        padding: 0em 1em 1em 1em;
+        border: solid #5674BC;
+        background-color: transparent;
     margin: 1em -2em 0em -2em;
 }
 
 dt{
- 	font-weight:bold;
+        font-weight:bold;
 }
 
 .parrot-element-ref {
-	background-repeat: no-repeat;
-	background-position: 0 50%;
-	padding-left: 18px;
+        background-repeat: no-repeat;
+        background-position: 0 50%;
+        padding-left: 18px;
 }
 
 .parrot-element-title {
-	background-repeat: no-repeat;
-	background-position: 0 50%;
-	padding-left: 26px;
+        background-repeat: no-repeat;
+        background-position: 0 50%;
+        padding-left: 26px;
 }
 
 .parrot-undefined-ref{
-	padding-left: 0px;
+        padding-left: 0px;
 }
 
 .parrot-ontology-ref {
-	background-image: url("icon-ontology-16.png");
+        background-image: url("icon-ontology-16.png");
 }
 
 .parrot-ontology-title {
-	background-image: url("icon-ontology-16.png");
+        background-image: url("icon-ontology-16.png");
 }
 
 .parrot-class-ref {
-	background-image: url("icon-class-16.png");
+        background-image: url("icon-class-16.png");
 }
 
 .parrot-class-title {
-	background-image: url("icon-class-16.png");
+        background-image: url("icon-class-16.png");
 }
 
 .parrot-property-ref {
-	background-image: url("icon-property-16.png");
+        background-image: url("icon-property-16.png");
 }
 
 .parrot-property-title {
-	background-image: url("icon-property-16.png");
+        background-image: url("icon-property-16.png");
 }
 
 .parrot-individual-ref {
-	background-image: url("icon-individual-16.png");
+        background-image: url("icon-individual-16.png");
 }
 
 .parrot-individual-title {
-	background-image: url("icon-individual-16.png");
+        background-image: url("icon-individual-16.png");
 }
 
 .parrot-rule-ref {
-	background-image: url("icon-rule-16.png");
+        background-image: url("icon-rule-16.png");
 }
 
 .parrot-rule-title {
-	background-image: url("icon-rule-16.png");
+        background-image: url("icon-rule-16.png");
 }
 
 .parrot-ruleset-ref {
-	background-image: url("icon-ruleset-16.png");
+        background-image: url("icon-ruleset-16.png");
 }
 
 .parrot-ruleset-title {
-	background-image: url("icon-ruleset-16.png");
+        background-image: url("icon-ruleset-16.png");
 }
 
 .parrot-datatype-ref {
-	background-image: url("icon-datatype-16.png");
+        background-image: url("icon-datatype-16.png");
 }
 
 .parrot-catalog-title {
-	background-image: url("icon-catalog-16.png");
+        background-image: url("icon-catalog-16.png");
 }
 .parrot-catalog-ref {
-	background-image: url("icon-catalog-16.png");
+        background-image: url("icon-catalog-16.png");
 }
 
 .parrot-dataset-title {
-	background-image: url("icon-dataset-16.png");
+        background-image: url("icon-dataset-16.png");
 }
 
 .parrot-dataset-ref {
-	background-image: url("icon-dataset-16.png");
+        background-image: url("icon-dataset-16.png");
 }
 
 .parrot-vocabulary-title {
-	background-image: url("icon-vocabulary-16.png");
+        background-image: url("icon-vocabulary-16.png");
 }
 
 .parrot-vocabulary-ref {
-	background-image: url("icon-vocabulary-16.png");
+        background-image: url("icon-vocabulary-16.png");
 }
 
 .parrot-label-locale {
-	color: green;
+        color: green;
 }
 
 .parrot-label-text-pref , .parrot-label-text-alt {
-	font-weight:bold;
+        font-weight:bold;
 }
 
 .related-document {
-	margin: 0 10px 5px 0px;
-	padding: 0;
-	border: 1px solid #d6d6d6;
-	background: #f0f0f0;
-	overflow: hidden;
-	font-size: 1em;
-	clear: both;
+        margin: 0 10px 5px 0px;
+        padding: 0;
+        border: 1px solid #d6d6d6;
+        background: #f0f0f0;
+        overflow: hidden;
+        font-size: 1em;
+        clear: both;
 }
 
 .related-document .block {
-	padding: 10px;
+        padding: 10px;
 }
 .related-document .block p {
-	padding: 5px 0;
-	margin: 5px 0;
+        padding: 5px 0;
+        margin: 5px 0;
 }
 .related-document h5 {
-	font: 2.5em normal Georgia, "Times New Roman", Times, serif;
-	margin: 0 0 10px;
-	padding: 0 0 5px 0;
-	border-bottom: 1px dashed #ccc;
+        font: 2.5em normal Georgia, "Times New Roman", Times, serif;
+        margin: 0 0 10px;
+        padding: 0 0 5px 0;
+        border-bottom: 1px dashed #ccc;
 }
 .related-document img.related-document-icon {
-	float: left;
-	margin: 10px 15px 15px 0;
-	padding: 5px;
-	background: #ddd;
-	border: 1px solid #ccc;
+        float: left;
+        margin: 10px 15px 15px 0;
+        padding: 5px;
+        background: #ddd;
+        border: 1px solid #ccc;
 }
 
 .related-document img.related-image, .related-document object {
-	margin-left: auto;
-	margin-right: auto;
-	display: block;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
 }
 
 pre { margin: 0em }
 
 .deprecated {
-	color: red;
+        color: red;
 }
 
 /** begin header **/
@@ -259,39 +259,39 @@ h1 a[href]:hover, h2 a[href]:hover { background-color: transparent; }
 
 /** begin color details **/
 .ontologies , .ontologies h3{
-	background-color: #CCCCFF;
+        background-color: #CCCCFF;
 }
 
 .classes , .classes h3 {
-	background-color: #FFFFCC;
+        background-color: #FFFFCC;
 }
 
 .properties , .properties h3{
-	background-color: #E8E8E8;
+        background-color: #E8E8E8;
 }
 
 .individuals , .individuals h3{
-	background-color: #FFCCFF;
+        background-color: #FFCCFF;
 }
 
 .rulesets , .rulesets h3{
-	background-color: #C6E2FF;
+        background-color: #C6E2FF;
 }
 
 .rules , .rules h3{
-	background-color: #CAFF70;
+        background-color: #CAFF70;
 }
 
 .vocabularies , .vocabularies h3{
-	background-color: #ffe7cd;
+        background-color: #ffe7cd;
 }
 
 .datasets , .datasets h3{
-	background-color: #cbbffd;
+        background-color: #cbbffd;
 }
 
 .catalogs , .catalogs h3{
-	background-color: #FFCCCC;
+        background-color: #FFCCCC;
 }
 
 /** end color details **/
@@ -311,36 +311,36 @@ h1 a[href]:hover, h2 a[href]:hover { background-color: transparent; }
 
 /** begin metadata icons ***/
 .metadata-icon {
-	background-repeat: no-repeat;
-	background-position: 0 50%;
+        background-repeat: no-repeat;
+        background-position: 0 50%;
     padding-left: 16px;
 }
 
 .date{
-	background-image: url("date.png");
+        background-image: url("date.png");
 }
 
 .creator{
-	background-image: url("user.png");
+        background-image: url("user.png");
 }
 
 .contributor{
-	background-image: url("user-gray.png");
+        background-image: url("user-gray.png");
 }
 
 .publisher{
-	background-image: url("user-suit.png");
+        background-image: url("user-suit.png");
 }
 
 .download{
-	background-image: url("download.png");
+        background-image: url("download.png");
 }
 
 /** end metadata icons ***/
 
 h3 img.icon {
-	vertical-align: text-bottom;
-	cursor: pointer;
+        vertical-align: text-bottom;
+        cursor: pointer;
 }
 
 /******/
@@ -373,61 +373,61 @@ div.vci , div.ti , div.inuse, div.otherinfo{
 }
 
 div.term div div table td {
-	text-align:left;
-	padding-right:0.5em;
+        text-align:left;
+        padding-right:0.5em;
 }
 
 div.ti table tr td:nth-child(1),
 div.inuse table tr td:nth-child(1){
-	white-space:nowrap;
+        white-space:nowrap;
 }
 
 div#languages{
-	text-align: right;
+        text-align: right;
 }
 
 .hidden {
-	display: none;
+        display: none;
 }
 
 div.term p.description {
-	white-space:pre-line;
+        white-space:pre-line;
 }
 
 a.external-link:link {
-	background: url("external-link.png") no-repeat 100% 0;
-	padding: 0 15px 0 0;
+        background: url("external-link.png") no-repeat 100% 0;
+        padding: 0 15px 0 0;
 }
 
 a.parrot-link:link {
-	background: url("parrot.png") no-repeat 100% 0;
-	padding: 0 20px 0 0;
+        background: url("parrot.png") no-repeat 100% 0;
+        padding: 0 20px 0 0;
 }
 .imports{
-	list-style-type: none;
+        list-style-type: none;
 }
 
 /* begin feedback */
 
 img#feedback{
-	cursor:pointer;
+        cursor:pointer;
 }
 
 #feedback-dialog a:link, #feedback-dialog a:visited {
-	color: #3A78AD;
+        color: #3A78AD;
 }
 
 #feedback-dialog p {
-	font: 75% arial,helvetica,clean,sans-serif;
+        font: 75% arial,helvetica,clean,sans-serif;
 }
 
 #ui-dialog-title-feedback-dialog {
-	font: 75% arial,helvetica,clean,sans-serif;
-	color: #222;
-	font-weight: bold;
+        font: 75% arial,helvetica,clean,sans-serif;
+        color: #222;
+        font-weight: bold;
 }
 
 .lang {
-	color: #009933;
+        color: #009933;
 }
 /* end feedback */

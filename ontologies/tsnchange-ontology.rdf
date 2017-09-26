@@ -8,6 +8,23 @@
    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
    xmlns:vann="http://purl.org/vocab/vann/"
 >
+
+	<rdf:Description rdf:about="http://purl.org/net/tsnchange#isPredecessorOf">
+    <owl:inverseOf rdf:resource="http://purl.org/net/tsnchange#isSuccessorOf"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:comment xml:lang="en">Indicates the predecessor Version of a Version resource.</rdfs:comment>
+    <rdfs:label xml:lang="en">isPredecessorOf</rdfs:label>
+    <rdfs:domain rdf:resource="http://purl.org/net/tsn#Version"/>
+    <rdfs:range rdf:resource="http://purl.org/net/tsn#Version"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/net/tsnchange#isSuccessorOf">
+  	 <owl:inverseOf rdf:resource="http://purl.org/net/tsnchange#isPredecessorOf"/>
+    <rdfs:domain rdf:resource="http://purl.org/net/tsn#Version"/>
+    <rdfs:comment xml:lang="en">Indicates the successor Version of a Version resource.</rdfs:comment>
+    <rdfs:range rdf:resource="http://purl.org/net/tsn#Version"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">isSuccessorOf</rdfs:label>
+  </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/net/tsnchange#outputNomenclatureVersion">
     <rdfs:subPropertyOf rdf:resource="http://purl.org/net/tsnchange#output"/>
     <rdfs:label xml:lang="en">outputNomenclatureVersion</rdfs:label>
