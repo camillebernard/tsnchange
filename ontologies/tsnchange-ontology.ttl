@@ -18,7 +18,7 @@
 #################################################################
 # Ontology tsnchange
 #################################################################
-<http://purl.org/net/tsnchange#> a owl:Ontology, voaf:Vocabulary;
+<http://purl.org/net/tsnchange#> a owl:Ontology ;
 	cc:license <http://creativecommons.org/licenses/by/3.0/>;
 	dcterms:creator [ a foaf:Person; foaf:name "Camille BERNARD"; foaf:homepage <http://lig-membres.imag.fr/bernardc/>],
 									[ a foaf:Person; foaf:name "Marlène VILLANOVA-OLIVER"; foaf:homepage <http://lig-membres.imag.fr/villanov/> ],
@@ -276,7 +276,7 @@ tsnchange:output  a rdf:Property ;
 tsnchange:isSuccessorOf  a rdf:Property ;
     rdfs:label "isSuccessorOf"@en ;
     rdfs:comment "Indicates the successor Version of a Version resource."@en ;
-    rdfs:domain  tsn:Version ;f
+    rdfs:domain  tsn:Version ;
     rdfs:range  tsn:Version ;
     owl:inverseOf  tsnchange:isPredecessorOf ;
     rdfs:subPropertyOf pav:previousVersion  .
