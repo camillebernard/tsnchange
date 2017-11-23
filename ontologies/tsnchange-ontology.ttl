@@ -13,6 +13,7 @@
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix time: <https://www.w3.org/2006/time#> .
 @prefix change: <http://linkedearth.org/change/ns#> .
+@prefix pav: <http://purl.org/pav/> .
 
 #################################################################
 # Ontology tsnchange
@@ -42,9 +43,9 @@
 #---------- tsnchange CLASSES ---------------------
 
 tsnchange:Change a owl:Class ;
-   rdfs:label "Change"@en ;
-	 rdfs:comment "The Change concept is the super class of all types of change that may occur from one TSN version to another. A Change node may group under one node several changes on TSNFeatures that make sense grouped together. As \"a change is rarely isolated and independent from the other changes that occur simultaneously within the other units inside a given area\", we have to link \"together all the various units that were involved in a common territorial change\"  (Plumejeaud, C., Mathian, H., Gensel, J., Grasland, C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 25, 1597–1612 (2011)). The Change concept is based on the Change Bridge concept of (Kauppinen T, Hyvönen E. Modeling and reasoning about changes in ontology time series. In: Ontologies [Internet]. Springer; 2007. p. 319–338. Available from: http://link.springer.com/chapter/10.1007/978-0-387-37022-4_11): \"A change bridge is associated with a change point and tells, what current concepts become obsolete (if any), what new concepts are created (if any), and how the new concepts overlap with older ones.\"."@en ;
-   rdfs:subClassOf change:Change .
+    rdfs:label "Change"@en ;
+    rdfs:comment "The Change concept is the super class of all types of change that may occur from one TSN version to another. A Change node may group under one node several changes on TSNFeatures that make sense grouped together. As \"a change is rarely isolated and independent from the other changes that occur simultaneously within the other units inside a given area\", we have to link \"together all the various units that were involved in a common territorial change\"  (Plumejeaud, C., Mathian, H., Gensel, J., Grasland, C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 25, 1597–1612 (2011)). The Change concept is based on the Change Bridge concept of (Kauppinen T, Hyvönen E. Modeling and reasoning about changes in ontology time series. In: Ontologies [Internet]. Springer; 2007. p. 319–338. Available from: http://link.springer.com/chapter/10.1007/978-0-387-37022-4_11): \"A change bridge is associated with a change point and tells, what current concepts become obsolete (if any), what new concepts are created (if any), and how the new concepts overlap with older ones.\"."@en ;
+    rdfs:subClassOf change:Change .
 
 tsnchange:StructureChange a owl:Class ;
    rdfs:label "StructureChange"@en ;
@@ -273,11 +274,18 @@ tsnchange:output  a rdf:Property ;
 #---------------------- Version Properties
 
 tsnchange:isSuccessorOf  a rdf:Property ;
-   rdfs:label "isSuccessorOf"@en ;
-   rdfs:comment "Indicates the successor Version of a Version resource."@en ;
-   rdfs:domain  tsn:Version ;
-   rdfs:range  tsn:Version ;
-   owl:inverseOf  tsn:isPredecessorOf .
+    rdfs:label "isSuccessorOf"@en ;
+    rdfs:comment "Indicates the successor Version of a Version resource."@en ;
+    rdfs:domain  tsn:Version ;
+    rdfs:range  tsn:Version ;
+    owl:inverseOf  tsn:isPredecessorOf ;
+    rdfs:subPropertyOf pav:previousVersion  .
+
+pav:previousVersion
+    a rdf:Property ;
+    rdfs:comment "The previous version of a resource in a lineage. For instance a news article updated to correct factual information would point to the previous version of the article with pav:previousVersion. If however the content has significantly changed so that the two resources no longer share lineage (say a new article that talks about the same facts), they can instead be related using pav:derivedFrom. This property is normally used in a functional way, although PAV does not formally restrict this. Earlier versions which are not direct ancestors of this resource may instead be provided using the superproperty pav:hasEarlierVersion. A version number of this resource can be provided using the data property pav:version. To indicate that this version is a snapshot of a more general, non-versioned resource, e.g. 'Weather Today' vs. 'Weather Today on 2013-12-07', see pav:hasVersion. Note that it might be confusing to indicate pav:previousVersion from a resource that also has pav:hasVersion or pav:hasCurrentVersion relations, as such resources are intended to be a long-living and 'unversioned', while pav:previousVersion is intended for use between permalink-like 'snapshots' arranged in a linear history."@en ;
+    rdfs:isDefinedBy <http://purl.org/pav/> ;
+    rdfs:label "pav:previousVersion"@en .
 
 tsnchange:isPredecessorOf  a rdf:Property ;
    rdfs:label "isPredecessorOf"@en ;
@@ -352,18 +360,18 @@ tsnchange:outputUnitVersion a rdf:Property ;
 # ----------------- Change properties -------------------
 
 tsnchange:label a rdf:Property ;
-   rdfs:label "label"@en ;
-   rdfs:comment "Assign a name to the change that occurred."@en ;
-   rdfs:domain  tsnchange:Change ;
-   rdfs:range tsn:TSNFeature ;
-	 owl:equivalentProperty rdfs:label .
+    rdfs:label "label"@en ;
+    rdfs:comment "Assign a name to the change that occurred."@en ;
+    rdfs:domain  tsnchange:Change ;
+    rdfs:range <http://www.w3.org/2000/01/rdf-schema#Literal> ;
+    owl:equivalentProperty rdfs:label .
 
 tsnchange:date a rdf:Property ;
-   rdfs:label "date"@en ;
-   rdfs:comment "Assign a date to the change that occurred."@en ;
-   rdfs:domain  tsnchange:Change ;
-   rdfs:range tsn:TSNFeature ;
-	 owl:equivalentProperty dcterms:date .
+    rdfs:label "date"@en ;
+    rdfs:comment "Assign a date to the change that occurred."@en ;
+    rdfs:domain  tsnchange:Change ;
+    rdfs:range <http://www.w3.org/2000/01/rdf-schema#Literal> ;
+    owl:equivalentProperty dcterms:date .
 
 tsnchange:upperChange a rdf:Property ;
    rdfs:label "upperChange"@en ;
@@ -388,7 +396,7 @@ tsnchange:before  a rdf:Property ;
    rdfs:comment "Indicates a TSNComponent before a change event."@en ;
    rdfs:domain tsnchange:Change ;
    rdfs:range  tsn:TSNComponent ;
-   owl:inverseOf  tsnchange:input .
+   owl:inverseOf tsnchange:input .
 
 tsnchange:after  a rdf:Property ;
    rdfs:label "after"@en ;
@@ -398,12 +406,12 @@ tsnchange:after  a rdf:Property ;
    owl:inverseOf  tsnchange:output .
 
 tsnchange:nomenclatureVersionBefore a rdf:Property ;
-   rdfs:label "nomenclatureVersionBefore"@en ;
-   rdfs:comment "Indicates a NomenclatureVersion before a change event."@en ;
-   rdfs:domain  tsnchange:Change ;
-   rdfs:range tsn:NomenclatureVersion ;
-   rdfs:subPropertyOf tsnchange:before ;
-	 owl:inverseOf tsnchange:inputNomenclatureVersion .
+    rdfs:label "nomenclatureVersionBefore"@en ;
+    rdfs:comment "Indicates a NomenclatureVersion before a change event."@en ;
+    rdfs:domain  tsnchange:Change ;
+    rdfs:range tsn:NomenclatureVersion ;
+    rdfs:subPropertyOf tsnchange:before ;
+	owl:inverseOf tsnchange:inputNomenclatureVersion .
 
 tsnchange:nomenclatureVersionAfter a rdf:Property ;
    rdfs:label "nomenclatureVersionAfter"@en ;

@@ -96,7 +96,7 @@ a RIF and OWL documentation service</h2>
 	</p>
 
 
-<p><span class="parrot-element-ref parrot-property-ref">Properties (27):</span></p>
+<p><span class="parrot-element-ref parrot-property-ref">Properties (28):</span></p>
 <p>
 		<a href="#anchor-720389187">after</a>
 	, 		<a href="#anchor-829930980">before</a>
@@ -120,6 +120,7 @@ a RIF and OWL documentation service</h2>
 	, 		<a href="#anchor1833161601">outputNomenclatureVersion</a>
 	, 		<a href="#anchor474209564">outputTerritoryVersion</a>
 	, 		<a href="#anchor5805524">outputUnitVersion</a>
+	, 		<a href="#anchor455541262">pav:previousVersion</a>
 	, 		<a href="#anchor-975956225">territoryVersionAfter</a>
 	, 		<a href="#anchor-162574566">territoryVersionBefore</a>
 	, 		<a href="#anchor-2024880987">unitVersionAfter</a>
@@ -130,10 +131,10 @@ a RIF and OWL documentation service</h2>
 
 <p><span class="parrot-element-ref parrot-individual-ref">Individuals (4):</span></p>
 <p>
-		<a href="#anchor-453137820">individual1414933129</a>
-	, 		<a href="#anchor-453137798">individual1414933130</a>
-	, 		<a href="#anchor-453137797">individual1414933131</a>
-	, 		<a href="#anchor-453137796">individual1414933132</a>
+		<a href="#anchor1115327453">individual737279249</a>
+	, 		<a href="#anchor1115327475">individual737279250</a>
+	, 		<a href="#anchor1115327476">individual737279251</a>
+	, 		<a href="#anchor1115980837">individual737280016</a>
 	</p>
 
 
@@ -147,7 +148,7 @@ a RIF and OWL documentation service</h2>
 <hr>
 
 <p>
-<a href="#glossary">Glossary (66 entries)</a>
+<a href="#glossary">Glossary (67 entries)</a>
 </p>
 
 </div>
@@ -167,19 +168,25 @@ a RIF and OWL documentation service</h2>
 </div>
 <div class="toc" id="ontologies" style="border-radius: 10px;">
     <h2>Diagram of the ontology</h2>
+    <hr/>
     <p>
     <em>TSN-Change main classes</em>
     <img src="index_fichiers/ontologies_protege_images/TSN_Change_main_classes.png"  alt="TSN-Change Main classes" height="80%" width="80%">
-        </p>
-        
+    </p>
+    <hr/>
+    <p>
+    <em>TSN-Change - Implementation example: Description of the scission of the Territorial Unit ES63 within the NUTS (Eurostat TSN)</em>
+    <img src="index_fichiers/ontologies_protege_images/nust_Change_graph_eg.png"  alt="TSN-Change - Implementation example: Description of the scission of the Territorial Unit ES63 within the NUTS (Eurostat TSN)" height="80%" width="80%"></img>
+    </p>
+            
 </div>
 <div class="toc" id="Funding" style="border-radius: 10px;">
     <h2>Funding</h2>
     <p>
-    <em>This work was supported by the French region Auvergne-Rhone-Alpes [grant number REGION 2015-DRH-0367]. ARC7 : Innovations, mobilites, territoires et dynamiques urbaines.</em>
+    <em>This work was supported by the French region Auvergne-Rhône-Alpes [grant number REGION 2015-DRH-0367]. ARC7 : Innovations, mobilités, territoires et dynamiques urbaines.</em>
     </p>
     <p>
-    <img src="index_fichiers/logo-arc.jpg" alt="logo ARC Auvergne-RhÙne-Alpes" height="30%" width="30%">
+    <img src="index_fichiers/logo-arc.jpg" alt="logo ARC Auvergne-Rhône-Alpes" height="30%" width="30%">
     </img>
     </p>
 </div>
@@ -194,14 +201,6 @@ a RIF and OWL documentation service</h2>
 	</div>
 	
 		  <div class="details ontologies" style="border-radius: 10px;">
-
-
-
-
-
-
-
-
 
 
 
@@ -2840,6 +2839,7 @@ a RIF and OWL documentation service</h2>
 	, 	  			<a href="#anchor1833161601">outputNomenclatureVersion</a>
 	, 	  			<a href="#anchor474209564">outputTerritoryVersion</a>
 	, 	  			<a href="#anchor5805524">outputUnitVersion</a>
+	, 	  			<a href="#anchor455541262">pav:previousVersion</a>
 	, 	  			<a href="#anchor-975956225">territoryVersionAfter</a>
 	, 	  			<a href="#anchor-162574566">territoryVersionBefore</a>
 	, 	  			<a href="#anchor-2024880987">unitVersionAfter</a>
@@ -3091,7 +3091,7 @@ a RIF and OWL documentation service</h2>
           <tr>
              <td>The range of this property is</td>
       	  <td>
-            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:range" href="http://purl.org/net/tsn#TSNFeature">              <a class="parrot-link" href="http://ontorule-project.eu/parrot/parrot?documentUri=http%3A%2F%2Fpurl.org%2Fnet%2Ftsn%23TSNFeature#anchor749593556">http://purl.org/net/tsn#TSNFeature</a>
+            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:range" href="http://www.w3.org/2000/01/rdf-schema#Literal">              <a class="parrot-link" href="http://ontorule-project.eu/parrot/parrot?documentUri=http%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23Literal#anchor2049156278">rdfs:Literal</a>
       </span>
       	  </td>
       </tr>
@@ -3781,6 +3781,13 @@ a RIF and OWL documentation service</h2>
         
         
    
+          <tr>
+      <td>This property is a sub property of</td>
+      <td>
+            <span class="parrot-element-ref parrot-property-ref" rel="rdfs:subPropertyOf" href="http://purl.org/pav/previousVersion">            	 <a href="#anchor455541262">  pav:previousVersion</a>
+      </span>
+            </td>
+      </tr>
     
        
     
@@ -3849,7 +3856,7 @@ a RIF and OWL documentation service</h2>
           <tr>
              <td>The range of this property is</td>
       	  <td>
-            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:range" href="http://purl.org/net/tsn#TSNFeature">              <a class="parrot-link" href="http://ontorule-project.eu/parrot/parrot?documentUri=http%3A%2F%2Fpurl.org%2Fnet%2Ftsn%23TSNFeature#anchor749593556">http://purl.org/net/tsn#TSNFeature</a>
+            <span class="parrot-element-ref parrot-class-ref" rel="rdfs:range" href="http://www.w3.org/2000/01/rdf-schema#Literal">              <a class="parrot-link" href="http://ontorule-project.eu/parrot/parrot?documentUri=http%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23Literal#anchor2049156278">rdfs:Literal</a>
       </span>
       	  </td>
       </tr>
@@ -4745,6 +4752,83 @@ a RIF and OWL documentation service</h2>
 
 
 
+	<div class="term" id="md5-996845874bf47455f577a484947f7696" about="http://purl.org/pav/previousVersion">
+
+
+  <h3 id="anchor455541262"><span class="parrot-element-title parrot-property-title">pav:previousVersion</span> (Property)
+  		  	
+			
+			
+		   	
+   	        
+    
+
+    <span class="menu"> 
+	  	  <span class="ti-menu active" style="border-radius: 10px;">Definition</span> 	  <span class="inuse-menu" style="border-radius: 10px;">In use</span> 	      </span>   </h3>
+
+  
+
+      <p class="description">The previous version of a resource in a lineage. For instance a news article updated to correct factual information would point to the previous version of the article with pav:previousVersion. If however the content has significantly changed so that the two resources no longer share lineage (say a new article that talks about the same facts), they can instead be related using pav:derivedFrom. This property is normally used in a functional way, although PAV does not formally restrict this. Earlier versions which are not direct ancestors of this resource may instead be provided using the superproperty pav:hasEarlierVersion. A version number of this resource can be provided using the data property pav:version. To indicate that this version is a snapshot of a more general, non-versioned resource, e.g. 'Weather Today' vs. 'Weather Today on 2013-12-07', see pav:hasVersion. Note that it might be confusing to indicate pav:previousVersion from a resource that also has pav:hasVersion or pav:hasCurrentVersion relations, as such resources are intended to be a long-living and 'unversioned', while pav:previousVersion is intended for use between permalink-like 'snapshots' arranged in a linear history.</p>
+    
+  <div>
+  
+  
+    <div class="ti" style="border-radius: 10px; display: block;"> 
+  <h4>Definition</h4> 
+
+			<p>The <strong>URI</strong> of this property is <span><code>http://purl.org/pav/previousVersion</code></span></p>
+	   
+    
+        <table>
+    
+ 
+      
+
+    
+        
+        
+   
+    
+          <tbody><tr>
+      <td>This property is a super property of</td>
+      <td>
+            <span class="parrot-element-ref parrot-property-ref" rev="rdfs:subPropertyOf" href="http://purl.org/net/tsnchange#isSuccessorOf">            	<a href="#isSuccessorOf"> isSuccessorOf</a>
+      </span>
+            </td>
+      </tr>
+       
+    
+        </tbody></table>
+       </div>
+    
+      <div class="inuse" style="border-radius: 10px;">
+    <h4>In use</h4>
+    			<p>This property is defined by <span rel="rdfs:isDefinedBy" href="http://purl.org/pav/">              <a class="parrot-link" href="http://ontorule-project.eu/parrot/parrot?documentUri=http%3A%2F%2Fpurl.org%2Fpav%2F#anchor-473617967">http://purl.org/pav/</a>
+      </span></p>		
+	    
+	
+        
+    
+    </div>
+    
+    
+    
+  </div>
+</div>   </div>
+		<div class="details properties" style="border-radius: 10px;">
+
+
+
+
+
+
+
+
+
+
+
+
+
 	<div class="term" id="md5-efdd4c1d9623764156c26253f913587b" about="http://purl.org/net/tsnchange#territoryVersionAfter">
 
 
@@ -5158,10 +5242,10 @@ a RIF and OWL documentation service</h2>
 	<div class="toc" id="individuals" style="border-radius: 10px;">
 	<h2>Individuals</h2>
 	<p>
-		  	<a href="#anchor-453137820">individual1414933129</a>
-	, 		  	<a href="#anchor-453137798">individual1414933130</a>
-	, 		  	<a href="#anchor-453137797">individual1414933131</a>
-	, 		  	<a href="#anchor-453137796">individual1414933132</a>
+		  	<a href="#anchor1115327453">individual737279249</a>
+	, 		  	<a href="#anchor1115327475">individual737279250</a>
+	, 		  	<a href="#anchor1115327476">individual737279251</a>
+	, 		  	<a href="#anchor1115980837">individual737280016</a>
 			</p>
 	</div>	
 
@@ -5182,7 +5266,7 @@ a RIF and OWL documentation service</h2>
 	<div class="term">
 
 
-   <h3 id="anchor-453137820"><span class="parrot-element-title parrot-individual-title">individual1414933129</span> (Individual)
+   <h3 id="anchor1115327453"><span class="parrot-element-title parrot-individual-title">individual737279249</span> (Individual)
     	    
 
     <span class="menu"> 
@@ -5217,7 +5301,7 @@ a RIF and OWL documentation service</h2>
 	<div class="term">
 
 
-   <h3 id="anchor-453137798"><span class="parrot-element-title parrot-individual-title">individual1414933130</span> (Individual)
+   <h3 id="anchor1115327475"><span class="parrot-element-title parrot-individual-title">individual737279250</span> (Individual)
     	    
 
     <span class="menu"> 
@@ -5252,7 +5336,7 @@ a RIF and OWL documentation service</h2>
 	<div class="term">
 
 
-   <h3 id="anchor-453137797"><span class="parrot-element-title parrot-individual-title">individual1414933131</span> (Individual)
+   <h3 id="anchor1115327476"><span class="parrot-element-title parrot-individual-title">individual737279251</span> (Individual)
     	    
 
     <span class="menu"> 
@@ -5287,7 +5371,7 @@ a RIF and OWL documentation service</h2>
 	<div class="term">
 
 
-   <h3 id="anchor-453137796"><span class="parrot-element-title parrot-individual-title">individual1414933132</span> (Individual)
+   <h3 id="anchor1115980837"><span class="parrot-element-title parrot-individual-title">individual737280016</span> (Individual)
     	    
 
     <span class="menu"> 
@@ -5501,6 +5585,9 @@ a RIF and OWL documentation service</h2>
 <dt>outputUnitVersion</dt>
 	<dd><span class="parrot-element-ref parrot-property-ref">            	 <a href="#anchor5805524">  outputUnitVersion</a>
       </span></dd>
+<dt>pav:previousVersion</dt>
+	<dd><span class="parrot-element-ref parrot-property-ref">            	 <a href="#anchor455541262">  pav:previousVersion</a>
+      </span></dd>
 <dt>territoryVersionAfter</dt>
 	<dd><span class="parrot-element-ref parrot-property-ref">            	 <a href="#anchor-975956225">  territoryVersionAfter</a>
       </span></dd>
@@ -5570,7 +5657,7 @@ a RIF and OWL documentation service</h2>
 
 	<!-- Feedback -->
 	<div>
-	<img id="feedback" src="index_fichiers/feedback.png" alt="feedback" style="background-color: rgb(132, 112, 255); left: 0px; top: 337px; position: fixed;" width="30" height="100"> 
+	<img id="feedback" src="index_fichiers/feedback.png" alt="feedback" style="background-color: rgb(132, 112, 255); left: 0px; top: 342.5px; position: fixed;" width="30" height="100"> 
 	
 	</div>
   <!-- standalone --> 
@@ -5602,7 +5689,7 @@ a RIF and OWL documentation service</h2>
   </script>
   
 
-<div id="jx-menu-con-id"></div><div id="jx-uhid-con-id" class="jx-show jx-bar-rounded-tl jx-bar-rounded-tr jx-bar-button jx-bar-button-rounded" style="overflow: hidden; position: fixed; margin-left: 1195px; bottom: 0px; display: none;"><ul id="jx-uhid-itm-id"><li alt="Show toolbar"><a id="jx-uhid-btn-id" class="jx-show-button"></a></li></ul></div><div id="jx-ttip-con-id" style="height: auto; margin-left: 0px; width: 100%; overflow: hidden; position: fixed; margin-bottom: 36px; bottom: 0px;"></div><div style="display: none; z-index: 1000; outline: 0px none;" class="ui-dialog ui-widget ui-widget-content ui-corner-all " tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-feedback-dialog"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span class="ui-dialog-title" id="ui-dialog-title-feedback-dialog">Give us some feedback</span><a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div><div id="feedback-dialog" class="ui-dialog-content ui-widget-content">
+<div id="jx-menu-con-id"></div><div id="jx-uhid-con-id" class="jx-show jx-bar-rounded-tl jx-bar-rounded-tr jx-bar-button jx-bar-button-rounded" style="overflow: hidden; position: fixed; margin-left: 1195px; bottom: 0px; display: none;"><ul id="jx-uhid-itm-id"><li alt="Show toolbar"><a id="jx-uhid-btn-id" class="jx-show-button"></a></li></ul></div><div id="jx-ttip-con-id" style="height: auto; margin-left: 0px; width: 100%; overflow: hidden; position: fixed; margin-bottom: 36px; bottom: 0px;"></div><div style="display: none; z-index: 1000; outline: 0px none currentcolor;" class="ui-dialog ui-widget ui-widget-content ui-corner-all " tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-feedback-dialog"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span class="ui-dialog-title" id="ui-dialog-title-feedback-dialog">Give us some feedback</span><a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div><div id="feedback-dialog" class="ui-dialog-content ui-widget-content">
 		<p><img src="index_fichiers/bug.png" alt="bug"> <a href="https://bitbucket.org/fundacionctic/parrot/issues/">Report a bug </a></p>
 		<p><img src="index_fichiers/heart.png" alt="request"> <a href="https://bitbucket.org/fundacionctic/parrot/issues/">Request a feature</a></p>
 		<p><img src="index_fichiers/contact.png" alt="contact"> <a href="https://bitbucket.org/fundacionctic/parrot/wiki/Home#!contact">Contact us</a></p>

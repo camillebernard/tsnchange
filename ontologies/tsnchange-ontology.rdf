@@ -1,506 +1,459 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <rdf:RDF
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:dcterms="http://purl.org/dc/terms/"
-   xmlns:foaf="http://xmlns.com/foaf/0.1/"
-   xmlns:owl="http://www.w3.org/2002/07/owl#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-   xmlns:vann="http://purl.org/vocab/vann/"
->
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#Reallocation">
-    <rdfs:comment xml:lang="en">The Reallocation concept describes operations of redistribution of the spatial area that modify the identity of all the input TSNFeatures (i.e., their identifier is modified), and modify their Geometry. The combination of footprints of the input TSNFeatures is equal to the combination of footprints of the output TSNFeatures. This operation leads to: (1) the disappearance of all the 'n' input TSNFeatures ; (2) the creation of 'p' TSNFeatures as output to the change event by redistribution of the spatial area covered by the 'n' input TSNFeatures. This concept is equivalent to the "Reallocation" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612).</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#DerivationChange"/>
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#Redistribution"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label xml:lang="en">Reallocation</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#HierarchyChange">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label xml:lang="en">HierarchyChange</rdfs:label>
-    <rdfs:comment xml:lang="en">The HierarchyChange concept describes modification of the position of one TSNFeature (LevelVersion or UnitVersion) in the NomenclatureVersion hierarchy. For example, a Unit may change the Level it belongs to.</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#FeatureChange"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#Fusion">
-    <rdfs:comment xml:lang="en">The Fusion concept describes the merge of two or more TSNFeatures (e.g., merge of two TerritoryVersion or merge of two UnitVersion), into a single new TSNFeature that do not existed before the change. This operation leads to: (1) the disappearance of all the input TSNFeature(s) (i.e., the identity of the involved TSNFeatures is not extended after the Fusion); (2) the creation of one output TSNFeature whose footprint is equal to the combination of all the footprint of the input TSNFeatures. This concept is equivalent to the "Fusion" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612).</rdfs:comment>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#DerivationChange"/>
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#Merge"/>
-    <rdfs:label xml:lang="en">Fusion</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#isCausedBy">
-    <rdfs:comment xml:lang="en">Indicates a societal or other cause to the described Change (e.g., administrative reform).</rdfs:comment>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:label xml:lang="en">isCausedBy</rdfs:label>
-    <rdfs:domain rdf:resource="http://purl.org/net/tsnchange#Change"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#territoryVersionBefore">
-    <rdfs:range rdf:resource="http://purl.org/net/tsn#TerritoryVersion"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:domain rdf:resource="http://purl.org/net/tsnchange#Change"/>
-    <rdfs:subPropertyOf rdf:resource="http://purl.org/net/tsnchange#before"/>
-    <rdfs:label xml:lang="en">territoryVersionBefore</rdfs:label>
-    <rdfs:comment xml:lang="en">Indicates a TerritoryVersion before a change event.</rdfs:comment>
-    <owl:inverseOf rdf:resource="http://purl.org/net/tsnchange#inputTerritoryVersion"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#isSuccessorOf">
-    <rdfs:domain rdf:resource="http://purl.org/net/tsn#Version"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <owl:inverseOf rdf:resource="http://purl.org/net/tsn#isPredecessorOf"/>
-    <rdfs:comment xml:lang="en">Indicates the successor Version of a Version resource.</rdfs:comment>
-    <rdfs:range rdf:resource="http://purl.org/net/tsn#Version"/>
-    <rdfs:label xml:lang="en">isSuccessorOf</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#unitVersionBefore">
-    <rdfs:subPropertyOf rdf:resource="http://purl.org/net/tsnchange#before"/>
-    <owl:inverseOf rdf:resource="http://purl.org/net/tsnchange#inputUnitVersion"/>
-    <rdfs:label xml:lang="en">unitVersionBefore</rdfs:label>
-    <rdfs:comment xml:lang="en">Indicates a UnitVersion before a change event.</rdfs:comment>
-    <rdfs:range rdf:resource="http://purl.org/net/tsn#UnitVersion"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:domain rdf:resource="http://purl.org/net/tsnchange#Change"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#output">
-    <owl:inverseOf rdf:resource="http://purl.org/net/tsnchange#after"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:label xml:lang="en">output</rdfs:label>
-    <rdfs:range rdf:resource="http://purl.org/net/tsnchange#Change"/>
-    <rdfs:comment xml:lang="en">Indicates a Change resource of which a TSNComponent is an output resource (i.e., a result of the Change event).</rdfs:comment>
-    <rdfs:domain rdf:resource="http://purl.org/net/tsn#TSNComponent"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#UpperLevelChange">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment xml:lang="en">The upper level  of a level changes.</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#LevelHierarchyChange"/>
-    <rdfs:label xml:lang="en">UpperLevelChange</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#Expansion">
-    <rdfs:comment xml:lang="en">Expansion of a TSNFeature, in terms of shape, means its size increase between the input NomenclatureVersion and the output NomenclatureVersion. This concept is equivalent to the "Expansion" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2).</rdfs:comment>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label xml:lang="en">Expansion</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#GeometryChange"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#Integration">
-    <rdfs:label xml:lang="en">Integration</rdfs:label>
-    <rdfs:comment xml:lang="en">The Integration concept describes the merge of two or more TSNFeatures (e.g., merge of two TerritoryVersion or merge of two UnitVersion), into a single TSNFeature that existed before the change and maintains its identity after the change event (i.e., its identifier is not modified). This operation leads to: (1) the disappearance of at least one input TSNFeature ; (2) the Expansion of the footprint of the output TSNFeatures. Its new footprint is equal to the combination of all the footprint of the input TSNFeatures. This concept is equivalent to the "Integration" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612).</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#ContinuationChange"/>
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#Merge"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#AcronymChange">
-    <rdfs:label xml:lang="en">AcronymChange</rdfs:label>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment xml:lang="en">The acronym of a TSNFeature changes.</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#IdentificationChange"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#upperChange">
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:label xml:lang="en">upperChange</rdfs:label>
-    <rdfs:domain rdf:resource="http://purl.org/net/tsnchange#Change"/>
-    <rdfs:comment xml:lang="en">Indicates an upper Change that causes the described Change. The Change hierarchy is alligned on the Nomenclature components hierarchy i.e., Nomenclature &gt; Territory &gt; Level &gt; Unit. Then a change that affect a Territory is above a change that affect the levels of the TSN.</rdfs:comment>
-    <rdfs:range rdf:resource="http://purl.org/net/tsnchange#Change"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#NameChange">
-    <rdfs:label xml:lang="en">NameChange</rdfs:label>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment xml:lang="en">The name of a TSNFeature changes.</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#IdentificationChange"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#inputLevelVersion">
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:domain rdf:resource="http://purl.org/net/tsn#Level"/>
-    <rdfs:subPropertyOf rdf:resource="http://purl.org/net/tsnchange#input"/>
-    <rdfs:comment xml:lang="en">Indicates a Change of which a LevelVersion is an input resource.</rdfs:comment>
-    <rdfs:range rdf:resource="http://purl.org/net/tsnchange#Change"/>
-    <rdfs:label xml:lang="en">inputLevelVersion</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#ContinuationChange">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#GeometryRestructuration"/>
-    <rdfs:label xml:lang="en">ContinuationChange</rdfs:label>
-    <rdfs:comment xml:lang="en">The ContinuationChange concept describes restructuration operations that do not modify the identity of all the involved TSNFeatures that comes as input to the Change Operation.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#Contraction">
-    <rdfs:comment xml:lang="en">Contraction of a TSNFeature, in terms of shape, means its size decrease between the input NomenclatureVersion and the output NomenclatureVersion. This concept is equivalent to the "Contraction" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2).</rdfs:comment>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#GeometryChange"/>
-    <rdfs:label xml:lang="en">Contraction</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#inputNomenclatureVersion">
-    <rdfs:label xml:lang="en">inputNomenclatureVersion</rdfs:label>
-    <rdfs:subPropertyOf rdf:resource="http://purl.org/net/tsnchange#input"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:domain rdf:resource="http://purl.org/net/tsn#NomenclatureVersion"/>
-    <rdfs:range rdf:resource="http://purl.org/net/tsnchange#Change"/>
-    <rdfs:comment xml:lang="en">Indicates a Change of which a NomenclatureVersion is an input resource.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#LevelHierarchyChange">
-    <rdfs:label xml:lang="en">LevelHierarchyChange</rdfs:label>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#HierarchyChange"/>
-    <rdfs:comment xml:lang="en">The LevelHierarchyChange concept describes changes that affect TSNFeatures that are of type LevelVersion. It describes changes of the Level position within the TSN hierarchy.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#outputUnitVersion">
-    <rdfs:range rdf:resource="http://purl.org/net/tsnchange#Change"/>
-    <rdfs:comment xml:lang="en">Indicates a Change of which a UnitVersion is an output resource.</rdfs:comment>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:subPropertyOf rdf:resource="http://purl.org/net/tsnchange#output"/>
-    <rdfs:domain rdf:resource="http://purl.org/net/tsn#Unit"/>
-    <rdfs:label xml:lang="en">outputUnitVersion</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#input">
-    <owl:inverseOf rdf:resource="http://purl.org/net/tsnchange#before"/>
-    <rdfs:range rdf:resource="http://purl.org/net/tsnchange#Change"/>
-    <rdfs:domain rdf:resource="http://purl.org/net/tsn#TSNComponent"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:label xml:lang="en">input</rdfs:label>
-    <rdfs:comment xml:lang="en">Indicates a Change resource  of which a TSNComponent is an input resource (i.e., an object subject to change).</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#Extraction">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#Split"/>
-    <rdfs:label xml:lang="en">Extraction</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#ContinuationChange"/>
-    <rdfs:comment xml:lang="en">The Extraction concept describes the split of one TSNFeature (into two or more TSNFeatures) that nevertheless maintains its identity after the change event (i.e., its identifier is not modified). This operation leads to: (1) the Appearance of at least one new TSNFeature as an output of the change event: this/those new TSNFeature(s) take(s) territory from the input TSNFeature ; (2) the Contraction of the footprint of the input TSNFeature that nevertheless still exist after the change event. This concept is equivalent to the "Extraction" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612).</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#isPredecessorOf">
-    <rdfs:comment xml:lang="en">Indicates the predecessor Version of a Version resource.</rdfs:comment>
-    <rdfs:label xml:lang="en">isPredecessorOf</rdfs:label>
-    <rdfs:range rdf:resource="http://purl.org/net/tsn#Version"/>
-    <rdfs:domain rdf:resource="http://purl.org/net/tsn#Version"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <owl:inverseOf rdf:resource="http://purl.org/net/tsn#isSuccessorOf"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#LevelChange">
-    <rdfs:comment xml:lang="en">The LevelChange concept describes all the changes undergone by a LevelVersion feature from one TSN version to another.</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#FeatureChange"/>
-    <rdfs:label xml:lang="en">LevelChange</rdfs:label>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#DescriptionChange">
-    <rdfs:label xml:lang="en">DescriptionChange</rdfs:label>
-    <rdfs:comment xml:lang="en">The description of a TSNFeature changes.</rdfs:comment>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#IdentificationChange"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#nomenclatureVersionAfter">
-    <rdfs:subPropertyOf rdf:resource="http://purl.org/net/tsnchange#after"/>
-    <rdfs:label xml:lang="en">nomenclatureVersionAfter</rdfs:label>
-    <rdfs:range rdf:resource="http://purl.org/net/tsn#NomenclatureVersion"/>
-    <rdfs:comment xml:lang="en">Indicates a NomenclatureVersion after a change event.</rdfs:comment>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <owl:inverseOf rdf:resource="http://purl.org/net/tsnchange#outputNomenclatureVersion"/>
-    <rdfs:domain rdf:resource="http://purl.org/net/tsnchange#Change"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#unitVersionAfter">
-    <rdfs:domain rdf:resource="http://purl.org/net/tsnchange#Change"/>
-    <rdfs:range rdf:resource="http://purl.org/net/tsn#UnitVersion"/>
-    <owl:inverseOf rdf:resource="http://purl.org/net/tsnchange#outputUnitVersion"/>
-    <rdfs:subPropertyOf rdf:resource="http://purl.org/net/tsnchange#after"/>
-    <rdfs:label xml:lang="en">unitVersionAfter</rdfs:label>
-    <rdfs:comment xml:lang="en">Indicates a UnitVersion after a change event.</rdfs:comment>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="ub214bL22C10">
-    <foaf:homepage rdf:resource="http://lig-membres.imag.fr/villanov/"/>
-    <foaf:name>Marlène VILLANOVA-OLIVER</foaf:name>
-    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#territoryVersionAfter">
-    <rdfs:label xml:lang="en">territoryVersionAfter</rdfs:label>
-    <rdfs:domain rdf:resource="http://purl.org/net/tsnchange#Change"/>
-    <rdfs:range rdf:resource="http://purl.org/net/tsn#TerritoryVersion"/>
-    <rdfs:comment xml:lang="en">Indicates a TerritoryVersion after a change event.</rdfs:comment>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <owl:inverseOf rdf:resource="http://purl.org/net/tsnchange#outputTerritoryVersion"/>
-    <rdfs:subPropertyOf rdf:resource="http://purl.org/net/tsnchange#after"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#label">
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <owl:equivalentProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
-    <rdfs:label xml:lang="en">label</rdfs:label>
-    <rdfs:domain rdf:resource="http://purl.org/net/tsnchange#Change"/>
-    <rdfs:comment xml:lang="en">Assign a name to the change that occurred.</rdfs:comment>
-    <rdfs:range rdf:resource="http://purl.org/net/tsn#TSNFeature"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#">
-    <dcterms:creator rdf:nodeID="ub214bL23C10"/>
-    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2017-01-31</dcterms:issued>
-    <dcterms:creator rdf:nodeID="ub214bL22C10"/>
-    <vann:preferredNamespaceUri rdf:resource="http://purl.org/net/tsnchange#"/>
-    <cc:license rdf:resource="http://www.data.gouv.fr/Licence-Ouverte-Open-Licence"/>
-    <dcterms:creator rdf:nodeID="ub214bL24C10"/>
-    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.0</owl:versionInfo>
-    <dcterms:description xml:lang="en">The TSN-Change ontology aims at describing changes that occured from one version of a Territorial Statistical Nomenclature (TSN) (i.e., partition of the territory) and its subsequent (e.g., change in territorial units boundaries to reflect an administrative reorganisation).</dcterms:description>
-    <rdfs:comment>Second version of the vocabulary. It enables the description of new operations of restructuration of the TSN: IdentificationRestructuration and HierarchyRestructuration, operation that impact several features at the same time.</rdfs:comment>
-    <dcterms:title xml:lang="en">Territorial Statistical Nomenclature Change Ontology</dcterms:title>
-    <dcterms:publisher rdf:resource="http://steamer.imag.fr"/>
-    <rdf:type rdf:resource="http://purl.org/vocommons/voaf#Vocabulary"/>
-    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2017-05-15</dcterms:modified>
-    <vann:preferredNamespacePrefix>tsnchange</vann:preferredNamespacePrefix>
-    <cc:license rdf:resource="http://creativecommons.org/licenses/by/3.0/"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
-    <dcterms:creator rdf:nodeID="ub214bL21C18"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#Appearance">
-    <rdfs:comment xml:lang="en">The Appearance concept describes the appearance (or creation) of a new TSNFeature (i.e., TerritoryVersion, LevelVersion or UnitVersion) as an output to the change event. "Appearance" means the identifier of the new TSNFeature is different from all that already exist, in the input and output NomenclatureVersion. This concept is equivalent to the "Appearance" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2).</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#FeatureChange"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label xml:lang="en">Appearance</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#Redistribution">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label xml:lang="en">Redistribution</rdfs:label>
-    <rdfs:comment xml:lang="en">The Redistribution concept describes operations of redistribution of the spatial area covered by 'n' TSNFeature(s) in the input NomenclatureVersion to form 'p' TSNFeature(s) in the output NomenclatureVersion. This concept is equivalent to the "Re-allocation" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2): "reallocation of land covered by 'n' initial zones to form 'p' new zones ".</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#GeometryRestructuration"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#date">
-    <rdfs:domain rdf:resource="http://purl.org/net/tsnchange#Change"/>
-    <rdfs:comment xml:lang="en">Assign a date to the change that occurred.</rdfs:comment>
-    <rdfs:range rdf:resource="http://purl.org/net/tsn#TSNFeature"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:label xml:lang="en">date</rdfs:label>
-    <owl:equivalentProperty rdf:resource="http://purl.org/dc/terms/date"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#IdentifierChange">
-    <rdfs:label xml:lang="en">IdentifierChange</rdfs:label>
-    <rdfs:comment xml:lang="en">The identifier (within the TSN) of a TSNFeature changes.</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#IdentificationChange"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#LowerLevelChange">
-    <rdfs:label xml:lang="en">LowerLevelChange</rdfs:label>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment xml:lang="en">The lower level  of a level changes.</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#LevelHierarchyChange"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#UnitHierarchyChange">
-    <rdfs:label xml:lang="en">UnitHierarchyChange</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#HierarchyChange"/>
-    <rdfs:comment xml:lang="en">The UnitHierarchyChange concept describes changes that affect TSNFeatures that are of type UnitVersion. It describes changes of the Unit position within the TSN hierarchy (e.g., change in the level it belongs to and/or Super unit change).</rdfs:comment>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#Change">
-    <rdfs:label xml:lang="en">Change</rdfs:label>
-    <rdfs:comment xml:lang="en">The Change concept is the super class of all types of change that may occur from one TSN version to another. A Change node may group under one node several changes on TSNFeatures that make sense grouped together. As "a change is rarely isolated and independent from the other changes that occur simultaneously within the other units inside a given area", we have to link "together all the various units that were involved in a common territorial change"  (Plumejeaud, C., Mathian, H., Gensel, J., Grasland, C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 25, 1597–1612 (2011)). The Change concept is based on the Change Bridge concept of (Kauppinen T, Hyvönen E. Modeling and reasoning about changes in ontology time series. In: Ontologies [Internet]. Springer; 2007. p. 319–338. Available from: http://link.springer.com/chapter/10.1007/978-0-387-37022-4_11): "A change bridge is associated with a change point and tells, what current concepts become obsolete (if any), what new concepts are created (if any), and how the new concepts overlap with older ones.".</rdfs:comment>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://linkedearth.org/change/ns#Change"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#inputUnitVersion">
-    <rdfs:domain rdf:resource="http://purl.org/net/tsn#Unit"/>
-    <rdfs:subPropertyOf rdf:resource="http://purl.org/net/tsnchange#input"/>
-    <rdfs:label xml:lang="en">inputUnitVersion</rdfs:label>
-    <rdfs:comment xml:lang="en">Indicates a Change of which a UnitVersion is an input resource.</rdfs:comment>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:range rdf:resource="http://purl.org/net/tsnchange#Change"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#GeometryChange">
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#FeatureChange"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label xml:lang="en">GeometryChange</rdfs:label>
-    <rdfs:comment xml:lang="en">The GeometryChange concept describes modification of the Geometry of one TSNFeature (i.e., TerritoryVersion, LevelVersion or UnitVersion). This concept is equivalent to the "Transformation" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2): "transformations processes involving chn-ange in shape or size: expansion, contraction and deformation (i.e. shape modification without size change)".</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#outputNomenclatureVersion">
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:comment xml:lang="en">Indicates a Change of which a NomenclatureVersion is an output resource.</rdfs:comment>
-    <rdfs:domain rdf:resource="http://purl.org/net/tsn#NomenclatureVersion"/>
-    <rdfs:subPropertyOf rdf:resource="http://purl.org/net/tsnchange#output"/>
-    <rdfs:label xml:lang="en">outputNomenclatureVersion</rdfs:label>
-    <rdfs:range rdf:resource="http://purl.org/net/tsnchange#Change"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#after">
-    <owl:inverseOf rdf:resource="http://purl.org/net/tsnchange#output"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:comment xml:lang="en">Indicates a TSNComponent after a change event.</rdfs:comment>
-    <rdfs:range rdf:resource="http://purl.org/net/tsn#TSNComponent"/>
-    <rdfs:domain rdf:resource="http://purl.org/net/tsnchange#Change"/>
-    <rdfs:label xml:lang="en">after</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="ub214bL21C18">
-    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
-    <foaf:name>Camille BERNARD</foaf:name>
-    <foaf:homepage rdf:resource="http://lig-membres.imag.fr/bernardc/"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#Split">
-    <rdfs:comment xml:lang="en">The Split concept describes the split of a TSNFeature, into two or more TSNFeature. This concept is equivalent to the "Split" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2): "division of a zone into 'n' parts (split)".</rdfs:comment>
-    <rdfs:label xml:lang="en">Split</rdfs:label>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#GeometryRestructuration"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="ub214bL23C10">
-    <foaf:name>Jérôme GENSEL</foaf:name>
-    <foaf:homepage rdf:resource="http://lig-membres.imag.fr/gensel/"/>
-    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="ub214bL24C10">
-    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
-    <foaf:homepage rdf:resource="https://unige.ch/gedt/membres/dao/"/>
-    <foaf:name>Hy DAO</foaf:name>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#Merge">
-    <rdfs:comment xml:lang="en">The Merge concept describes the merge of two or more TSNFeatures (e.g., merge of two TerritoryVersion or merge of two UnitVersion), into a single TSNFeature. This concept is equivalent to the "Union" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2): "fusion of 'n' zones into a single entity (union)".</rdfs:comment>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label xml:lang="en">Merge</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#GeometryRestructuration"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#nomenclatureVersionBefore">
-    <rdfs:label xml:lang="en">nomenclatureVersionBefore</rdfs:label>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:subPropertyOf rdf:resource="http://purl.org/net/tsnchange#before"/>
-    <owl:inverseOf rdf:resource="http://purl.org/net/tsnchange#inputNomenclatureVersion"/>
-    <rdfs:comment xml:lang="en">Indicates a NomenclatureVersion before a change event.</rdfs:comment>
-    <rdfs:range rdf:resource="http://purl.org/net/tsn#NomenclatureVersion"/>
-    <rdfs:domain rdf:resource="http://purl.org/net/tsnchange#Change"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#before">
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:comment xml:lang="en">Indicates a TSNComponent before a change event.</rdfs:comment>
-    <owl:inverseOf rdf:resource="http://purl.org/net/tsnchange#input"/>
-    <rdfs:range rdf:resource="http://purl.org/net/tsn#TSNComponent"/>
-    <rdfs:domain rdf:resource="http://purl.org/net/tsnchange#Change"/>
-    <rdfs:label xml:lang="en">before</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#IdentificationChange">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment xml:lang="en">The IdentificationChange concept describes change(s) that modify the identifier, name, acronym and/or description attributs of one TSNFeature.</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#FeatureChange"/>
-    <rdfs:label xml:lang="en">IdentificationChange</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#lowerChange">
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:domain rdf:resource="http://purl.org/net/tsnchange#Change"/>
-    <rdfs:comment xml:lang="en">Indicates a lower Change that is caused by the described Change. The Change hierarchy is alligned on the Nomenclature components hierarchy i.e., Nomenclature &gt; Territory &gt; Level &gt; Unit. Then a change that affect a Territory is above a change that affect the levels of the TSN.</rdfs:comment>
-    <rdfs:label xml:lang="en">lowerChange</rdfs:label>
-    <rdfs:range rdf:resource="http://purl.org/net/tsnchange#Change"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#outputLevelVersion">
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:comment xml:lang="en">Indicates a Change of which a LevelVersion is an output resource.</rdfs:comment>
-    <rdfs:range rdf:resource="http://purl.org/net/tsnchange#Change"/>
-    <rdfs:subPropertyOf rdf:resource="http://purl.org/net/tsnchange#output"/>
-    <rdfs:domain rdf:resource="http://purl.org/net/tsn#Level"/>
-    <rdfs:label xml:lang="en">outputLevelVersion</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#outputTerritoryVersion">
-    <rdfs:domain rdf:resource="http://purl.org/net/tsn#TerritoryVersion"/>
-    <rdfs:subPropertyOf rdf:resource="http://purl.org/net/tsnchange#output"/>
-    <rdfs:label xml:lang="en">outputTerritoryVersion</rdfs:label>
-    <rdfs:range rdf:resource="http://purl.org/net/tsnchange#Change"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:comment xml:lang="en">Indicates a Change of which a TerritoryVersion is an output resource.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#UnitChange">
-    <rdfs:label xml:lang="en">UnitChange</rdfs:label>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment xml:lang="en">The UnitChange concept describes all the changes undergone by a UnitVersion feature from one TSN version to another.</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#FeatureChange"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#HierarchyRestructuration">
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#StructureChange"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment xml:lang="en">The HierarchyRestructuration concept is a sub concept of the StructureChange concept. It describes changes that simultaneously affect several TSNFeature by modifying the hierarchy of the TSN. Those changes make sense grouped together (e.g., if a new Level integrate the nomenclature as well as new Unit composing this Level, then all those Appearance event of TSNFeatures will be grouped under one HierarchyRestructuration node).</rdfs:comment>
-    <rdfs:label xml:lang="en">HierarchyRestructuration</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#levelVersionAfter">
-    <rdfs:comment xml:lang="en">Indicates a LevelVersion after a change event.</rdfs:comment>
-    <rdfs:label xml:lang="en">levelVersionAfter</rdfs:label>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <owl:inverseOf rdf:resource="http://purl.org/net/tsnchange#outputLevelVersion"/>
-    <rdfs:range rdf:resource="http://purl.org/net/tsn#LevelVersion"/>
-    <rdfs:subPropertyOf rdf:resource="http://purl.org/net/tsnchange#after"/>
-    <rdfs:domain rdf:resource="http://purl.org/net/tsnchange#Change"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#FeatureChange">
-    <rdfs:label xml:lang="en">FeatureChange</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#Change"/>
-    <rdfs:comment xml:lang="en">The FeatureChange concept describes one or a set of changes that occur simultaneously and affect only one TSNFeature resource (i.e., TerritoryVersion, LevelVersion or UnitVersion). This concept is closed to the concept "Basic change" of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2). And, this concept is equivalent to the "LifeEvent:Transformation" concept from the model of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612).</rdfs:comment>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#SuperUnitChange">
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#UnitHierarchyChange"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment xml:lang="en">The Super Unit of a Unit changes i.e., the Identifier of the Super Unit is not the same between the input and output NomenclatureVersion.</rdfs:comment>
-    <rdfs:label xml:lang="en">SuperUnitChange</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#levelVersionBefore">
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:domain rdf:resource="http://purl.org/net/tsnchange#Change"/>
-    <rdfs:label xml:lang="en">levelVersionBefore</rdfs:label>
-    <rdfs:comment xml:lang="en">Indicates a Level before a change event.</rdfs:comment>
-    <rdfs:range rdf:resource="http://purl.org/net/tsn#LevelVersion"/>
-    <rdfs:subPropertyOf rdf:resource="http://purl.org/net/tsnchange#before"/>
-    <owl:inverseOf rdf:resource="http://purl.org/net/tsnchange#inputLevelVersion"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#Rectification">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label xml:lang="en">Rectification</rdfs:label>
-    <rdfs:comment xml:lang="en">The Rectification concept describes operations of redistribution of the spatial area, without modifying the identity of all the input TSNFeatures (i.e., their identifier is not modified), but modifying their Geometry. The combination of footprints of the input TSNFeatures is equal to the combination of footprints of the output TSNFeatures. This concept is equivalent to the "Rectification" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612).</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#ContinuationChange"/>
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#Redistribution"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#Scission">
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#DerivationChange"/>
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#Split"/>
-    <rdfs:comment xml:lang="en">The Scission concept describes the split of one TSNFeature (into two or more TSNFeatures) that ceases to exist after the change event. This operation leads to: (1) the disappearance of the input TSNFeature (i.e., the identity of this TSNFeature is not extended after the event i.e., at least the identifier of the TSNFeature is modified); (2) the creation of two or more Units in the NomenclatureVersion V+1 by split of the footprint of the input Unit in NomenclatureVersion V. This concept is equivalent to the "Scission" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612).</rdfs:comment>
-    <rdfs:label xml:lang="en">Scission</rdfs:label>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#GeometryRestructuration">
-    <rdfs:label xml:lang="en">GeometryRestructuration</rdfs:label>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment xml:lang="en">The GeometryRestructuration concept is a sub concept of the StructureChange concept. It describes changes that simultaneously affect several TSNFeature by modifying their Geometry and sometime other attributs of the TSNFeatures. The set of TSNFeatures (TerritoryVersion, LevelVersion or UnitVersion) impacted by the GeometryRestructuration event is determined following the rule described by (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 25, 1597–1612 (2011)):"For any event type, a geometrical invariant defines the set of units involved in the one event: the combination of unit footprints that existed prior the event (preceding ones) is equal to the combination of unit footprints that are still in existence after the event (succeeding ones).". Except in case of GeometryRestructuration caused by a TerritoryChange that affect the external boundaries of the TerritoryVersion observed. Then, in this case, the set of TSNFeature (TerritoryVersion, LevelVersion or UnitVersion) impacted by the StructureChange event is determined following the rule: changes are grouped together if they occur simultaneously, inside a area which extends from the new territory boundaries to unit(s) boundaries that match the ones of unit(s) before the event. This concept is equivalent to the "evolution of spatial structure" notion from (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2).</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#StructureChange"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#inputTerritoryVersion">
-    <rdfs:range rdf:resource="http://purl.org/net/tsnchange#Change"/>
-    <rdfs:comment xml:lang="en">Indicates a Change of which a TerritoryVersion is an input resource.</rdfs:comment>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:domain rdf:resource="http://purl.org/net/tsn#TerritoryVersion"/>
-    <rdfs:subPropertyOf rdf:resource="http://purl.org/net/tsnchange#input"/>
-    <rdfs:label xml:lang="en">inputTerritoryVersion</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#TerritoryChange">
-    <rdfs:comment xml:lang="en">The TerritoryChange concept describes all the changes undergone by a TerritoryVersion feature from one TSN version to another.</rdfs:comment>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label xml:lang="en">TerritoryChange</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#FeatureChange"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#DerivationChange">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#GeometryRestructuration"/>
-    <rdfs:comment xml:lang="en">The DerivationChange concept describes restructuration operations that do modify the identity of  TSNFeatures that comes as input to the Change Operation.</rdfs:comment>
-    <rdfs:label xml:lang="en">DerivationChange</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#LevelBelongingChange">
-    <rdfs:comment xml:lang="en">The level a Unit belongs to changes.</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#UnitHierarchyChange"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label xml:lang="en">LevelBelongingChange</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#Disappearance">
-    <rdfs:comment xml:lang="en">The Disappearance concept describes the disappearance (or end) of a TSNFeature (i.e., TerritoryVersion, LevelVersion or UnitVersion) that comes as an input resource to the change event: the TSNFeature no longer exists after the change event i.e., no TSNFeature will carry its identifier in the output NomenclatureVersion. This concept is equivalent to the "Disappearance" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2).</rdfs:comment>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#FeatureChange"/>
-    <rdfs:label xml:lang="en">Disappearance</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#IdentificationRestructuration">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#StructureChange"/>
-    <rdfs:label xml:lang="en">IdentificationRestructuration</rdfs:label>
-    <rdfs:comment xml:lang="en">The IdentificationRestructuration concept is a sub concept of the StructureChange concept. It describes changes that simultaneously affect several TSNFeature by modifying their attributs of identification. Those changes make sense grouped together (e.g., all the sub-units of a Super one are renamed).</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#StructureChange">
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#Change"/>
-    <rdfs:comment xml:lang="en">The StructureChange concept describes restructuration operations that impact the TSN and several of its features simultaneously.</rdfs:comment>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label xml:lang="en">StructureChange</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/net/tsnchange#Deformation">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label xml:lang="en">Deformation</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#GeometryChange"/>
-    <rdfs:comment xml:lang="en">Deformation of a TSNFeature describes shape modification without size change between the input NomenclatureVersion and the output NomenclatureVersion. This concept is equivalent to the "Deformation" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2).</rdfs:comment>
-  </rdf:Description>
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:cc="http://creativecommons.org/ns#"
+    xmlns:voaf="http://purl.org/vocommons/voaf#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:dcterms="http://purl.org/dc/terms/"
+    xmlns:vann="http://purl.org/vocab/vann/"
+    >
+    <owl:Ontology rdf:about="http://purl.org/net/tsnchange#">
+        <dcterms:creator>
+            <foaf:Person rdf:nodeID="ub40bL22C18">
+                <foaf:name>Camille BERNARD</foaf:name>
+                <foaf:homepage rdf:resource="http://lig-membres.imag.fr/bernardc/"/>
+            </foaf:Person>
+        </dcterms:creator>
+        <rdf:type rdf:resource="http://purl.org/vocommons/voaf#Vocabulary"/>
+        <dcterms:creator>
+            <foaf:Person rdf:nodeID="ub40bL25C10">
+                <foaf:name>Hy DAO</foaf:name>
+                <foaf:homepage rdf:resource="https://unige.ch/gedt/membres/dao/"/>
+            </foaf:Person>
+        </dcterms:creator>
+        <dcterms:creator>
+            <foaf:Person rdf:nodeID="ub40bL23C10">
+                <foaf:name>Marlène VILLANOVA-OLIVER</foaf:name>
+                <foaf:homepage rdf:resource="http://lig-membres.imag.fr/villanov/"/>
+            </foaf:Person>
+        </dcterms:creator>
+        <dcterms:creator>
+            <foaf:Person rdf:nodeID="ub40bL24C10">
+                <foaf:name>Jérôme GENSEL</foaf:name>
+                <foaf:homepage rdf:resource="http://lig-membres.imag.fr/gensel/"/>
+            </foaf:Person>
+        </dcterms:creator>
+        <rdfs:comment>Second version of the vocabulary. It enables the description of new operations of restructuration of the TSN: IdentificationRestructuration and HierarchyRestructuration, operation that impact several features at the same time.</rdfs:comment>
+        <dcterms:description xml:lang="en">The TSN-Change ontology aims at describing changes that occured from one version of a Territorial Statistical Nomenclature (TSN) (i.e., partition of the territory) and its subsequent (e.g., change in territorial units boundaries to reflect an administrative reorganisation).</dcterms:description>
+        <cc:license rdf:resource="http://www.data.gouv.fr/Licence-Ouverte-Open-Licence"/>
+        <dcterms:publisher rdf:resource="http://steamer.imag.fr"/>
+        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2017-05-15</dcterms:modified>
+        <vann:preferredNamespaceUri rdf:resource="http://purl.org/net/tsnchange#"/>
+        <vann:preferredNamespacePrefix>tsnchange</vann:preferredNamespacePrefix>
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2017-01-31</dcterms:issued>
+        <cc:license rdf:resource="http://creativecommons.org/licenses/by/3.0/"/>
+        <dcterms:title xml:lang="en">Territorial Statistical Nomenclature Change Ontology</dcterms:title>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.0</owl:versionInfo>
+    </owl:Ontology>
+    <owl:Class rdf:about="http://purl.org/net/tsnchange#LevelChange">
+        <rdfs:label xml:lang="en">LevelChange</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#FeatureChange"/>
+        <rdfs:comment xml:lang="en">The LevelChange concept describes all the changes undergone by a LevelVersion feature from one TSN version to another.</rdfs:comment>
+    </owl:Class>
+    <owl:Class rdf:about="http://purl.org/net/tsnchange#Extraction">
+        <rdfs:label xml:lang="en">Extraction</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#Split"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#ContinuationChange"/>
+        <rdfs:comment xml:lang="en">The Extraction concept describes the split of one TSNFeature (into two or more TSNFeatures) that nevertheless maintains its identity after the change event (i.e., its identifier is not modified). This operation leads to: (1) the Appearance of at least one new TSNFeature as an output of the change event: this/those new TSNFeature(s) take(s) territory from the input TSNFeature ; (2) the Contraction of the footprint of the input TSNFeature that nevertheless still exist after the change event. This concept is equivalent to the "Extraction" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612).</rdfs:comment>
+    </owl:Class>
+    <owl:Class rdf:about="http://purl.org/net/tsnchange#LowerLevelChange">
+        <rdfs:label xml:lang="en">LowerLevelChange</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#LevelHierarchyChange"/>
+        <rdfs:comment xml:lang="en">The lower level  of a level changes.</rdfs:comment>
+    </owl:Class>
+    <rdf:Property rdf:about="http://purl.org/net/tsnchange#levelVersionBefore">
+        <rdfs:comment xml:lang="en">Indicates a Level before a change event.</rdfs:comment>
+        <rdfs:range rdf:resource="http://purl.org/net/tsn#LevelVersion"/>
+        <owl:inverseOf>
+            <rdf:Property rdf:about="http://purl.org/net/tsnchange#inputLevelVersion">
+                <rdfs:comment xml:lang="en">Indicates a Change of which a LevelVersion is an input resource.</rdfs:comment>
+                <rdfs:subPropertyOf rdf:resource="http://purl.org/net/tsnchange#input"/>
+                <rdfs:range rdf:resource="http://purl.org/net/tsnchange#Change"/>
+                <rdfs:domain rdf:resource="http://purl.org/net/tsn#Level"/>
+                <rdfs:label xml:lang="en">inputLevelVersion</rdfs:label>
+            </rdf:Property>
+        </owl:inverseOf>
+        <rdfs:label xml:lang="en">levelVersionBefore</rdfs:label>
+        <rdfs:subPropertyOf>
+            <rdf:Property rdf:about="http://purl.org/net/tsnchange#before">
+                <owl:inverseOf rdf:resource="http://purl.org/net/tsnchange#input"/>
+                <rdfs:domain rdf:resource="http://purl.org/net/tsnchange#Change"/>
+                <rdfs:label xml:lang="en">before</rdfs:label>
+                <rdfs:comment xml:lang="en">Indicates a TSNComponent before a change event.</rdfs:comment>
+                <rdfs:range rdf:resource="http://purl.org/net/tsn#TSNComponent"/>
+            </rdf:Property>
+        </rdfs:subPropertyOf>
+        <rdfs:domain rdf:resource="http://purl.org/net/tsnchange#Change"/>
+    </rdf:Property>
+    <rdf:Property rdf:about="http://purl.org/net/tsnchange#territoryVersionAfter">
+        <rdfs:subPropertyOf>
+            <rdf:Property rdf:about="http://purl.org/net/tsnchange#after">
+                <rdfs:range rdf:resource="http://purl.org/net/tsn#TSNComponent"/>
+                <owl:inverseOf rdf:resource="http://purl.org/net/tsnchange#output"/>
+                <rdfs:domain rdf:resource="http://purl.org/net/tsnchange#Change"/>
+                <rdfs:label xml:lang="en">after</rdfs:label>
+                <rdfs:comment xml:lang="en">Indicates a TSNComponent after a change event.</rdfs:comment>
+            </rdf:Property>
+        </rdfs:subPropertyOf>
+        <rdfs:domain rdf:resource="http://purl.org/net/tsnchange#Change"/>
+        <rdfs:comment xml:lang="en">Indicates a TerritoryVersion after a change event.</rdfs:comment>
+        <rdfs:range rdf:resource="http://purl.org/net/tsn#TerritoryVersion"/>
+        <owl:inverseOf>
+            <rdf:Property rdf:about="http://purl.org/net/tsnchange#outputTerritoryVersion">
+                <rdfs:comment xml:lang="en">Indicates a Change of which a TerritoryVersion is an output resource.</rdfs:comment>
+                <rdfs:domain rdf:resource="http://purl.org/net/tsn#TerritoryVersion"/>
+                <rdfs:range rdf:resource="http://purl.org/net/tsnchange#Change"/>
+                <rdfs:label xml:lang="en">outputTerritoryVersion</rdfs:label>
+                <rdfs:subPropertyOf rdf:resource="http://purl.org/net/tsnchange#output"/>
+            </rdf:Property>
+        </owl:inverseOf>
+        <rdfs:label xml:lang="en">territoryVersionAfter</rdfs:label>
+    </rdf:Property>
+    <owl:Class rdf:about="http://purl.org/net/tsnchange#TerritoryChange">
+        <rdfs:comment xml:lang="en">The TerritoryChange concept describes all the changes undergone by a TerritoryVersion feature from one TSN version to another.</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#FeatureChange"/>
+        <rdfs:label xml:lang="en">TerritoryChange</rdfs:label>
+    </owl:Class>
+    <rdf:Property rdf:about="http://purl.org/net/tsnchange#isPredecessorOf">
+        <rdfs:label xml:lang="en">isPredecessorOf</rdfs:label>
+        <owl:inverseOf rdf:resource="http://purl.org/net/tsn#isSuccessorOf"/>
+        <rdfs:comment xml:lang="en">Indicates the predecessor Version of a Version resource.</rdfs:comment>
+        <rdfs:range rdf:resource="http://purl.org/net/tsn#Version"/>
+        <rdfs:domain rdf:resource="http://purl.org/net/tsn#Version"/>
+    </rdf:Property>
+    <owl:Class rdf:about="http://purl.org/net/tsnchange#Reallocation">
+        <rdfs:comment xml:lang="en">The Reallocation concept describes operations of redistribution of the spatial area that modify the identity of all the input TSNFeatures (i.e., their identifier is modified), and modify their Geometry. The combination of footprints of the input TSNFeatures is equal to the combination of footprints of the output TSNFeatures. This operation leads to: (1) the disappearance of all the 'n' input TSNFeatures ; (2) the creation of 'p' TSNFeatures as output to the change event by redistribution of the spatial area covered by the 'n' input TSNFeatures. This concept is equivalent to the "Reallocation" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612).</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#Redistribution"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#DerivationChange"/>
+        <rdfs:label xml:lang="en">Reallocation</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://purl.org/net/tsnchange#Rectification">
+        <rdfs:comment xml:lang="en">The Rectification concept describes operations of redistribution of the spatial area, without modifying the identity of all the input TSNFeatures (i.e., their identifier is not modified), but modifying their Geometry. The combination of footprints of the input TSNFeatures is equal to the combination of footprints of the output TSNFeatures. This concept is equivalent to the "Rectification" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612).</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#ContinuationChange"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#Redistribution"/>
+        <rdfs:label xml:lang="en">Rectification</rdfs:label>
+    </owl:Class>
+    <owl:Class rdf:about="http://purl.org/net/tsnchange#IdentifierChange">
+        <rdfs:comment xml:lang="en">The identifier (within the TSN) of a TSNFeature changes.</rdfs:comment>
+        <rdfs:label xml:lang="en">IdentifierChange</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#IdentificationChange"/>
+    </owl:Class>
+    <rdf:Property rdf:about="http://purl.org/net/tsnchange#unitVersionAfter">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/tsnchange#after"/>
+        <rdfs:range rdf:resource="http://purl.org/net/tsn#UnitVersion"/>
+        <rdfs:domain rdf:resource="http://purl.org/net/tsnchange#Change"/>
+        <owl:inverseOf>
+            <rdf:Property rdf:about="http://purl.org/net/tsnchange#outputUnitVersion">
+                <rdfs:label xml:lang="en">outputUnitVersion</rdfs:label>
+                <rdfs:subPropertyOf rdf:resource="http://purl.org/net/tsnchange#output"/>
+                <rdfs:range rdf:resource="http://purl.org/net/tsnchange#Change"/>
+                <rdfs:domain rdf:resource="http://purl.org/net/tsn#Unit"/>
+                <rdfs:comment xml:lang="en">Indicates a Change of which a UnitVersion is an output resource.</rdfs:comment>
+            </rdf:Property>
+        </owl:inverseOf>
+        <rdfs:comment xml:lang="en">Indicates a UnitVersion after a change event.</rdfs:comment>
+        <rdfs:label xml:lang="en">unitVersionAfter</rdfs:label>
+    </rdf:Property>
+    <owl:Class rdf:about="http://purl.org/net/tsnchange#UnitChange">
+        <rdfs:comment xml:lang="en">The UnitChange concept describes all the changes undergone by a UnitVersion feature from one TSN version to another.</rdfs:comment>
+        <rdfs:label xml:lang="en">UnitChange</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#FeatureChange"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://purl.org/net/tsnchange#HierarchyRestructuration">
+        <rdfs:label xml:lang="en">HierarchyRestructuration</rdfs:label>
+        <rdfs:comment xml:lang="en">The HierarchyRestructuration concept is a sub concept of the StructureChange concept. It describes changes that simultaneously affect several TSNFeature by modifying the hierarchy of the TSN. Those changes make sense grouped together (e.g., if a new Level integrate the nomenclature as well as new Unit composing this Level, then all those Appearance event of TSNFeatures will be grouped under one HierarchyRestructuration node).</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#StructureChange"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://purl.org/net/tsnchange#Scission">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#Split"/>
+        <rdfs:comment xml:lang="en">The Scission concept describes the split of one TSNFeature (into two or more TSNFeatures) that ceases to exist after the change event. This operation leads to: (1) the disappearance of the input TSNFeature (i.e., the identity of this TSNFeature is not extended after the event i.e., at least the identifier of the TSNFeature is modified); (2) the creation of two or more Units in the NomenclatureVersion V+1 by split of the footprint of the input Unit in NomenclatureVersion V. This concept is equivalent to the "Scission" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612).</rdfs:comment>
+        <rdfs:label xml:lang="en">Scission</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#DerivationChange"/>
+    </owl:Class>
+    <rdf:Property rdf:about="http://purl.org/net/tsnchange#upperChange">
+        <rdfs:domain rdf:resource="http://purl.org/net/tsnchange#Change"/>
+        <rdfs:range rdf:resource="http://purl.org/net/tsnchange#Change"/>
+        <rdfs:comment xml:lang="en">Indicates an upper Change that causes the described Change. The Change hierarchy is alligned on the Nomenclature components hierarchy i.e., Nomenclature &gt; Territory &gt; Level &gt; Unit. Then a change that affect a Territory is above a change that affect the levels of the TSN.</rdfs:comment>
+        <rdfs:label xml:lang="en">upperChange</rdfs:label>
+    </rdf:Property>
+    <rdf:Property rdf:about="http://purl.org/net/tsnchange#territoryVersionBefore">
+        <rdfs:label xml:lang="en">territoryVersionBefore</rdfs:label>
+        <owl:inverseOf>
+            <rdf:Property rdf:about="http://purl.org/net/tsnchange#inputTerritoryVersion">
+                <rdfs:label xml:lang="en">inputTerritoryVersion</rdfs:label>
+                <rdfs:range rdf:resource="http://purl.org/net/tsnchange#Change"/>
+                <rdfs:subPropertyOf rdf:resource="http://purl.org/net/tsnchange#input"/>
+                <rdfs:domain rdf:resource="http://purl.org/net/tsn#TerritoryVersion"/>
+                <rdfs:comment xml:lang="en">Indicates a Change of which a TerritoryVersion is an input resource.</rdfs:comment>
+            </rdf:Property>
+        </owl:inverseOf>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/tsnchange#before"/>
+        <rdfs:comment xml:lang="en">Indicates a TerritoryVersion before a change event.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://purl.org/net/tsnchange#Change"/>
+        <rdfs:range rdf:resource="http://purl.org/net/tsn#TerritoryVersion"/>
+    </rdf:Property>
+    <owl:Class rdf:about="http://purl.org/net/tsnchange#SuperUnitChange">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#UnitHierarchyChange"/>
+        <rdfs:comment xml:lang="en">The Super Unit of a Unit changes i.e., the Identifier of the Super Unit is not the same between the input and output NomenclatureVersion.</rdfs:comment>
+        <rdfs:label xml:lang="en">SuperUnitChange</rdfs:label>
+    </owl:Class>
+    <rdf:Property rdf:about="http://purl.org/net/tsnchange#label">
+        <rdfs:label xml:lang="en">label</rdfs:label>
+        <owl:equivalentProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <rdfs:domain rdf:resource="http://purl.org/net/tsnchange#Change"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="en">Assign a name to the change that occurred.</rdfs:comment>
+    </rdf:Property>
+    <rdf:Property rdf:about="http://purl.org/net/tsnchange#nomenclatureVersionBefore">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/tsnchange#before"/>
+        <rdfs:comment xml:lang="en">Indicates a NomenclatureVersion before a change event.</rdfs:comment>
+        <rdfs:range rdf:resource="http://purl.org/net/tsn#NomenclatureVersion"/>
+        <rdfs:label xml:lang="en">nomenclatureVersionBefore</rdfs:label>
+        <rdfs:domain rdf:resource="http://purl.org/net/tsnchange#Change"/>
+        <owl:inverseOf>
+            <rdf:Property rdf:about="http://purl.org/net/tsnchange#inputNomenclatureVersion">
+                <rdfs:domain rdf:resource="http://purl.org/net/tsn#NomenclatureVersion"/>
+                <rdfs:label xml:lang="en">inputNomenclatureVersion</rdfs:label>
+                <rdfs:subPropertyOf rdf:resource="http://purl.org/net/tsnchange#input"/>
+                <rdfs:range rdf:resource="http://purl.org/net/tsnchange#Change"/>
+                <rdfs:comment xml:lang="en">Indicates a Change of which a NomenclatureVersion is an input resource.</rdfs:comment>
+            </rdf:Property>
+        </owl:inverseOf>
+    </rdf:Property>
+    <owl:Class rdf:about="http://purl.org/net/tsnchange#Expansion">
+        <rdfs:label xml:lang="en">Expansion</rdfs:label>
+        <rdfs:comment xml:lang="en">Expansion of a TSNFeature, in terms of shape, means its size increase between the input NomenclatureVersion and the output NomenclatureVersion. This concept is equivalent to the "Expansion" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2).</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#GeometryChange"/>
+    </owl:Class>
+    <rdf:Property rdf:about="http://purl.org/net/tsnchange#lowerChange">
+        <rdfs:domain rdf:resource="http://purl.org/net/tsnchange#Change"/>
+        <rdfs:range rdf:resource="http://purl.org/net/tsnchange#Change"/>
+        <rdfs:comment xml:lang="en">Indicates a lower Change that is caused by the described Change. The Change hierarchy is alligned on the Nomenclature components hierarchy i.e., Nomenclature &gt; Territory &gt; Level &gt; Unit. Then a change that affect a Territory is above a change that affect the levels of the TSN.</rdfs:comment>
+        <rdfs:label xml:lang="en">lowerChange</rdfs:label>
+    </rdf:Property>
+    <rdf:Property rdf:about="http://purl.org/net/tsnchange#isSuccessorOf">
+        <rdfs:subPropertyOf>
+            <rdf:Property rdf:about="http://purl.org/pav/previousVersion">
+                <rdfs:label xml:lang="en">pav:previousVersion</rdfs:label>
+                <rdfs:comment xml:lang="en">The previous version of a resource in a lineage. For instance a news article updated to correct factual information would point to the previous version of the article with pav:previousVersion. If however the content has significantly changed so that the two resources no longer share lineage (say a new article that talks about the same facts), they can instead be related using pav:derivedFrom. This property is normally used in a functional way, although PAV does not formally restrict this. Earlier versions which are not direct ancestors of this resource may instead be provided using the superproperty pav:hasEarlierVersion. A version number of this resource can be provided using the data property pav:version. To indicate that this version is a snapshot of a more general, non-versioned resource, e.g. 'Weather Today' vs. 'Weather Today on 2013-12-07', see pav:hasVersion. Note that it might be confusing to indicate pav:previousVersion from a resource that also has pav:hasVersion or pav:hasCurrentVersion relations, as such resources are intended to be a long-living and 'unversioned', while pav:previousVersion is intended for use between permalink-like 'snapshots' arranged in a linear history.</rdfs:comment>
+                <rdfs:isDefinedBy rdf:resource="http://purl.org/pav/"/>
+            </rdf:Property>
+        </rdfs:subPropertyOf>
+        <rdfs:comment xml:lang="en">Indicates the successor Version of a Version resource.</rdfs:comment>
+        <owl:inverseOf rdf:resource="http://purl.org/net/tsn#isPredecessorOf"/>
+        <rdfs:range rdf:resource="http://purl.org/net/tsn#Version"/>
+        <rdfs:label xml:lang="en">isSuccessorOf</rdfs:label>
+        <rdfs:domain rdf:resource="http://purl.org/net/tsn#Version"/>
+    </rdf:Property>
+    <owl:Class rdf:about="http://purl.org/net/tsnchange#Appearance">
+        <rdfs:comment xml:lang="en">The Appearance concept describes the appearance (or creation) of a new TSNFeature (i.e., TerritoryVersion, LevelVersion or UnitVersion) as an output to the change event. "Appearance" means the identifier of the new TSNFeature is different from all that already exist, in the input and output NomenclatureVersion. This concept is equivalent to the "Appearance" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2).</rdfs:comment>
+        <rdfs:label xml:lang="en">Appearance</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#FeatureChange"/>
+    </owl:Class>
+    <rdf:Property rdf:about="http://purl.org/net/tsnchange#unitVersionBefore">
+        <rdfs:range rdf:resource="http://purl.org/net/tsn#UnitVersion"/>
+        <rdfs:domain rdf:resource="http://purl.org/net/tsnchange#Change"/>
+        <rdfs:comment xml:lang="en">Indicates a UnitVersion before a change event.</rdfs:comment>
+        <rdfs:label xml:lang="en">unitVersionBefore</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/tsnchange#before"/>
+        <owl:inverseOf>
+            <rdf:Property rdf:about="http://purl.org/net/tsnchange#inputUnitVersion">
+                <rdfs:domain rdf:resource="http://purl.org/net/tsn#Unit"/>
+                <rdfs:subPropertyOf rdf:resource="http://purl.org/net/tsnchange#input"/>
+                <rdfs:comment xml:lang="en">Indicates a Change of which a UnitVersion is an input resource.</rdfs:comment>
+                <rdfs:range rdf:resource="http://purl.org/net/tsnchange#Change"/>
+                <rdfs:label xml:lang="en">inputUnitVersion</rdfs:label>
+            </rdf:Property>
+        </owl:inverseOf>
+    </rdf:Property>
+    <rdf:Property rdf:about="http://purl.org/net/tsnchange#nomenclatureVersionAfter">
+        <rdfs:range rdf:resource="http://purl.org/net/tsn#NomenclatureVersion"/>
+        <rdfs:label xml:lang="en">nomenclatureVersionAfter</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/tsnchange#after"/>
+        <rdfs:comment xml:lang="en">Indicates a NomenclatureVersion after a change event.</rdfs:comment>
+        <owl:inverseOf>
+            <rdf:Property rdf:about="http://purl.org/net/tsnchange#outputNomenclatureVersion">
+                <rdfs:label xml:lang="en">outputNomenclatureVersion</rdfs:label>
+                <rdfs:subPropertyOf rdf:resource="http://purl.org/net/tsnchange#output"/>
+                <rdfs:comment xml:lang="en">Indicates a Change of which a NomenclatureVersion is an output resource.</rdfs:comment>
+                <rdfs:range rdf:resource="http://purl.org/net/tsnchange#Change"/>
+                <rdfs:domain rdf:resource="http://purl.org/net/tsn#NomenclatureVersion"/>
+            </rdf:Property>
+        </owl:inverseOf>
+        <rdfs:domain rdf:resource="http://purl.org/net/tsnchange#Change"/>
+    </rdf:Property>
+    <rdf:Property rdf:about="http://purl.org/net/tsnchange#levelVersionAfter">
+        <owl:inverseOf>
+            <rdf:Property rdf:about="http://purl.org/net/tsnchange#outputLevelVersion">
+                <rdfs:domain rdf:resource="http://purl.org/net/tsn#Level"/>
+                <rdfs:label xml:lang="en">outputLevelVersion</rdfs:label>
+                <rdfs:comment xml:lang="en">Indicates a Change of which a LevelVersion is an output resource.</rdfs:comment>
+                <rdfs:subPropertyOf rdf:resource="http://purl.org/net/tsnchange#output"/>
+                <rdfs:range rdf:resource="http://purl.org/net/tsnchange#Change"/>
+            </rdf:Property>
+        </owl:inverseOf>
+        <rdfs:label xml:lang="en">levelVersionAfter</rdfs:label>
+        <rdfs:comment xml:lang="en">Indicates a LevelVersion after a change event.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/tsnchange#after"/>
+        <rdfs:range rdf:resource="http://purl.org/net/tsn#LevelVersion"/>
+        <rdfs:domain rdf:resource="http://purl.org/net/tsnchange#Change"/>
+    </rdf:Property>
+    <rdf:Property rdf:about="http://purl.org/net/tsnchange#isCausedBy">
+        <rdfs:domain rdf:resource="http://purl.org/net/tsnchange#Change"/>
+        <rdfs:label xml:lang="en">isCausedBy</rdfs:label>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:comment xml:lang="en">Indicates a societal or other cause to the described Change (e.g., administrative reform).</rdfs:comment>
+    </rdf:Property>
+    <owl:Class rdf:about="http://purl.org/net/tsnchange#Disappearance">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#FeatureChange"/>
+        <rdfs:comment xml:lang="en">The Disappearance concept describes the disappearance (or end) of a TSNFeature (i.e., TerritoryVersion, LevelVersion or UnitVersion) that comes as an input resource to the change event: the TSNFeature no longer exists after the change event i.e., no TSNFeature will carry its identifier in the output NomenclatureVersion. This concept is equivalent to the "Disappearance" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2).</rdfs:comment>
+        <rdfs:label xml:lang="en">Disappearance</rdfs:label>
+    </owl:Class>
+    <owl:Class rdf:about="http://purl.org/net/tsnchange#DescriptionChange">
+        <rdfs:comment xml:lang="en">The description of a TSNFeature changes.</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#IdentificationChange"/>
+        <rdfs:label xml:lang="en">DescriptionChange</rdfs:label>
+    </owl:Class>
+    <owl:Class rdf:about="http://purl.org/net/tsnchange#AcronymChange">
+        <rdfs:label xml:lang="en">AcronymChange</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#IdentificationChange"/>
+        <rdfs:comment xml:lang="en">The acronym of a TSNFeature changes.</rdfs:comment>
+    </owl:Class>
+    <rdf:Property rdf:about="http://purl.org/net/tsnchange#date">
+        <rdfs:label xml:lang="en">date</rdfs:label>
+        <rdfs:comment xml:lang="en">Assign a date to the change that occurred.</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:domain rdf:resource="http://purl.org/net/tsnchange#Change"/>
+        <owl:equivalentProperty rdf:resource="http://purl.org/dc/terms/date"/>
+    </rdf:Property>
+    <owl:Class rdf:about="http://purl.org/net/tsnchange#Deformation">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#GeometryChange"/>
+        <rdfs:label xml:lang="en">Deformation</rdfs:label>
+        <rdfs:comment xml:lang="en">Deformation of a TSNFeature describes shape modification without size change between the input NomenclatureVersion and the output NomenclatureVersion. This concept is equivalent to the "Deformation" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2).</rdfs:comment>
+    </owl:Class>
+    <owl:Class rdf:about="http://purl.org/net/tsnchange#Integration">
+        <rdfs:comment xml:lang="en">The Integration concept describes the merge of two or more TSNFeatures (e.g., merge of two TerritoryVersion or merge of two UnitVersion), into a single TSNFeature that existed before the change and maintains its identity after the change event (i.e., its identifier is not modified). This operation leads to: (1) the disappearance of at least one input TSNFeature ; (2) the Expansion of the footprint of the output TSNFeatures. Its new footprint is equal to the combination of all the footprint of the input TSNFeatures. This concept is equivalent to the "Integration" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612).</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#ContinuationChange"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#Merge"/>
+        <rdfs:label xml:lang="en">Integration</rdfs:label>
+    </owl:Class>
+    <owl:Class rdf:about="http://purl.org/net/tsnchange#Contraction">
+        <rdfs:label xml:lang="en">Contraction</rdfs:label>
+        <rdfs:comment xml:lang="en">Contraction of a TSNFeature, in terms of shape, means its size decrease between the input NomenclatureVersion and the output NomenclatureVersion. This concept is equivalent to the "Contraction" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2).</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#GeometryChange"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://purl.org/net/tsnchange#IdentificationRestructuration">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#StructureChange"/>
+        <rdfs:comment xml:lang="en">The IdentificationRestructuration concept is a sub concept of the StructureChange concept. It describes changes that simultaneously affect several TSNFeature by modifying their attributs of identification. Those changes make sense grouped together (e.g., all the sub-units of a Super one are renamed).</rdfs:comment>
+        <rdfs:label xml:lang="en">IdentificationRestructuration</rdfs:label>
+    </owl:Class>
+    <owl:Class rdf:about="http://purl.org/net/tsnchange#Fusion">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#DerivationChange"/>
+        <rdfs:label xml:lang="en">Fusion</rdfs:label>
+        <rdfs:comment xml:lang="en">The Fusion concept describes the merge of two or more TSNFeatures (e.g., merge of two TerritoryVersion or merge of two UnitVersion), into a single new TSNFeature that do not existed before the change. This operation leads to: (1) the disappearance of all the input TSNFeature(s) (i.e., the identity of the involved TSNFeatures is not extended after the Fusion); (2) the creation of one output TSNFeature whose footprint is equal to the combination of all the footprint of the input TSNFeatures. This concept is equivalent to the "Fusion" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612).</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#Merge"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://purl.org/net/tsnchange#LevelBelongingChange">
+        <rdfs:label xml:lang="en">LevelBelongingChange</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#UnitHierarchyChange"/>
+        <rdfs:comment xml:lang="en">The level a Unit belongs to changes.</rdfs:comment>
+    </owl:Class>
+    <owl:Class rdf:about="http://purl.org/net/tsnchange#NameChange">
+        <rdfs:label xml:lang="en">NameChange</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#IdentificationChange"/>
+        <rdfs:comment xml:lang="en">The name of a TSNFeature changes.</rdfs:comment>
+    </owl:Class>
+    <owl:Class rdf:about="http://purl.org/net/tsnchange#UpperLevelChange">
+        <rdfs:label xml:lang="en">UpperLevelChange</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#LevelHierarchyChange"/>
+        <rdfs:comment xml:lang="en">The upper level  of a level changes.</rdfs:comment>
+    </owl:Class>
+    <owl:Class rdf:about="http://purl.org/net/tsnchange#Redistribution">
+        <rdfs:comment xml:lang="en">The Redistribution concept describes operations of redistribution of the spatial area covered by 'n' TSNFeature(s) in the input NomenclatureVersion to form 'p' TSNFeature(s) in the output NomenclatureVersion. This concept is equivalent to the "Re-allocation" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2): "reallocation of land covered by 'n' initial zones to form 'p' new zones ".</rdfs:comment>
+        <rdfs:label xml:lang="en">Redistribution</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#GeometryRestructuration"/>
+    </owl:Class>
+    <rdf:Property rdf:about="http://purl.org/net/tsnchange#input">
+        <rdfs:domain rdf:resource="http://purl.org/net/tsn#TSNComponent"/>
+        <rdfs:range rdf:resource="http://purl.org/net/tsnchange#Change"/>
+        <owl:inverseOf rdf:resource="http://purl.org/net/tsnchange#before"/>
+        <rdfs:label xml:lang="en">input</rdfs:label>
+        <rdfs:comment xml:lang="en">Indicates a Change resource  of which a TSNComponent is an input resource (i.e., an object subject to change).</rdfs:comment>
+    </rdf:Property>
+    <owl:Class rdf:about="http://purl.org/net/tsnchange#Change">
+        <rdfs:comment xml:lang="en">The Change concept is the super class of all types of change that may occur from one TSN version to another. A Change node may group under one node several changes on TSNFeatures that make sense grouped together. As "a change is rarely isolated and independent from the other changes that occur simultaneously within the other units inside a given area", we have to link "together all the various units that were involved in a common territorial change"  (Plumejeaud, C., Mathian, H., Gensel, J., Grasland, C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 25, 1597–1612 (2011)). The Change concept is based on the Change Bridge concept of (Kauppinen T, Hyvönen E. Modeling and reasoning about changes in ontology time series. In: Ontologies [Internet]. Springer; 2007. p. 319–338. Available from: http://link.springer.com/chapter/10.1007/978-0-387-37022-4_11): "A change bridge is associated with a change point and tells, what current concepts become obsolete (if any), what new concepts are created (if any), and how the new concepts overlap with older ones.".</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="http://linkedearth.org/change/ns#Change"/>
+        <rdfs:label xml:lang="en">Change</rdfs:label>
+    </owl:Class>
+    <owl:Class rdf:about="http://purl.org/net/tsnchange#DerivationChange">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#GeometryRestructuration"/>
+        <rdfs:label xml:lang="en">DerivationChange</rdfs:label>
+        <rdfs:comment xml:lang="en">The DerivationChange concept describes restructuration operations that do modify the identity of  TSNFeatures that comes as input to the Change Operation.</rdfs:comment>
+    </owl:Class>
+    <owl:Class rdf:about="http://purl.org/net/tsnchange#FeatureChange">
+        <rdfs:comment xml:lang="en">The FeatureChange concept describes one or a set of changes that occur simultaneously and affect only one TSNFeature resource (i.e., TerritoryVersion, LevelVersion or UnitVersion). This concept is closed to the concept "Basic change" of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2). And, this concept is equivalent to the "LifeEvent:Transformation" concept from the model of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612).</rdfs:comment>
+        <rdfs:label xml:lang="en">FeatureChange</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#Change"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://purl.org/net/tsnchange#GeometryRestructuration">
+        <rdfs:comment xml:lang="en">The GeometryRestructuration concept is a sub concept of the StructureChange concept. It describes changes that simultaneously affect several TSNFeature by modifying their Geometry and sometime other attributs of the TSNFeatures. The set of TSNFeatures (TerritoryVersion, LevelVersion or UnitVersion) impacted by the GeometryRestructuration event is determined following the rule described by (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 25, 1597–1612 (2011)):"For any event type, a geometrical invariant defines the set of units involved in the one event: the combination of unit footprints that existed prior the event (preceding ones) is equal to the combination of unit footprints that are still in existence after the event (succeeding ones).". Except in case of GeometryRestructuration caused by a TerritoryChange that affect the external boundaries of the TerritoryVersion observed. Then, in this case, the set of TSNFeature (TerritoryVersion, LevelVersion or UnitVersion) impacted by the StructureChange event is determined following the rule: changes are grouped together if they occur simultaneously, inside a area which extends from the new territory boundaries to unit(s) boundaries that match the ones of unit(s) before the event. This concept is equivalent to the "evolution of spatial structure" notion from (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2).</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#StructureChange"/>
+        <rdfs:label xml:lang="en">GeometryRestructuration</rdfs:label>
+    </owl:Class>
+    <owl:Class rdf:about="http://purl.org/net/tsnchange#StructureChange">
+        <rdfs:comment xml:lang="en">The StructureChange concept describes restructuration operations that impact the TSN and several of its features simultaneously.</rdfs:comment>
+        <rdfs:label xml:lang="en">StructureChange</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#Change"/>
+    </owl:Class>
+    <rdf:Property rdf:about="http://purl.org/net/tsnchange#output">
+        <rdfs:domain rdf:resource="http://purl.org/net/tsn#TSNComponent"/>
+        <rdfs:range rdf:resource="http://purl.org/net/tsnchange#Change"/>
+        <rdfs:label xml:lang="en">output</rdfs:label>
+        <rdfs:comment xml:lang="en">Indicates a Change resource of which a TSNComponent is an output resource (i.e., a result of the Change event).</rdfs:comment>
+        <owl:inverseOf rdf:resource="http://purl.org/net/tsnchange#after"/>
+    </rdf:Property>
+    <owl:Class rdf:about="http://purl.org/net/tsnchange#Merge">
+        <rdfs:comment xml:lang="en">The Merge concept describes the merge of two or more TSNFeatures (e.g., merge of two TerritoryVersion or merge of two UnitVersion), into a single TSNFeature. This concept is equivalent to the "Union" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2): "fusion of 'n' zones into a single entity (union)".</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#GeometryRestructuration"/>
+        <rdfs:label xml:lang="en">Merge</rdfs:label>
+    </owl:Class>
+    <owl:Class rdf:about="http://purl.org/net/tsnchange#ContinuationChange">
+        <rdfs:label xml:lang="en">ContinuationChange</rdfs:label>
+        <rdfs:comment xml:lang="en">The ContinuationChange concept describes restructuration operations that do not modify the identity of all the involved TSNFeatures that comes as input to the Change Operation.</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#GeometryRestructuration"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://purl.org/net/tsnchange#UnitHierarchyChange">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#HierarchyChange"/>
+        <rdfs:comment xml:lang="en">The UnitHierarchyChange concept describes changes that affect TSNFeatures that are of type UnitVersion. It describes changes of the Unit position within the TSN hierarchy (e.g., change in the level it belongs to and/or Super unit change).</rdfs:comment>
+        <rdfs:label xml:lang="en">UnitHierarchyChange</rdfs:label>
+    </owl:Class>
+    <owl:Class rdf:about="http://purl.org/net/tsnchange#LevelHierarchyChange">
+        <rdfs:label xml:lang="en">LevelHierarchyChange</rdfs:label>
+        <rdfs:comment xml:lang="en">The LevelHierarchyChange concept describes changes that affect TSNFeatures that are of type LevelVersion. It describes changes of the Level position within the TSN hierarchy.</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#HierarchyChange"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://purl.org/net/tsnchange#Split">
+        <rdfs:comment xml:lang="en">The Split concept describes the split of a TSNFeature, into two or more TSNFeature. This concept is equivalent to the "Split" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2): "division of a zone into 'n' parts (split)".</rdfs:comment>
+        <rdfs:label xml:lang="en">Split</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#GeometryRestructuration"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://purl.org/net/tsnchange#HierarchyChange">
+        <rdfs:comment xml:lang="en">The HierarchyChange concept describes modification of the position of one TSNFeature (LevelVersion or UnitVersion) in the NomenclatureVersion hierarchy. For example, a Unit may change the Level it belongs to.</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#FeatureChange"/>
+        <rdfs:label xml:lang="en">HierarchyChange</rdfs:label>
+    </owl:Class>
+    <owl:Class rdf:about="http://purl.org/net/tsnchange#IdentificationChange">
+        <rdfs:comment xml:lang="en">The IdentificationChange concept describes change(s) that modify the identifier, name, acronym and/or description attributs of one TSNFeature.</rdfs:comment>
+        <rdfs:label xml:lang="en">IdentificationChange</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#FeatureChange"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://purl.org/net/tsnchange#GeometryChange">
+        <rdfs:label xml:lang="en">GeometryChange</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/tsnchange#FeatureChange"/>
+        <rdfs:comment xml:lang="en">The GeometryChange concept describes modification of the Geometry of one TSNFeature (i.e., TerritoryVersion, LevelVersion or UnitVersion). This concept is equivalent to the "Transformation" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2): "transformations processes involving chn-ange in shape or size: expansion, contraction and deformation (i.e. shape modification without size change)".</rdfs:comment>
+    </owl:Class>
 </rdf:RDF>
 
