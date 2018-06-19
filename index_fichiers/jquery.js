@@ -1,64 +1,249 @@
-/*
- * jixedbar - a jQuery fixed bar plugin.
- * http://code.google.com/p/jixedbar/
- * 
- * Version 0.0.5 (Development) - Minified
- * 
- * Copyright (c) 2009-2010 Ryan Yonzon, http://ryan.rawswift.com/
+/*!
+ * jQuery corner plugin: simple corner rounding
+ * Examples and documentation at: http://jquery.malsup.com/corner/
+ * version 2.12 (23-MAY-2011)
+ * Requires jQuery v1.3.2 or later
  * Dual licensed under the MIT and GPL licenses:
  * http://www.opensource.org/licenses/mit-license.php
  * http://www.gnu.org/licenses/gpl.html
- * 
- * Last update - September 21, 2010
+ * Authors: Dave Methvin and Mike Alsup
  */
-(function($){$.extend({jixedbar:new function(options){var constants={constOverflow:"hidden",constBottom:"0px"};var defaults={showOnTop:false,transparent:false,opacity:0.9,opaqueSpeed:"fast",slideSpeed:"fast",roundedCorners:true,roundedButtons:true,menuFadeSpeed:250,tooltipFadeSpeed:"slow",tooltipFadeOpacity:0.8};var options=$.extend(defaults,options);var ie6=(navigator.appName=="Microsoft Internet Explorer"&&parseInt(navigator.appVersion)==4&&navigator.appVersion.indexOf("MSIE 6.0")!=-1);var ie7=(document.all&&!window.opera&&window.XMLHttpRequest);var button_active=false;var active_button_name="";var element_obj;this.construct=function(){return this.each(function(){var obj=$(this);var screen=jQuery(this);var fullScreen=screen.width();var centerScreen=(fullScreen/2)*(1);var hideBar=false;element_obj=obj;if($(this).checkCookie("JXID")){if($(this).readCookie("JXHID")=="true"){this.hideBar=true;}}else{$(this).createCookie("JXID",$(this).genRandID());$(this).createCookie("JXHID",false);}
-if(($.browser.msie&&ie6)||($.browser.msie&&ie7)){$("html").css({"overflow":"hidden","height":"100%"});$("body").css({"margin":"0px","overflow":"auto","height":"100%"});}else{$("html").css({"height":"100%"});$("body").css({"margin":"0px","height":"100%"});}
-if(($.browser.msie&&ie6)||($.browser.msie&&ie7)){pos="absolute";}else{pos="fixed";}
-if($(".jx-bar-button-right",this).exists()){$("<ul />").attr("id","jx-hid-con-id").insertBefore($(this).find(".jx-bar-button-right:first"));}else{$("<ul />").attr("id","jx-hid-con-id").appendTo(this);}
-if($.browser.msie&&ie6){$("#jx-hid-con-id").css({"width":"1px","float":"right"});}else if($.browser.msie&&ie7){$("#jx-hid-con-id").css({"width":"40px","float":"right"});}
-if(defaults.showOnTop){hideIndicator="jx-hide-top";}else{hideIndicator="jx-hide";}
-$("#jx-hid-con-id").html('<li alt="Hide toolbar"><a id="jx-hid-btn-id" class="'+hideIndicator+'"></a></li>');$("#jx-hid-con-id").addClass("jx-bar-button-right");$("<span />").attr("id","jx-hid-sep-id").insertAfter("#jx-hid-con-id");$("#jx-hid-sep-id").addClass("jx-hide-separator");$("#jx-hid-btn-id").parent().click(function(){$("#jx-menu-con-id").fadeOut();$(obj).slideToggle(defaults.slideSpeed,function(){$(this).createCookie("JXHID",true);if(!$(this).checkCookie("JXID")){$(this).createCookie("JXID",$(this).genRandID());}
-$("#jx-uhid-con-id").slideToggle(defaults.slideSpeed);});return false;});$(this).css({"overflow":constants["constOverflow"],"position":pos});if(defaults.showOnTop){$(this).css({"top":constants["constBottom"]});}else{$(this).css({"bottom":constants["constBottom"]});}
-$(this).addClass("jx-bar");if(defaults.roundedCorners){if(defaults.showOnTop){$(this).addClass("jx-bar-rounded-bl jx-bar-rounded-br");}else{$(this).addClass("jx-bar-rounded-tl jx-bar-rounded-tr");}}
-$(this).addClass("jx-bar-button");if(defaults.roundedButtons){$(this).addClass("jx-bar-button-rounded");}
-marginLeft=centerScreen-($(this).width()/2);$(this).css({"margin-left":marginLeft});$("img",obj).css({"vertical-align":"bottom","border":"#fff solid 0px"});$(this).find("img").each(function(){if($(this).attr("alt")!=""){altName=" "+$(this).attr("alt");$(this).parent().append(altName);}});if(defaults.transparent){$(this).fadeTo(defaults.opaqueSpeed,defaults.opacity);}
-$("<div />").attr("id","jx-menu-con-id").appendTo("body");if(defaults.transparent){$("#jx-menu-con-id").fadeTo(defaults.opaqueSpeed,defaults.opacity);}
-$("<div />").attr("id","jx-uhid-con-id").appendTo("body");$("#jx-uhid-con-id").addClass("jx-show");$("#jx-uhid-con-id").css({"overflow":constants["constOverflow"],"position":pos,"margin-left":($(this).offset().left+$(this).width())-$("#jx-uhid-con-id").width()});if(defaults.showOnTop){$("#jx-uhid-con-id").css({"top":constants["constBottom"]});}else{$("#jx-uhid-con-id").css({"bottom":constants["constBottom"]});}
-if(defaults.transparent){$("#jx-uhid-con-id").fadeTo(defaults.opaqueSpeed,defaults.opacity);}
-if(this.hideBar){$(this).css({"display":"none"});}
-if(!this.hideBar){$("#jx-uhid-con-id").css({"display":"none"});}
-$("<ul />").attr("id","jx-uhid-itm-id").appendTo($("#jx-uhid-con-id"));if(defaults.showOnTop){unhideIndicator="jx-show-button-top";}else{unhideIndicator="jx-show-button";}
-$("#jx-uhid-itm-id").html('<li alt="Show toolbar"><a id="jx-uhid-btn-id" class="'+unhideIndicator+'"></a></li>');if(defaults.roundedCorners){if(defaults.showOnTop){$("#jx-uhid-con-id").addClass("jx-bar-rounded-bl jx-bar-rounded-br");}else{$("#jx-uhid-con-id").addClass("jx-bar-rounded-tl jx-bar-rounded-tr");}}
-$("#jx-uhid-con-id").addClass("jx-bar-button");if(defaults.roundedButtons){$("#jx-uhid-con-id").addClass("jx-bar-button-rounded");}
-$("#jx-uhid-con-id").click(function(){$(this).slideToggle(defaults.slideSpeed,function(){$(this).createCookie("JXHID",false);if(!$(this).checkCookie("JXID")){$(this).createCookie("JXID",$(this).genRandID());}
-$(obj).slideToggle(defaults.slideSpeed);if(active_button_name!=""){$("#jx-menu-con-id").fadeIn();}
-$("#jx-uhid-con-id").css({"margin-left":($(obj).offset().left+$(obj).width())-$("#jx-uhid-con-id").width()});if(button_active){$("#jx-menu-con-id").css({"margin-left":$("#"+active_button_name).parent().offset().left});}});return false;});$("<div />").attr("id","jx-ttip-con-id").appendTo("body");$("#jx-ttip-con-id").css({"height":"auto","margin-left":"0px","width":"100%","overflow":constants["constOverflow"],"position":pos});if(defaults.showOnTop){$("#jx-ttip-con-id").css({"margin-top":$(this).height()+6,"top":constants["constBottom"]});}else{$("#jx-ttip-con-id").css({"margin-bottom":$(this).height()+6,"bottom":constants["constBottom"]});}
-$("li",obj).each(function(){var _title=$(this).attr("title");if(_title!=""){$(this).removeAttr("title");$(this).attr("alt",_title);}});$("li",obj).hover(function(){var elemID=$(this).attr("id");var barTooltipID=elemID+"jx-ttip-id";var tooltipTitle=$(this).attr("title");if(tooltipTitle==""){tooltipTitle=$(this).attr("alt");}
-if(tooltipTitle!=""){barTooltipWrapperID=barTooltipID+"_wrapper";$("<div />").attr("id",barTooltipWrapperID).appendTo("#jx-ttip-con-id");$("<div />").attr("id",barTooltipID).appendTo("#"+barTooltipWrapperID);$("#"+barTooltipID).css({"float":"left"});if((defaults.showOnTop)&&!($.browser.msie&&ie6)){$("<div />").addClass("jx-tool-point-dir-up").appendTo("#"+barTooltipID);}
-$("<div />").html(tooltipTitle).addClass("jx-bar-button-tooltip").appendTo("#"+barTooltipID);if((!defaults.showOnTop)&&!($.browser.msie&&ie6)){$("<div />").addClass("jx-tool-point-dir-down").appendTo("#"+barTooltipID);}
-lft_pad=parseInt($(this).css("padding-left"));$("#"+barTooltipWrapperID).css({"margin-left":($(this).offset().left-($("#"+barTooltipID).width()/2))+($(this).width()/2)+lft_pad});if((($(this).find("a:first").attr("name")=="")||(button_active==false))){$("#"+barTooltipID).fadeTo(defaults.tooltipFadeSpeed,defaults.tooltipFadeOpacity);}else if(active_button_name!=$(this).find("a:first").attr("name")){$("#"+barTooltipID).fadeTo(defaults.tooltipFadeSpeed,defaults.tooltipFadeOpacity);}else{$("#"+barTooltipID).css({"display":"none"});}}},function(){var elemID=$(this).attr("id");var barTooltipID=elemID+"jx-ttip-id";var barTooltipWrapperID=barTooltipID+"_wrapper";$("#"+barTooltipID).remove();$("#"+barTooltipWrapperID).remove();});$("li",$("#jx-uhid-con-id")).hover(function(){var elemID=$(this).attr("id");var barTooltipID=elemID+"jx-ttip-id";var tooltipTitle=$(this).attr("title");if(tooltipTitle==""){tooltipTitle=$(this).attr("alt");}
-if(tooltipTitle!=""){barTooltipWrapperID=barTooltipID+"_wrapper";$("<div />").attr("id",barTooltipWrapperID).appendTo("#jx-ttip-con-id");$("<div />").attr("id",barTooltipID).appendTo("#"+barTooltipWrapperID);$("#"+barTooltipID).css({"float":"left"});if((defaults.showOnTop)&&!($.browser.msie&&ie6)){$("<div />").addClass("jx-tool-point-dir-up").appendTo("#"+barTooltipID);}
-$("<div />").html(tooltipTitle).addClass("jx-bar-button-tooltip").appendTo("#"+barTooltipID);if((!defaults.showOnTop)&&!($.browser.msie&&ie6)){$("<div />").addClass("jx-tool-point-dir-down").appendTo("#"+barTooltipID);}
-ulft_pad=parseInt($(this).css("padding-left"));$("#"+barTooltipWrapperID).css({"margin-left":($(this).offset().left-($("#"+barTooltipID).width()/2))+($(this).width()/2)+ulft_pad});if((($(this).find("a:first").attr("name")=="")||(button_active==false))){$("#"+barTooltipID).fadeTo(defaults.tooltipFadeSpeed,defaults.tooltipFadeOpacity);}else if(active_button_name!=$(this).find("a:first").attr("name")){$("#"+barTooltipID).fadeTo(defaults.tooltipFadeSpeed,defaults.tooltipFadeOpacity);}else{$("#"+barTooltipID).css({"display":"none"});}}},function(){var elemID=$(this).attr("id");var barTooltipID=elemID+"jx-ttip-id";var barTooltipWrapperID=barTooltipID+"_wrapper";$("#"+barTooltipID).remove();$("#"+barTooltipWrapperID).remove();});if($.browser.msie&&ie6){$(this).find("li").each(function(){$(this).find("img").each(function(){imgPath=$(this).attr("src");altName=$(this).attr("alt");if(altName==""){altName="  "+$(this).attr("title");}
-srcText=$(this).parent().html();$(this).parent().html('<span style="cursor:pointer;display:inline-block;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\''+imgPath+'\');">'+srcText+'</span> '+altName);});$(this).find("img").each(function(){$(this).attr("style","filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);");});});}
-$(window).resize(function(){var screen=jQuery(this);var screenWidth=screen.width();var centerScreen=(screenWidth/2)*(1);var marginLeft=centerScreen-($(obj).width()/2);$(obj).css({"margin-left":marginLeft});$("#jx-uhid-con-id").css({"margin-left":($(obj).offset().left+$(obj).width())-$("#jx-uhid-con-id").width()});if(button_active){$("#jx-menu-con-id").css({"margin-left":$("#"+active_button_name).parent().offset().left});}});$("li",obj).find("ul").each(function(){$(this).css({"display":"none"});});i=1;$("li",obj).find("ul").each(function(){$(this).attr("id","nav"+i);$(this).parent().find("a:first").attr("href","#");$(this).parent().find("a:first").attr("name","nav"+i);if(defaults.showOnTop){buttonIndicator="jx-arrow-down";}else{buttonIndicator="jx-arrow-up";}
-if(($.browser.msie&&ie6)||($.browser.msie&&ie7)){$("<div />").attr("class",buttonIndicator).insertBefore($(this).parent().find("a")).css({"background-position":"top"});}else{$("<div />").attr("class",buttonIndicator).insertAfter($(this).parent().find("a"));}
-$(this).parent().find("a:first").click(function(){var elemID=$(this).attr("id");var barTooltipID=elemID+"jx-ttip-id";var barTooltipWrapperID=barTooltipID+"_wrapper";$("#"+barTooltipID).remove();$("#"+barTooltipWrapperID).remove();if((button_active)&&(active_button_name==$(this).attr("name"))){if(defaults.showOnTop){buttonIndicator="jx-arrow-down";}else{buttonIndicator="jx-arrow-up";}
-$(this).parent().find("div").attr("class",buttonIndicator);$("#jx-menu-con-id").fadeOut(defaults.menuFadeSpeed);$(this).parent().removeClass("jx-nav-menu-active");if(defaults.roundedButtons){$(this).parent().removeClass("jx-nav-menu-active-rounded");}
-button_active=false;active_button_name="";$(this).blur();}else{if(defaults.showOnTop){buttonIndicator="jx-arrow-up";}else{buttonIndicator="jx-arrow-down";}
-$(this).parent().find("div").attr("class",buttonIndicator);$("#jx-menu-con-id").css({"display":"none"});$("#jx-menu-con-id").html("<ul>"+$(this).parent().find("ul").html()+"</ul>");$("#jx-menu-con-id").css({"overflow":constants["constOverflow"],"position":pos,"margin-left":$(this).parent().offset().left});if(defaults.showOnTop){$("#jx-menu-con-id").css({"top":constants["constBottom"],"margin-top":$(obj).height()+6});}else{$("#jx-menu-con-id").css({"bottom":constants["constBottom"],"margin-bottom":$(obj).height()+6});}
-$("#jx-menu-con-id").addClass("jx-nav-menu");if($.browser.msie&&ie6){$("#jx-menu-con-id ul li a").css({"width":"100%"});}
-if(defaults.roundedButtons){$("#jx-menu-con-id").addClass("jx-nav-menu-rounded");}
-$(this).parent().addClass("jx-nav-menu-active");if(defaults.roundedButtons){$(this).parent().addClass("jx-nav-menu-active-rounded");}
-if(active_button_name!=""){$("a[name='"+active_button_name+"']").parent().removeClass("jx-nav-menu-active");$("a[name='"+active_button_name+"']").parent().removeClass("jx-nav-menu-active-rounded");if(defaults.showOnTop){buttonIndicator="jx-arrow-down";}else{buttonIndicator="jx-arrow-up";}
-$("a[name='"+active_button_name+"']").parent().find("div").attr("class",buttonIndicator);}
-button_active=true;active_button_name=$(this).attr("name");$(this).blur();$("#jx-menu-con-id").fadeIn(defaults.menuFadeSpeed);}
-return false;});i=i+1;});$("li",obj).click(function(){if($("ul",this).exists()){$(this).find("a:first").click();return false;}else if($(this).parent().attr("id")=="jx-hid-con-id"){return false;}
-if($("a",this).exists()){window.location=$(this).find("a:first").attr("href");}
-return false;});});};this.getOptions=function(){return options;};this.isIE6=function(){return ie6;};this.isIE7=function(){return ie7;};this.hasActiveButton=function(){return button_active;};this.getActiveButtonName=function(){return active_button_name;};this.getTooltipObject=function(){return $("#jx-ttip-con-id");};this.createObjectContainer=function(name){name=typeof(name)!='undefined'?name:"jx-obj-con-id";$("<div />").attr("id",name).appendTo("body");$("#"+name).css({"height":"auto","margin-left":"0px","width":"100%","overflow":constants["constOverflow"],"position":pos});if(defaults.showOnTop){$("#"+name).css({"margin-top":$(element_obj).height()+6,"top":constants["constBottom"]});}else{$("#"+name).css({"margin-bottom":$(element_obj).height()+6,"bottom":constants["constBottom"]});}
-return $("#"+name);};}});$.fn.extend({jixedbar:$.jixedbar.construct});})(jQuery);jQuery.fn.exists=function(){return jQuery(this).length>0;};jQuery.fn.createCookie=function(cookie_name,value){var expiry_date=new Date(2037,01,01);document.cookie=cookie_name+"="+escape(value)+";expires="+expiry_date.toUTCString();};jQuery.fn.checkCookie=function(cookie_name){if(document.cookie.length>0){cookie_start=document.cookie.indexOf(cookie_name+"=");if(cookie_start!=-1){cookie_start=cookie_start+cookie_name.length+1;cookie_end=document.cookie.indexOf(";",cookie_start);if(cookie_end==-1){cookie_end=document.cookie.length;return true;}}}
-return false;};jQuery.fn.extractCookieValue=function(value){if((endOfCookie=document.cookie.indexOf(";",value))==-1){endOfCookie=document.cookie.length;}
-return unescape(document.cookie.substring(value,endOfCookie));};jQuery.fn.readCookie=function(cookie_name){var numOfCookies=document.cookie.length;var nameOfCookie=cookie_name+"=";var cookieLen=nameOfCookie.length;var x=0;while(x<=numOfCookies){var y=(x+cookieLen);if(document.cookie.substring(x,y)==nameOfCookie)
-return(this.extractCookieValue(y));x=document.cookie.indexOf(" ",x)+1;if(x==0){break;}}
-return(null);};jQuery.fn.genRandID=function(){var id="";var str="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";for(var i=0;i<24;i++){id+=str.charAt(Math.floor(Math.random()*str.length));}
-return id;};
+
+/**
+ *  corner() takes a single string argument:  $('#myDiv').corner("effect corners width")
+ *
+ *  effect:  name of the effect to apply, such as round, bevel, notch, bite, etc (default is round). 
+ *  corners: one or more of: top, bottom, tr, tl, br, or bl.  (default is all corners)
+ *  width:   width of the effect; in the case of rounded corners this is the radius. 
+ *           specify this value using the px suffix such as 10px (yes, it must be pixels).
+ */
+;(function($) { 
+
+var style = document.createElement('div').style,
+    moz = style['MozBorderRadius'] !== undefined,
+    webkit = style['WebkitBorderRadius'] !== undefined,
+    radius = style['borderRadius'] !== undefined || style['BorderRadius'] !== undefined,
+    mode = document.documentMode || 0,
+    noBottomFold = $.browser.msie && (($.browser.version < 8 && !mode) || mode < 8),
+
+    expr = $.browser.msie && (function() {
+        var div = document.createElement('div');
+        try { div.style.setExpression('width','0+0'); div.style.removeExpression('width'); }
+        catch(e) { return false; }
+        return true;
+    })();
+
+$.support = $.support || {};
+$.support.borderRadius = moz || webkit || radius; // so you can do:  if (!$.support.borderRadius) $('#myDiv').corner();
+
+function sz(el, p) { 
+    return parseInt($.css(el,p))||0; 
+};
+function hex2(s) {
+    s = parseInt(s).toString(16);
+    return ( s.length < 2 ) ? '0'+s : s;
+};
+function gpc(node) {
+    while(node) {
+        var v = $.css(node,'backgroundColor'), rgb;
+        if (v && v != 'transparent' && v != 'rgba(0, 0, 0, 0)') {
+            if (v.indexOf('rgb') >= 0) { 
+                rgb = v.match(/\d+/g); 
+                return '#'+ hex2(rgb[0]) + hex2(rgb[1]) + hex2(rgb[2]);
+            }
+            return v;
+        }
+        if (node.nodeName.toLowerCase() == 'html')
+            break;
+        node = node.parentNode; // keep walking if transparent
+    }
+    return '#ffffff';
+};
+
+function getWidth(fx, i, width) {
+    switch(fx) {
+    case 'round':  return Math.round(width*(1-Math.cos(Math.asin(i/width))));
+    case 'cool':   return Math.round(width*(1+Math.cos(Math.asin(i/width))));
+    case 'sharp':  return width-i;
+    case 'bite':   return Math.round(width*(Math.cos(Math.asin((width-i-1)/width))));
+    case 'slide':  return Math.round(width*(Math.atan2(i,width/i)));
+    case 'jut':    return Math.round(width*(Math.atan2(width,(width-i-1))));
+    case 'curl':   return Math.round(width*(Math.atan(i)));
+    case 'tear':   return Math.round(width*(Math.cos(i)));
+    case 'wicked': return Math.round(width*(Math.tan(i)));
+    case 'long':   return Math.round(width*(Math.sqrt(i)));
+    case 'sculpt': return Math.round(width*(Math.log((width-i-1),width)));
+    case 'dogfold':
+    case 'dog':    return (i&1) ? (i+1) : width;
+    case 'dog2':   return (i&2) ? (i+1) : width;
+    case 'dog3':   return (i&3) ? (i+1) : width;
+    case 'fray':   return (i%2)*width;
+    case 'notch':  return width; 
+    case 'bevelfold':
+    case 'bevel':  return i+1;
+    case 'steep':  return i/2 + 1;
+    case 'invsteep':return (width-i)/2+1;
+    }
+};
+
+$.fn.corner = function(options) {
+    // in 1.3+ we can fix mistakes with the ready state
+    if (this.length == 0) {
+        if (!$.isReady && this.selector) {
+            var s = this.selector, c = this.context;
+            $(function() {
+                $(s,c).corner(options);
+            });
+        }
+        return this;
+    }
+
+    return this.each(function(index){
+        var $this = $(this),
+            // meta values override options
+            o = [$this.attr($.fn.corner.defaults.metaAttr) || '', options || ''].join(' ').toLowerCase(),
+            keep = /keep/.test(o),                       // keep borders?
+            cc = ((o.match(/cc:(#[0-9a-f]+)/)||[])[1]),  // corner color
+            sc = ((o.match(/sc:(#[0-9a-f]+)/)||[])[1]),  // strip color
+            width = parseInt((o.match(/(\d+)px/)||[])[1]) || 10, // corner width
+            re = /round|bevelfold|bevel|notch|bite|cool|sharp|slide|jut|curl|tear|fray|wicked|sculpt|long|dog3|dog2|dogfold|dog|invsteep|steep/,
+            fx = ((o.match(re)||['round'])[0]),
+            fold = /dogfold|bevelfold/.test(o),
+            edges = { T:0, B:1 },
+            opts = {
+                TL:  /top|tl|left/.test(o),       TR:  /top|tr|right/.test(o),
+                BL:  /bottom|bl|left/.test(o),    BR:  /bottom|br|right/.test(o)
+            },
+            // vars used in func later
+            strip, pad, cssHeight, j, bot, d, ds, bw, i, w, e, c, common, $horz;
+        
+        if ( !opts.TL && !opts.TR && !opts.BL && !opts.BR )
+            opts = { TL:1, TR:1, BL:1, BR:1 };
+            
+        // support native rounding
+        if ($.fn.corner.defaults.useNative && fx == 'round' && (radius || moz || webkit) && !cc && !sc) {
+            if (opts.TL)
+                $this.css(radius ? 'border-top-left-radius' : moz ? '-moz-border-radius-topleft' : '-webkit-border-top-left-radius', width + 'px');
+            if (opts.TR)
+                $this.css(radius ? 'border-top-right-radius' : moz ? '-moz-border-radius-topright' : '-webkit-border-top-right-radius', width + 'px');
+            if (opts.BL)
+                $this.css(radius ? 'border-bottom-left-radius' : moz ? '-moz-border-radius-bottomleft' : '-webkit-border-bottom-left-radius', width + 'px');
+            if (opts.BR)
+                $this.css(radius ? 'border-bottom-right-radius' : moz ? '-moz-border-radius-bottomright' : '-webkit-border-bottom-right-radius', width + 'px');
+            return;
+        }
+            
+        strip = document.createElement('div');
+        $(strip).css({
+            overflow: 'hidden',
+            height: '1px',
+            minHeight: '1px',
+            fontSize: '1px',
+            backgroundColor: sc || 'transparent',
+            borderStyle: 'solid'
+        });
+    
+        pad = {
+            T: parseInt($.css(this,'paddingTop'))||0,     R: parseInt($.css(this,'paddingRight'))||0,
+            B: parseInt($.css(this,'paddingBottom'))||0,  L: parseInt($.css(this,'paddingLeft'))||0
+        };
+
+        if (typeof this.style.zoom != undefined) this.style.zoom = 1; // force 'hasLayout' in IE
+        if (!keep) this.style.border = 'none';
+        strip.style.borderColor = cc || gpc(this.parentNode);
+        cssHeight = $(this).outerHeight();
+
+        for (j in edges) {
+            bot = edges[j];
+            // only add stips if needed
+            if ((bot && (opts.BL || opts.BR)) || (!bot && (opts.TL || opts.TR))) {
+                strip.style.borderStyle = 'none '+(opts[j+'R']?'solid':'none')+' none '+(opts[j+'L']?'solid':'none');
+                d = document.createElement('div');
+                $(d).addClass('jquery-corner');
+                ds = d.style;
+
+                bot ? this.appendChild(d) : this.insertBefore(d, this.firstChild);
+
+                if (bot && cssHeight != 'auto') {
+                    if ($.css(this,'position') == 'static')
+                        this.style.position = 'relative';
+                    ds.position = 'absolute';
+                    ds.bottom = ds.left = ds.padding = ds.margin = '0';
+                    if (expr)
+                        ds.setExpression('width', 'this.parentNode.offsetWidth');
+                    else
+                        ds.width = '100%';
+                }
+                else if (!bot && $.browser.msie) {
+                    if ($.css(this,'position') == 'static')
+                        this.style.position = 'relative';
+                    ds.position = 'absolute';
+                    ds.top = ds.left = ds.right = ds.padding = ds.margin = '0';
+                    
+                    // fix ie6 problem when blocked element has a border width
+                    if (expr) {
+                        bw = sz(this,'borderLeftWidth') + sz(this,'borderRightWidth');
+                        ds.setExpression('width', 'this.parentNode.offsetWidth - '+bw+'+ "px"');
+                    }
+                    else
+                        ds.width = '100%';
+                }
+                else {
+                    ds.position = 'relative';
+                    ds.margin = !bot ? '-'+pad.T+'px -'+pad.R+'px '+(pad.T-width)+'px -'+pad.L+'px' : 
+                                        (pad.B-width)+'px -'+pad.R+'px -'+pad.B+'px -'+pad.L+'px';                
+                }
+
+                for (i=0; i < width; i++) {
+                    w = Math.max(0,getWidth(fx,i, width));
+                    e = strip.cloneNode(false);
+                    e.style.borderWidth = '0 '+(opts[j+'R']?w:0)+'px 0 '+(opts[j+'L']?w:0)+'px';
+                    bot ? d.appendChild(e) : d.insertBefore(e, d.firstChild);
+                }
+                
+                if (fold && $.support.boxModel) {
+                    if (bot && noBottomFold) continue;
+                    for (c in opts) {
+                        if (!opts[c]) continue;
+                        if (bot && (c == 'TL' || c == 'TR')) continue;
+                        if (!bot && (c == 'BL' || c == 'BR')) continue;
+                        
+                        common = { position: 'absolute', border: 'none', margin: 0, padding: 0, overflow: 'hidden', backgroundColor: strip.style.borderColor };
+                        $horz = $('<div/>').css(common).css({ width: width + 'px', height: '1px' });
+                        switch(c) {
+                        case 'TL': $horz.css({ bottom: 0, left: 0 }); break;
+                        case 'TR': $horz.css({ bottom: 0, right: 0 }); break;
+                        case 'BL': $horz.css({ top: 0, left: 0 }); break;
+                        case 'BR': $horz.css({ top: 0, right: 0 }); break;
+                        }
+                        d.appendChild($horz[0]);
+                        
+                        var $vert = $('<div/>').css(common).css({ top: 0, bottom: 0, width: '1px', height: width + 'px' });
+                        switch(c) {
+                        case 'TL': $vert.css({ left: width }); break;
+                        case 'TR': $vert.css({ right: width }); break;
+                        case 'BL': $vert.css({ left: width }); break;
+                        case 'BR': $vert.css({ right: width }); break;
+                        }
+                        d.appendChild($vert[0]);
+                    }
+                }
+            }
+        }
+    });
+};
+
+$.fn.uncorner = function() { 
+    if (radius || moz || webkit)
+        this.css(radius ? 'border-radius' : moz ? '-moz-border-radius' : '-webkit-border-radius', 0);
+    $('div.jquery-corner', this).remove();
+    return this;
+};
+
+// expose options
+$.fn.corner.defaults = {
+    useNative: true, // true if plugin should attempt to use native browser support for border radius rounding
+    metaAttr:  'data-corner' // name of meta attribute to use for options
+};
+    
+})(jQuery);
