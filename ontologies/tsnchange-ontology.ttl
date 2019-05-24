@@ -27,7 +27,7 @@
 									[ a foaf:Person; foaf:name "Hy DAO"; foaf:homepage <https://unige.ch/gedt/membres/dao/> ];
 	dcterms:description "The TSN-Change ontology aims at describing changes that occured from one version of a Territorial Statistical Nomenclature (TSN) (i.e., partition of the territory) and its subsequent (e.g., change in territorial units boundaries to reflect an administrative reorganisation)."@en;
 	dcterms:issued "2017-01-31"^^xsd:date;
-	dcterms:modified "2018-03-29"^^xsd:date;
+	dcterms:modified "2019-05-24"^^xsd:date;
 	dcterms:publisher <http://steamer.imag.fr>;
 	dcterms:title "Territorial Statistical Nomenclature Change Ontology"@en;
 	vann:preferredNamespacePrefix "tsnchange";

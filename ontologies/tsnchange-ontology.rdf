@@ -10,7 +10,7 @@
     >
     
     <owl:Ontology rdf:about="http://purl.org/net/tsnchange#">
-        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-03-29</dcterms:modified>
+        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2019-05-24</dcterms:modified>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2017-01-31</dcterms:issued>
         <dcterms:creator>
             <foaf:Person rdf:nodeID="ub2bL23C10">
