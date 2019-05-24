@@ -13,6 +13,7 @@
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix time: <https://www.w3.org/2006/time#> .
 @prefix change: <http://linkedearth.org/change/ns#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> . #http://purl.obolibrary.org/obo/bfo.owl
 @prefix pav: <http://purl.org/pav/> .
 
 #################################################################
@@ -45,7 +46,8 @@
 tsnchange:Change a owl:Class ;
     rdfs:label "Change"@en ;
     rdfs:comment "The Change concept is the super class of all types of change that may occur from one TSN version to another. A Change node may group under one node several changes on TSNFeatures that make sense grouped together. As \"a change is rarely isolated and independent from the other changes that occur simultaneously within the other units inside a given area\", we have to link \"together all the various units that were involved in a common territorial change\"  (Plumejeaud, C., Mathian, H., Gensel, J., Grasland, C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 25, 1597–1612 (2011)). The Change concept is based on the Change Bridge concept of (Kauppinen T, Hyvönen E. Modeling and reasoning about changes in ontology time series. In: Ontologies [Internet]. Springer; 2007. p. 319–338. Available from: http://link.springer.com/chapter/10.1007/978-0-387-37022-4_11): \"A change bridge is associated with a change point and tells, what current concepts become obsolete (if any), what new concepts are created (if any), and how the new concepts overlap with older ones.\"."@en ;
-    rdfs:subClassOf change:Change .
+   rdfs:subClassOf bfo:BFO_0000003. #BFO Class: occurrent
+   rdfs:subClassOf change:Change .
 
 tsnchange:StructureChange a owl:Class ;
    rdfs:label "StructureChange"@en ;
