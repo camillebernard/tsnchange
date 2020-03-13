@@ -20,7 +20,7 @@
 # Ontology tsnchange
 #################################################################
 <http://purl.org/net/tsnchange#> a owl:Ontology ;
-	cc:license <http://creativecommons.org/licenses/by/3.0/>;
+	cc:license <https://creativecommons.org/licenses/by-nc-sa/2.0/>;
 	dcterms:creator [ a foaf:Person; foaf:name "Camille BERNARD"; foaf:homepage <http://lig-membres.imag.fr/bernardc/>],
 									[ a foaf:Person; foaf:name "Marlène VILLANOVA-OLIVER"; foaf:homepage <http://lig-membres.imag.fr/villanov/> ],
 									[ a foaf:Person; foaf:name "Jérôme GENSEL"; foaf:homepage <http://lig-membres.imag.fr/gensel/> ],
@@ -32,7 +32,6 @@
 	dcterms:title "Territorial Statistical Nomenclature Change Ontology"@en;
 	vann:preferredNamespacePrefix "tsnchange";
 	vann:preferredNamespaceUri <http://purl.org/net/tsnchange#>;
-	cc:license <http://www.data.gouv.fr/Licence-Ouverte-Open-Licence>;
 	owl:versionInfo "1.1"^^xsd:decimal ;
 	rdfs:comment "This 1.1 version of the ontology enables the description of new operations of restructuration of the TSN: IdentificationRestructuration and HierarchyRestructuration, operation that impact several features at the same time.".
 
